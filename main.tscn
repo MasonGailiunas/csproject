@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://twbtfld5y380"]
 
-[node name="Node2D" type="Node2D" unique_id=235311839]
+[ext_resource type="Texture2D" uid="uid://cofxqhmrdiplr" path="res://images/tower.png" id="1_ig7tw"]
+
+[node name="MainTower" type="Node2D" unique_id=235311839]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=988206842]
+scale = Vector2(3.6538463, 3.6538463)
+texture = ExtResource("1_ig7tw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1362801870]
+position = Vector2(0.9999695, -0.99998474)
+scale = Vector2(7.423075, 7.6923075)
+texture = ExtResource("1_ig7tw")
