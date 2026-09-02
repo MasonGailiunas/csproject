@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bc7d6pwsin3sf"]
+
+[ext_resource type="Script" uid="uid://cwvsp0n6md83h" path="res://Scenes/Treasure/treasure.gd" id="1_60nar"]
+
+[node name="Treasure" type="Control" unique_id=457036930]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60nar")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=874587018]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1005586918]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -94.5
+offset_right = 94.0
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer" unique_id=423582257]
+layout_mode = 2
+text = "Treasure"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer" unique_id=416098685]
+layout_mode = 2
+text = "GO BACK
+"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
