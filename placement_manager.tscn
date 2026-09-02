@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://copvf3tjhidqh"]
+
+[ext_resource type="Script" uid="uid://bdnyao22udvqf" path="res://placement_manager.gd" id="1_k1mjd"]
+[ext_resource type="PackedScene" uid="uid://de8y41782xhva" path="res://testtower_1.tscn" id="2_hdgg8"]
+
+[node name="PlacementManager" type="Node2D" unique_id=1106805761]
+script = ExtResource("1_k1mjd")
+item_scene = ExtResource("2_hdgg8")

@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://twbtfld5y380"]
 
-[ext_resource type="Texture2D" uid="uid://cofxqhmrdiplr" path="res://images/tower.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://borlwwgwhag74" path="res://map.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bhokacl60m47w" path="res://tower.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://b2713gnah63my" path="res://gamecamera.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://copvf3tjhidqh" path="res://placement_manager.tscn" id="4_1bvp3"]
 
-[node name="MainTower" type="Node2D" unique_id=235311839]
+[node name="MAIN" type="Node2D" unique_id=1929051744]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=988206842]
-scale = Vector2(3.6538463, 3.6538463)
-texture = ExtResource("1_ig7tw")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
+script = ExtResource("3_h2yge")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1362801870]
-position = Vector2(0.9999695, -0.99998474)
-scale = Vector2(7.423075, 7.6923075)
-texture = ExtResource("1_ig7tw")
+[node name="PlacementManager" parent="." unique_id=1106805761 instance=ExtResource("4_1bvp3")]
+
+[node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("1_0xm2m")]
+
+[node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("2_h2yge")]
