@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	Events.campfire_exited.emit()
+	Event.rewards_exited.emit()

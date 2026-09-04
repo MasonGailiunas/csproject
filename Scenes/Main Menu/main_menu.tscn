@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dw61hg5o42sh8"]
+
+[ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="1_dtmfd"]
+
+[sub_resource type="Gradient" id="Gradient_armea"]
+colors = PackedColorArray(0.0927491, 0.013345645, 0.19055232, 1, 0.26666668, 0, 0.31764707, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qdocg"]
+gradient = SubResource("Gradient_armea")
+width = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xkbd"]
+font_size = 200
+font_color = Color(0.95061725, 0.8788162, 0.89479476, 1)
+shadow_size = 55
+shadow_color = Color(0.2724073, 0.32700363, 0.2886262, 1)
+shadow_offset = Vector2(1, 21.57)
+
+[node name="MainMenu" type="Control" unique_id=199263830]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dtmfd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1240514806]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("GradientTexture1D_qdocg")
+
+[node name="Label" type="Label" parent="." unique_id=782499696]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -864.0
+offset_top = -476.0
+offset_right = 869.0
+offset_bottom = -223.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dtmfd")
+theme_override_font_sizes/font_size = 210
+text = "DEFEND AND RISE"
+label_settings = SubResource("LabelSettings_7xkbd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=728451673]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.5
+offset_top = -185.0
+offset_right = 199.5
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continue_Button" type="Button" parent="VBoxContainer" unique_id=296502719]
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="NewRun_Button" type="Button" parent="VBoxContainer" unique_id=320162569]
+layout_mode = 2
+text = "NEW RUN"
+
+[node name="Exit_Button" type="Button" parent="VBoxContainer" unique_id=327118578]
+layout_mode = 2
+text = "EXIT"

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chu3pqpc8rgn0"]
 
 [ext_resource type="Script" uid="uid://bwtbmbt2v6jha" path="res://Scenes/Shop/shop.gd" id="1_78vcx"]
+[ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="2_dqdqq"]
 
 [node name="Shop" type="Control" unique_id=457036930]
 layout_mode = 3
@@ -33,12 +34,14 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer" unique_id=423582257]
 layout_mode = 2
+theme = ExtResource("2_dqdqq")
 text = "Shop"
 horizontal_alignment = 1
 uppercase = true
 
 [node name="Button" type="Button" parent="ColorRect/VBoxContainer" unique_id=416098685]
 layout_mode = 2
+theme = ExtResource("2_dqdqq")
 text = "GO BACK
 "
 

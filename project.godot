@@ -21,6 +21,11 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[gui]
+
+theme/custom="uid://dhf4p8wepr1mq"
+theme/custom_font="uid://dhf4p8wepr1mq"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

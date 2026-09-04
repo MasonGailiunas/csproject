@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	events.shop_exited.emit()
+	Events.shop_exited.emit()

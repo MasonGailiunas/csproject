@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://dp3ssf270umre"]
+[gd_scene format=3 uid="uid://dk7s3oa57syxn"]
 
-[ext_resource type="Script" uid="uid://11ma0lr2xe2v" path="res://Scenes/Map/map.gd" id="1_ci6au"]
-[ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="2_jolfa"]
+[ext_resource type="Script" uid="uid://bjxwg4i7stlql" path="res://Scenes/Rewards/rewards.gd" id="1_ck1g3"]
+[ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="2_vk5f0"]
 
-[node name="Map" type="Control" unique_id=457036930]
+[node name="Rewards" type="Control" unique_id=457036930]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ci6au")
+script = ExtResource("1_ck1g3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=874587018]
 layout_mode = 0
@@ -34,14 +34,14 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer" unique_id=423582257]
 layout_mode = 2
-theme = ExtResource("2_jolfa")
-text = "Map"
+theme = ExtResource("2_vk5f0")
+text = "Rewards"
 horizontal_alignment = 1
 uppercase = true
 
 [node name="Button" type="Button" parent="ColorRect/VBoxContainer" unique_id=416098685]
 layout_mode = 2
-theme = ExtResource("2_jolfa")
+theme = ExtResource("2_vk5f0")
 text = "GO BACK
 "
 
