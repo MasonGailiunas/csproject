@@ -3,6 +3,7 @@ extends Node2D
 const COLLISION_MASK_CARD = 1
 var card_dragged
 var screen_size
+var card_hovered
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -21,8 +22,36 @@ func raycast_for_card():
 	parameters.collide_with_areas = COLLISION_MASK_CARD
 	var result = space_state.intersect_point(parameters)
 	if result.size() > 0:
-		return result[0].collider.get_parent()
+		return find_highest_z_index(result)
 	return null
+
+func find_highest_z_index(list):
+	var highest = list[0].collider.get_parent()
+	for	i in range(1, list.size()):
+		var current = list[i].collider.get_parent()
+		if current.z_index > highest.z_index:
+			highest = current
+	return highest
+	
+func connect_card_signals(card):
+		card.connect("hovered", on_hovered)
+		card.connect("hovered off", on_hovered_off)
+
+func on_hovered(card):
+	if card_hovered == null:
+		card_hovered = card
+		highlight(card_hovered, true)
+func on_hovered_off(card):
+	highlight(card, false)
+	card_hovered = null
+	
+func highlight(card, hovered):
+	if hovered:
+		card.scale = Vector2(1.05, 1.05)
+		card.z_index = 2
+	else:
+		card.scale = Vector2(1,1)
+		card.z_index = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
