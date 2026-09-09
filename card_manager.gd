@@ -35,10 +35,12 @@ func find_highest_z_index(list):
 	
 func connect_card_signals(card):
 		card.connect("hovered", on_hovered)
-		card.connect("hovered off", on_hovered_off)
+		card.connect("hovered_off", on_hovered_off)
 
 func on_hovered(card):
-	if card_hovered == null:
+	if card_hovered == null || card_hovered != card:
+		if card_hovered != null:
+			highlight(card_hovered, false)
 		card_hovered = card
 		highlight(card_hovered, true)
 func on_hovered_off(card):
