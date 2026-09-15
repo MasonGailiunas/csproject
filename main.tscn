@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bhokacl60m47w" path="res://tower.tscn" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://b2713gnah63my" path="res://gamecamera.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://copvf3tjhidqh" path="res://placement_manager.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://cl7ay20cgom1k" path="res://player_hand.gd" id="5_lquwl"]
 
 [node name="MAIN" type="Node2D" unique_id=1929051744]
 
@@ -15,3 +16,8 @@ script = ExtResource("3_h2yge")
 [node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("1_0xm2m")]
 
 [node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("2_h2yge")]
+
+[node name="CardManager" type="Node2D" parent="." unique_id=703289816]
+
+[node name="PlayerHand" type="Node2D" parent="CardManager" unique_id=873714416]
+script = ExtResource("5_lquwl")
