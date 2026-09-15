@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://vbdnktli7oxn"]
+
+[ext_resource type="Script" uid="uid://b2713gnah63my" path="res://gamecamera.gd" id="1_pd5xk"]
+[ext_resource type="PackedScene" uid="uid://copvf3tjhidqh" path="res://placement_manager.tscn" id="2_f6xt6"]
+[ext_resource type="PackedScene" uid="uid://borlwwgwhag74" path="res://map.tscn" id="3_ww2ai"]
+[ext_resource type="PackedScene" uid="uid://bhokacl60m47w" path="res://tower.tscn" id="4_lrv64"]
+[ext_resource type="PackedScene" uid="uid://dufr2xfnggp14" path="res://Scenes/Enemy.tscn" id="5_qeyqd"]
+[ext_resource type="PackedScene" uid="uid://de8dnr33ur4yr" path="res://Scenes/spawn_location.tscn" id="6_f6xt6"]
+
+[node name="MAIN" type="Node2D" unique_id=1929051744]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
+script = ExtResource("1_pd5xk")
+
+[node name="PlacementManager" parent="." unique_id=1106805761 instance=ExtResource("2_f6xt6")]
+
+[node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("3_ww2ai")]
+
+[node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("4_lrv64")]
+
+[node name="ENEMY" parent="." unique_id=602373079 instance=ExtResource("5_qeyqd")]
+
+[node name="SPAWN_LOCATION" parent="." unique_id=154697959 instance=ExtResource("6_f6xt6")]
+position = Vector2(-549, 26)
