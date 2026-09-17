@@ -19,9 +19,16 @@ var random_room_type_weights = {
 var random_room_type_total_weight := 0
 var map_data: Array[Array]
 
+func _ready() -> void:
+	generate_map()
 
 func generate_map() -> Array[Array]:
 	map_data = generate_initial_grid()
+	var starting_points = _get_random_starting_points()
+	
+	print (starting_points)
+	
+	return []
 
 
 func generate_initial_grid() -> Array[Array]:
@@ -44,3 +51,10 @@ func generate_initial_grid() -> Array[Array]:
 		result.append(adjacent_rooms)
 		
 	return result
+
+func _get_random_starting_points() -> Array[int]:
+	var y_coordinates: Array[int]
+	for i in 3:
+		var starting_point := 2
+		y_coordinates.append(starting_point)
+	return y_coordinates
