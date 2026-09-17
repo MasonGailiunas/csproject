@@ -19,5 +19,5 @@ script = ExtResource("3_h2yge")
 
 [node name="CardManager" type="Node2D" parent="." unique_id=703289816]
 
-[node name="PlayerHand" type="Node2D" parent="CardManager" unique_id=873714416]
+[node name="PlayerHand" type="Node2D" parent="." unique_id=873714416]
 script = ExtResource("5_lquwl")
