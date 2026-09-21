@@ -1,34 +1,52 @@
 extends Node2D
 
 const CARD_SCENE_PATH = "res://card.tscn"
+const CARD_WIDTH = 200
 var card_scene = preload(CARD_SCENE_PATH)
-var player_hand = []
+var hand = []
 var discard_pile = []
 var hand_max = 10
 var referesh_draw = 6
+var center_screen_x
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	center_screen_x = get_viewport().size.x/2
+	referesh_hand()
 
 func referesh_hand():
-	for i in player_hand:
-		discard_card(i)
+	if hand.size() != 0:
+		for i in hand:
+			discard_card(i)
 	for i in range(referesh_draw):
 		var new_card = card_scene.instantiate() # instantiate doesn't fully add it
 		$"../CardManager".add_child(new_card) # Add here
 		add_card_to_hand(new_card)
+		
 func add_card_to_hand(card) -> bool:
-	if player_hand.size() < hand_max:
-		player_hand.insert(0, card)
+	if hand.size() < hand_max:
+		hand.insert(0, card)
+		update_hand_position()
 		return true
 	return false
+	
+	
+func update_hand_position():
+	for i in range(hand.size()):
+		var new_pos = Vector2(calculate_card_pos(i), get_viewport().size.y/2)
+		animate_card_to_position(hand[i], new_pos)
 
+func animate_card_to_position(card, new_pos):
+	var tween = get_tree().create_tween()
+	tween.tween_property(card, "position", new_pos, 0.1)
+	
+	
+func calculate_card_pos(index):
+	var total_width = (hand.size() -1) * CARD_WIDTH
+	var x_offset = center_screen_x + index * CARD_WIDTH - total_width/2
+	return x_offset
+
+	
 func discard_card(card):
-	var card_index = player_hand.bsearch(card)
-	player_hand.remove_at(card_index)
+	var card_index = hand.bsearch(card)
+	hand.remove_at(card_index)
 	discard_pile.insert(0, card)
