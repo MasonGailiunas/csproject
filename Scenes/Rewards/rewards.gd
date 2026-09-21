@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	Event.rewards_exited.emit()
+	Events.rewards_exited.emit()
