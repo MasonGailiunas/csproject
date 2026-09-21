@@ -14,6 +14,6 @@ metadata/_custom_type_script = "uid://dtrcr6rjwutla"
 script = ExtResource("1_6x8f1")
 waves = Array[ExtResource("2_j7jtk")]([SubResource("Resource_j7jtk")])
 
-[node name="Timer" type="Timer" parent="." unique_id=1373711698]
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1373711698]
 
 [node name="spawn_location" parent="." unique_id=154697959 instance=ExtResource("2_51qnr")]

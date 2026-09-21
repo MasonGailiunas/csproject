@@ -9,13 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://de8dnr33ur4yr" path="res://Scenes/spawn_location.tscn" id="6_f6xt6"]
 [ext_resource type="PackedScene" uid="uid://dxsr3drsevq5p" path="res://Scenes/wave_manager.tscn" id="7_ww2ai"]
 [ext_resource type="Script" uid="uid://dtrcr6rjwutla" path="res://wave_1.gd" id="8_lrv64"]
-
-[sub_resource type="PackedScene" id="PackedScene_lrv64"]
-
-[sub_resource type="Resource" id="Resource_qeyqd"]
-script = ExtResource("8_lrv64")
-enemy_scenes = Array[PackedScene]([SubResource("PackedScene_lrv64")])
-metadata/_custom_type_script = "uid://dtrcr6rjwutla"
+[ext_resource type="Resource" uid="uid://bqdt5rrp781sc" path="res://wave_1.tres" id="10_k7mbx"]
 
 [node name="MAIN" type="Node2D" unique_id=1929051744]
 script = ExtResource("1_qeyqd")
@@ -23,16 +17,24 @@ script = ExtResource("1_qeyqd")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
 script = ExtResource("1_pd5xk")
 
-[node name="PlacementManager" parent="." unique_id=1106805761 instance=ExtResource("2_f6xt6")]
+[node name="PlacementManager" parent="." unique_id=1106805761 node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("2_f6xt6")]
+tile_map_layer = NodePath("TileMapLayer")
 
 [node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("3_ww2ai")]
 
 [node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("4_lrv64")]
 
 [node name="ENEMY" parent="." unique_id=602373079 instance=ExtResource("5_qeyqd")]
+visible = false
+position = Vector2(-715, -232)
 
 [node name="SPAWN_LOCATION" parent="." unique_id=154697959 instance=ExtResource("6_f6xt6")]
 position = Vector2(-545, 97)
 
-[node name="WaveManager" parent="." unique_id=1779233385 instance=ExtResource("7_ww2ai")]
-waves = Array[ExtResource("8_lrv64")]([SubResource("Resource_qeyqd")])
+[node name="WaveManager" parent="." unique_id=1779233385 node_paths=PackedStringArray("path_node") instance=ExtResource("7_ww2ai")]
+visible = false
+position = Vector2(-796, -306)
+waves = Array[ExtResource("8_lrv64")]([ExtResource("10_k7mbx")])
+path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
+
+[editable path="PlacementManager/TileMapLayer"]

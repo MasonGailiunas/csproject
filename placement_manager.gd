@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var item_scene: PackedScene
-@onready var tile_map_layer: TileMapLayer = $TileMapLayer
+@export var tile_map_layer: TileMapLayer
 
 var current_preview: Area2D = null
 var source_id = 0
@@ -64,6 +64,3 @@ func finalize_placement() -> void:
 func cancel_placement() -> void:
 	current_preview.queue_free()
 	current_preview = null
-
-func _ready() -> void:
-	print(tile_map_layer)
