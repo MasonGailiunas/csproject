@@ -19,21 +19,21 @@ func referesh_hand():
 			discard_card(i)
 	for i in range(referesh_draw):
 		var new_card = card_scene.instantiate() # instantiate doesn't fully add it
-		$"..".add_child(new_card) # Add here
+		$"../CardManager".add_child(new_card) # Add here
 		add_card_to_hand(new_card)
-		update_card_position(i)
 		
 func add_card_to_hand(card) -> bool:
 	if hand.size() < hand_max:
 		hand.insert(0, card)
+		update_hand_position()
 		return true
 	return false
 	
 	
-func update_card_position(index):
-	for i in hand:
-		var new_pos = Vector2(calculate_card_pos(i), get_viewport().size().y -100)
-		animate_card_to_position(hand[index], new_pos)
+func update_hand_position():
+	for i in range(hand.size()):
+		var new_pos = Vector2(calculate_card_pos(i), get_viewport().size.y/2)
+		animate_card_to_position(hand[i], new_pos)
 
 func animate_card_to_position(card, new_pos):
 	var tween = get_tree().create_tween()
