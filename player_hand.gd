@@ -1,7 +1,7 @@
 extends Node2D
 
 const CARD_SCENE_PATH = "res://card.tscn"
-const CARD_WIDTH = 200
+const CARD_WIDTH = 100
 var card_scene = preload(CARD_SCENE_PATH)
 var hand = []
 var discard_pile = []
@@ -32,7 +32,7 @@ func add_card_to_hand(card) -> bool:
 	
 func update_hand_position():
 	for i in range(hand.size()):
-		var new_pos = Vector2(calculate_card_pos(i), get_viewport().size.y/2)
+		var new_pos = calculate_card_pos(i)
 		animate_card_to_position(hand[i], new_pos)
 
 func animate_card_to_position(card, new_pos):
@@ -40,10 +40,10 @@ func animate_card_to_position(card, new_pos):
 	tween.tween_property(card, "position", new_pos, 0.1)
 	
 	
-func calculate_card_pos(index):
+func calculate_card_pos(index) -> Vector2:
 	var total_width = (hand.size() -1) * CARD_WIDTH
 	var x_offset = center_screen_x + index * CARD_WIDTH - total_width/2
-	return x_offset
+	return Vector2(x_offset, get_viewport().size.y-100)
 
 	
 func discard_card(card):

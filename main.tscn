@@ -10,13 +10,16 @@
 [node name="MAIN" type="Node2D" unique_id=1929051744]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
+position = Vector2(960, 540)
 script = ExtResource("3_h2yge")
 
 [node name="PlacementManager" parent="." unique_id=1106805761 instance=ExtResource("4_1bvp3")]
 
 [node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("1_0xm2m")]
+position = Vector2(960, 540)
 
 [node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("2_h2yge")]
+position = Vector2(960, 540)
 
 [node name="PlayerHand" type="Node2D" parent="." unique_id=873714416]
 script = ExtResource("5_lquwl")
