@@ -12,6 +12,8 @@ func _input(event):
 			if card:
 				card_dragged = card
 		else:
+			var index = $"../PlayerHand".hand.find(card_dragged)
+			$"../PlayerHand".animate_card_to_position(card_dragged, $"../PlayerHand".calculate_card_pos(index))
 			card_dragged = null
 
 func raycast_for_card():

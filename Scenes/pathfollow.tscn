@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b25ncq5a3kwyt"]
+
+[ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/pathfollow.gd" id="1_d7ib5"]
+[ext_resource type="PackedScene" uid="uid://dufr2xfnggp14" path="res://Scenes/Enemy.tscn" id="2_4cyix"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
+radius = 13.0
+
+[node name="enemy_with_path" type="PathFollow2D" unique_id=1452024055]
+script = ExtResource("1_d7ib5")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1000274725]
+
+[node name="sprite" parent="CharacterBody2D" unique_id=602373079 instance=ExtResource("2_4cyix")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=403558068]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_uu5co")
