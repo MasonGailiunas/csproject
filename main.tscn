@@ -1,25 +1,52 @@
 [gd_scene format=3 uid="uid://twbtfld5y380"]
 
-[ext_resource type="PackedScene" uid="uid://borlwwgwhag74" path="res://map.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bhokacl60m47w" path="res://tower.tscn" id="2_h2yge"]
-[ext_resource type="Script" uid="uid://b2713gnah63my" path="res://gamecamera.gd" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://copvf3tjhidqh" path="res://placement_manager.tscn" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://cl7ay20cgom1k" path="res://player_hand.gd" id="5_lquwl"]
-[ext_resource type="Script" uid="uid://bnwlfwym2hkav" path="res://card_manager.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://11ma0lr2xe2v" path="res://Scenes/Map/map.gd" id="1_h2yge"]
+[ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://cvjxhq02nnygl" path="res://Scenes/Map/map_generator.gd" id="3_lquwl"]
 
-[node name="MAIN" type="Node2D" unique_id=1929051744]
+[node name="Map" type="Control" unique_id=457036930]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h2yge")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
-script = ExtResource("3_h2yge")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=874587018]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.18359044, 0.18359044, 0.18359044, 1)
 
-[node name="PlacementManager" parent="." unique_id=1106805761 instance=ExtResource("4_1bvp3")]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1005586918]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -94.5
+offset_right = 94.0
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("1_0xm2m")]
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=423582257]
+layout_mode = 2
+theme = ExtResource("2_1bvp3")
+text = "Map"
+horizontal_alignment = 1
+uppercase = true
 
-[node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("2_h2yge")]
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=416098685]
+layout_mode = 2
+theme = ExtResource("2_1bvp3")
+text = "GO BACK
+"
 
-[node name="PlayerHand" type="Node2D" parent="." unique_id=873714416]
-script = ExtResource("5_lquwl")
+[node name="MapGenerator" type="Node" parent="." unique_id=1897446544]
+script = ExtResource("3_lquwl")
 
-[node name="CardManager" type="Node2D" parent="." unique_id=703289816]
-script = ExtResource("6_7mycd")
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

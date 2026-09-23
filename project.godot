@@ -39,6 +39,10 @@ toggle_build={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_4="map_rooms"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
