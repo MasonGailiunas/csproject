@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://twbtfld5y380"]
 
 [ext_resource type="PackedScene" uid="uid://borlwwgwhag74" path="res://map.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://ddx4m14e44jey" path="res://main.gd" id="1_kek77"]
 [ext_resource type="PackedScene" uid="uid://bhokacl60m47w" path="res://tower.tscn" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://b2713gnah63my" path="res://gamecamera.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://copvf3tjhidqh" path="res://placement_manager.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://cl7ay20cgom1k" path="res://player_hand.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://bnwlfwym2hkav" path="res://card_manager.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://q54j7lqtc5dw" path="res://player_deck.gd" id="8_4c57u"]
+[ext_resource type="Script" uid="uid://s3cib8a5xjkt" path="res://discard_pile.gd" id="9_efxa6"]
 
 [node name="MAIN" type="Node2D" unique_id=1929051744]
+script = ExtResource("1_kek77")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
 position = Vector2(960, 540)
@@ -26,3 +30,9 @@ script = ExtResource("5_lquwl")
 
 [node name="CardManager" type="Node2D" parent="." unique_id=703289816]
 script = ExtResource("6_7mycd")
+
+[node name="PlayerDeck" type="Node2D" parent="." unique_id=222112019]
+script = ExtResource("8_4c57u")
+
+[node name="DiscardPile" type="Node2D" parent="." unique_id=1660920938]
+script = ExtResource("9_efxa6")

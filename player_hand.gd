@@ -4,22 +4,20 @@ const CARD_SCENE_PATH = "res://card.tscn"
 const CARD_WIDTH = 100
 var card_scene = preload(CARD_SCENE_PATH)
 var hand = []
-var discard_pile = []
 var hand_max = 10
 var referesh_draw = 6
 var center_screen_x
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	center_screen_x = get_viewport().size.x/2
-	referesh_hand()
 
 func referesh_hand():
 	if hand.size() != 0:
 		for i in hand:
 			discard_card(i)
 	for i in range(referesh_draw):
-		var new_card = card_scene.instantiate() # instantiate doesn't fully add it
-		$"../CardManager".add_child(new_card) # Add here
+		var new_card = $"../PlayerDeck".instance_deck[0]
+		$"../PlayerDeck".instance_deck.remove_at(0)
 		add_card_to_hand(new_card)
 		
 func add_card_to_hand(card) -> bool:
@@ -49,4 +47,4 @@ func calculate_card_pos(index) -> Vector2:
 func discard_card(card):
 	var card_index = hand.bsearch(card)
 	hand.remove_at(card_index)
-	discard_pile.insert(0, card)
+	$"../DiscardPile".discard_pile.insert(0, card)
