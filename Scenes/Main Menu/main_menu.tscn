@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dw61hg5o42sh8"]
 
 [ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="1_dtmfd"]
+[ext_resource type="Script" uid="uid://dfv4d3xfdbn51" path="res://Scenes/Main Menu/main_menu.gd" id="2_armea"]
 
 [sub_resource type="Gradient" id="Gradient_armea"]
 colors = PackedColorArray(0.0927491, 0.013345645, 0.19055232, 1, 0.26666668, 0, 0.31764707, 1)
@@ -24,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_dtmfd")
+script = ExtResource("2_armea")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1240514806]
 layout_mode = 0
@@ -46,7 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_dtmfd")
 theme_override_font_sizes/font_size = 210
-text = "DIHSCEND INTO"
+text = "CHIMERA HOLE DEFEND AND RISE"
 label_settings = SubResource("LabelSettings_7xkbd")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -77,3 +79,7 @@ text = "NEW RUN"
 [node name="Exit_Button" type="Button" parent="VBoxContainer" unique_id=327118578]
 layout_mode = 2
 text = "EXIT"
+
+[connection signal="pressed" from="VBoxContainer/Continue_Button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewRun_Button" to="." method="_on_new_run_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]

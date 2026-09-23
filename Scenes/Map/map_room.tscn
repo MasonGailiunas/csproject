@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://6i4uim55lpfb"]
+
+[ext_resource type="Texture2D" uid="uid://2xs2cxr03ghv" path="res://Art/Fight.png" id="1_kfqlg"]
+[ext_resource type="Script" uid="uid://dvc3eiv8ht40t" path="res://Scenes/Map/map_room.gd" id="1_wn3tm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0j8fc"]
+radius = 19.026299
+
+[sub_resource type="Animation" id="Animation_wn3tm"]
+resource_name = "Click"
+length = 0.6333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_map_room_selected"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3cjej"]
+resource_name = "Fight Icon "
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.34, 1.34)]
+}
+
+[sub_resource type="Animation" id="Animation_fehfl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lxuqm"]
+_data = {
+&"Click": SubResource("Animation_wn3tm"),
+&"Fight Icon ": SubResource("Animation_3cjej"),
+&"RESET": SubResource("Animation_fehfl")
+}
+
+[node name="MapRoom" type="Area2D" unique_id=1649226878]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_wn3tm")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1335608216]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Line2D" type="Line2D" parent="Node2D" unique_id=1696564143]
+points = PackedVector2Array(0, -16, 17, -15, 24, 8, 8, 24, 0, 24, -16, 16, -15, -3, -7, -16, 0, -16)
+default_color = Color(0.05490196, 0.39215687, 0.3647059, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=297301994]
+texture = ExtResource("1_kfqlg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=547604642]
+visible = false
+shape = SubResource("CircleShape2D_0j8fc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1109465568]
+libraries/ = SubResource("AnimationLibrary_lxuqm")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
