@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bk4uyebd4w4q6"]
+
+[ext_resource type="AudioStream" uid="uid://bslqy7vxm5415" path="res://SoundStorage/Music/_GRIEF_ Full Song _ GD Music.ogg" id="1_75hib"]
+
+[node name="Background music" type="AudioStreamPlayer" unique_id=847373669]
+process_mode = 3
+stream = ExtResource("1_75hib")
+autoplay = true

@@ -5,8 +5,11 @@
 [ext_resource type="Script" uid="uid://b2713gnah63my" path="res://gamecamera.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://copvf3tjhidqh" path="res://placement_manager.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://cl7ay20cgom1k" path="res://player_hand.gd" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bk4uyebd4w4q6" path="res://Scenes/SoundScenes/background_music.tscn" id="6_7mycd"]
 
 [node name="MAIN" type="Node2D" unique_id=1929051744]
+
+[node name="Background music" parent="." unique_id=847373669 instance=ExtResource("6_7mycd")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
 script = ExtResource("3_h2yge")
