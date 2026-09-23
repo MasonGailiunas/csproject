@@ -2,9 +2,15 @@ extends Node2D
 
 @export var item_scene: PackedScene
 @export var tile_map_layer: TileMapLayer
+@export var range_circle: Sprite2D
 
 var current_preview: Area2D = null
 var source_id = 0
+
+func _ready() -> void:
+	range_circle.hide()
+	range_circle.scale = Vector2(2,2)
+	print(range_circle.scale)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_build") and current_preview == null:
@@ -46,19 +52,26 @@ func update_preview_position() -> void:
 	
 	var source_id = tile_map_layer.get_cell_source_id(local_grid_pos)
 	
+	
 	current_preview.global_position = snapped_world_pos
 	
 	if current_preview.is_valid_spot():
 		if source_id == 0:
 			current_preview.modulate = Color(0.5, 1.0, 0.5, 0.6)
+			range_circle.show()
 		else:
 			current_preview.modulate = Color(1.0, 0.5, 0.5, 0.6)
+			range_circle.hide()
 	else:
 		current_preview.modulate = Color(1.0, 0.5, 0.5, 0.6)
+		range_circle.hide()
 
 func finalize_placement() -> void:
+	range_circle.hide()
 	current_preview.set_preview_mode(false)
-	current_preview = null 
+	current_preview = null
+	print("Printed! ")
+	print(range_circle.visible)
 	
 
 func cancel_placement() -> void:

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dxsr3drsevq5p" path="res://Scenes/wave_manager.tscn" id="7_ww2ai"]
 [ext_resource type="Script" uid="uid://dtrcr6rjwutla" path="res://wave_1.gd" id="8_lrv64"]
 [ext_resource type="Resource" uid="uid://bqdt5rrp781sc" path="res://wave_1.tres" id="10_k7mbx"]
+[ext_resource type="PackedScene" uid="uid://de8y41782xhva" path="res://testtower_1.tscn" id="11_upb72"]
 
 [node name="MAIN" type="Node2D" unique_id=1929051744]
 script = ExtResource("1_qeyqd")
@@ -17,8 +18,9 @@ script = ExtResource("1_qeyqd")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
 script = ExtResource("1_pd5xk")
 
-[node name="PlacementManager" parent="." unique_id=1106805761 node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("2_f6xt6")]
+[node name="PlacementManager" parent="." unique_id=1106805761 node_paths=PackedStringArray("tile_map_layer", "range_circle") instance=ExtResource("2_f6xt6")]
 tile_map_layer = NodePath("TileMapLayer")
+range_circle = NodePath("../testtower1/Sprite2D/range circle")
 
 [node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("3_ww2ai")]
 
@@ -37,4 +39,13 @@ position = Vector2(-796, -306)
 waves = Array[ExtResource("8_lrv64")]([ExtResource("10_k7mbx")])
 path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
 
+[node name="testtower1" parent="." unique_id=13791481 instance=ExtResource("11_upb72")]
+visible = false
+
+[node name="range circle" parent="testtower1/Sprite2D" parent_id_path=PackedInt32Array(13791481, 1529300636) index="0" unique_id=1544847291]
+visible = false
+modulate = Color(1, 1, 1, 0.44705883)
+
 [editable path="PlacementManager/TileMapLayer"]
+[editable path="ENEMY"]
+[editable path="testtower1"]
