@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://borlwwgwhag74" path="res://map.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://ddx4m14e44jey" path="res://main.gd" id="1_kek77"]
+[ext_resource type="PackedScene" uid="uid://c4vjcstyhxs5c" path="res://card_in.tscn" id="2_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bhokacl60m47w" path="res://tower.tscn" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://b2713gnah63my" path="res://gamecamera.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://copvf3tjhidqh" path="res://placement_manager.tscn" id="4_1bvp3"]
@@ -50,3 +51,5 @@ script = ExtResource("8_4c57u")
 
 [node name="DiscardPile" type="Node2D" parent="." unique_id=1660920938]
 script = ExtResource("9_efxa6")
+
+[node name="CardIn" parent="." unique_id=918655 instance=ExtResource("2_4c57u")]
