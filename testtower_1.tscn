@@ -14,7 +14,7 @@ script = ExtResource("1_78ped")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1529300636]
 texture = ExtResource("2_el1nf")
 
-[node name="range circle" type="Sprite2D" parent="Sprite2D" unique_id=1544847291]
+[node name="range circle" type="Sprite2D" parent="." unique_id=1544847291]
 show_behind_parent = true
 scale = Vector2(2, 2)
 texture = ExtResource("3_el1nf")

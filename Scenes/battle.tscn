@@ -18,11 +18,13 @@ script = ExtResource("1_qeyqd")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
 script = ExtResource("1_pd5xk")
 
-[node name="PlacementManager" parent="." unique_id=1106805761 node_paths=PackedStringArray("tile_map_layer", "range_circle") instance=ExtResource("2_f6xt6")]
+[node name="PlacementManager" parent="." unique_id=1106805761 node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("2_f6xt6")]
 tile_map_layer = NodePath("TileMapLayer")
-range_circle = NodePath("../testtower1/Sprite2D/range circle")
 
 [node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("3_ww2ai")]
+
+[node name="enemy_with_path" parent="PlacementManager/TileMapLayer/Path2D" parent_id_path=PackedInt32Array(95948562, 1567271272) index="0" unique_id=1452024055]
+visible = false
 
 [node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("4_lrv64")]
 
@@ -42,9 +44,10 @@ path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
 [node name="testtower1" parent="." unique_id=13791481 instance=ExtResource("11_upb72")]
 visible = false
 
-[node name="range circle" parent="testtower1/Sprite2D" parent_id_path=PackedInt32Array(13791481, 1529300636) index="0" unique_id=1544847291]
+[node name="range circle" parent="testtower1" index="1" unique_id=1544847291]
 visible = false
 modulate = Color(1, 1, 1, 0.44705883)
+scale = Vector2(1, 1)
 
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="ENEMY"]

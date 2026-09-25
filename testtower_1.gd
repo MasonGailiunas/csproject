@@ -1,25 +1,35 @@
 extends Area2D
 
 var is_placed: bool = false
+@onready var range_circle: Sprite2D = $"range circle"
 
 func set_preview_mode(is_preview: bool) -> void:
 	is_placed = !is_preview
 	if is_preview:
-		modulate.a = 0.5 # Make semi-transparent for preview
-		monitoring = true # Ensure it detects obstacles
+		modulate.a = 0.5
+		monitoring = true
+		range_circle.show()
 	else:
-		modulate.a = 1.0 # Solid when placed
-		monitoring = false # Stop checking once built
+		modulate.a = 1.0
+		monitoring = false
+		range_circle.hide()
 
 func is_valid_spot() -> bool:
-	# Returns true if it is NOT overlapping with other bodies/areas
 	return has_overlapping_areas() == false and has_overlapping_bodies() == false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	range_circle.apply_scale(Vector2(2,2))
+	range_circle.modulate.a = 0.5
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var is_preview = set_preview_mode
+	if is_preview:
+		var space = get_world_2d().direct_space_state
+		var parameters = PhysicsPointQueryParameters2D.new()
+		parameters.position = get_global_mouse_position()
+		parameters.collide_with_areas = true
+		if space.intersect_point(parameters):
+			range_circle.show()
+		else:
+			range_circle.hide()
