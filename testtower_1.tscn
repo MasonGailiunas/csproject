@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2rekof4yteq" path="res://testtower_1.gd" id="1_78ped"]
 [ext_resource type="Texture2D" uid="uid://cofxqhmrdiplr" path="res://images/tower.png" id="2_el1nf"]
+[ext_resource type="Texture2D" uid="uid://bibk4wlw5825f" path="res://images/New Piskel-1.png (2).png" id="3_el1nf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
 radius = 7.0
@@ -12,6 +13,11 @@ script = ExtResource("1_78ped")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1529300636]
 texture = ExtResource("2_el1nf")
+
+[node name="range circle" type="Sprite2D" parent="Sprite2D" unique_id=1544847291]
+show_behind_parent = true
+scale = Vector2(2, 2)
+texture = ExtResource("3_el1nf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=897154620]
 shape = SubResource("CircleShape2D_uu5co")
