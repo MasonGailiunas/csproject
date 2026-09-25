@@ -14,8 +14,6 @@
 [node name="MAIN" type="Node2D" unique_id=1929051744]
 script = ExtResource("1_kek77")
 
-[node name="CardIn" parent="." unique_id=918655 instance=ExtResource("2_4c57u")]
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
 position = Vector2(960, 540)
 script = ExtResource("3_h2yge")
@@ -39,3 +37,5 @@ script = ExtResource("8_4c57u")
 
 [node name="DiscardPile" type="Node2D" parent="." unique_id=1660920938]
 script = ExtResource("9_efxa6")
+
+[node name="CardIn" parent="." unique_id=918655 instance=ExtResource("2_4c57u")]
