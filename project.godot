@@ -18,9 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*uid://0w66xj2pnl3h"
-
-[autoload]
-
 BackgroundMusic="*uid://bk4uyebd4w4q6"
 
 [display]

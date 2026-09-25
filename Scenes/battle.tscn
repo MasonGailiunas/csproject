@@ -24,6 +24,9 @@ range_circle = NodePath("../testtower1/Sprite2D/range circle")
 
 [node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("3_ww2ai")]
 
+[node name="enemy_with_path" parent="PlacementManager/TileMapLayer/Path2D" parent_id_path=PackedInt32Array(95948562, 1567271272) index="0" unique_id=1452024055]
+visible = false
+
 [node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("4_lrv64")]
 
 [node name="ENEMY" parent="." unique_id=602373079 instance=ExtResource("5_qeyqd")]
