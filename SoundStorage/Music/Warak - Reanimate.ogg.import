@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ch0t1hlid7d8e"
+path="res://.godot/imported/Warak - Reanimate.ogg-8d0b8d2ede950e980cb585b3fd9c4f96.oggvorbisstr"
+
+[deps]
+
+source_file="res://SoundStorage/Music/Warak - Reanimate.ogg"
+dest_files=["res://.godot/imported/Warak - Reanimate.ogg-8d0b8d2ede950e980cb585b3fd9c4f96.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
