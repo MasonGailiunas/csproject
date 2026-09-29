@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dtrcr6rjwutla" path="res://wave_1.gd" id="8_lrv64"]
 [ext_resource type="Resource" uid="uid://bqdt5rrp781sc" path="res://wave_1.tres" id="10_k7mbx"]
 [ext_resource type="PackedScene" uid="uid://de8y41782xhva" path="res://testtower_1.tscn" id="11_upb72"]
+[ext_resource type="PackedScene" uid="uid://cf4wk1aw6va6n" path="res://testtower_2.tscn" id="12_rssjf"]
 
 [node name="MAIN" type="Node2D" unique_id=1929051744]
 script = ExtResource("1_qeyqd")
@@ -49,6 +50,9 @@ visible = false
 modulate = Color(1, 1, 1, 0.44705883)
 scale = Vector2(1, 1)
 
+[node name="testtower_2" parent="." unique_id=1570268893 instance=ExtResource("12_rssjf")]
+
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="ENEMY"]
 [editable path="testtower1"]
+[editable path="testtower_2"]
