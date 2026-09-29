@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://drcepty0njy1a"]
+
+[ext_resource type="Script" uid="uid://bnwlfwym2hkav" path="res://card_manager.gd" id="1_eafyo"]
+[ext_resource type="Script" uid="uid://cl7ay20cgom1k" path="res://player_hand.gd" id="2_s2bil"]
+[ext_resource type="Script" uid="uid://s3cib8a5xjkt" path="res://discard_pile.gd" id="3_sfjtb"]
+[ext_resource type="Script" uid="uid://q54j7lqtc5dw" path="res://player_deck.gd" id="4_qlqfw"]
+
+[node name="CardScene" type="Node2D" unique_id=261090848]
+
+[node name="CardManager" type="Node2D" parent="." unique_id=1936161098]
+script = ExtResource("1_eafyo")
+
+[node name="PlayerHand" type="Node2D" parent="." unique_id=632840183]
+script = ExtResource("2_s2bil")
+
+[node name="DiscardPile" type="Node2D" parent="." unique_id=919969960]
+script = ExtResource("3_sfjtb")
+
+[node name="PlayerDeck" type="Node2D" parent="." unique_id=1506786283]
+script = ExtResource("4_qlqfw")

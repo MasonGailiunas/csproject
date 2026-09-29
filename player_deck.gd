@@ -6,6 +6,10 @@ var card_in_scene = preload(CARD_IN_SCENE_PATH)
 var trueDeck =[]
 var instanceDeck = []
 
+func _ready() -> void:
+	create_starting_deck()
+	create_instanced_deck()
+	$"../PlayerHand".referesh_hand()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -20,7 +24,7 @@ func create_instanced_deck():
 	instanceDeck.clear()
 	for i in trueDeck:
 		var instance_card = i.instance_card()
-		instance_card.hide()
+		instance_card.set_interactibility(false)
 		instanceDeck.insert(0,instance_card)
 	instanceDeck.shuffle()
 
