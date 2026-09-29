@@ -11,6 +11,30 @@
 [ext_resource type="Script" uid="uid://dtrcr6rjwutla" path="res://wave_1.gd" id="8_lrv64"]
 [ext_resource type="Resource" uid="uid://bqdt5rrp781sc" path="res://wave_1.tres" id="10_k7mbx"]
 [ext_resource type="PackedScene" uid="uid://de8y41782xhva" path="res://testtower_1.tscn" id="11_upb72"]
+[ext_resource type="AudioStream" uid="uid://bslqy7vxm5415" path="res://SoundStorage/Music/_GRIEF_ Full Song _ GD Music.ogg" id="12_xkp4y"]
+[ext_resource type="AudioStream" uid="uid://ch0t1hlid7d8e" path="res://SoundStorage/Music/Warak - Reanimate.ogg" id="13_vd41i"]
+[ext_resource type="AudioStream" uid="uid://r57tj2ybftq" path="res://SoundStorage/Music/_SLAUGHTERHOUSE_ Song _ GD Music.ogg" id="14_nne6o"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4fid7"]
+streams_count = 3
+stream_0/stream = ExtResource("12_xkp4y")
+stream_1/stream = ExtResource("14_nne6o")
+stream_2/stream = ExtResource("13_vd41i")
+
+[sub_resource type="GDScript" id="GDScript_fonr4"]
+script/source = "extends AudioStreamPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="MAIN" type="Node2D" unique_id=1929051744]
 script = ExtResource("1_qeyqd")
@@ -48,6 +72,11 @@ visible = false
 [node name="range circle" parent="testtower1/Sprite2D" parent_id_path=PackedInt32Array(13791481, 1529300636) index="0" unique_id=1544847291]
 visible = false
 modulate = Color(1, 1, 1, 0.44705883)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1271968429]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_4fid7")
+script = SubResource("GDScript_fonr4")
 
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="ENEMY"]
