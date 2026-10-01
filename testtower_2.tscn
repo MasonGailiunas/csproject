@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cf4wk1aw6va6n"]
+
+[ext_resource type="Texture2D" uid="uid://bibk4wlw5825f" path="res://images/New Piskel-1.png (2).png" id="1_6ac0u"]
+[ext_resource type="Script" uid="uid://c2o52tomfbo3i" path="res://testtower_2.gd" id="1_b1paa"]
+[ext_resource type="Texture2D" uid="uid://cofxqhmrdiplr" path="res://images/tower.png" id="2_b1paa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vr3u3"]
+radius = 7.0
+
+[node name="testtower_2" type="Area2D" unique_id=1570268893]
+script = ExtResource("1_b1paa")
+
+[node name="range circle" type="Sprite2D" parent="." unique_id=709545176]
+show_behind_parent = true
+scale = Vector2(2, 2)
+texture = ExtResource("1_6ac0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2044280889]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_vr3u3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1784452384]
+scale = Vector2(2, 2)
+texture = ExtResource("2_b1paa")

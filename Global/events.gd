@@ -3,7 +3,7 @@ extends Node
 #signal battle_over_screen_requested(text: String, type: BattleOverPanel.Type)
 signal battle_won
 
-signal map_exited
+signal map_exited(room: Room)
 
 signal shop_exited
 
