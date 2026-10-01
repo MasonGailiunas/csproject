@@ -30,5 +30,5 @@ func is_valid_spot() -> bool:
 	return has_overlapping_areas() == false and has_overlapping_bodies() == false
 
 func _ready() -> void:
-	range_circle.apply_scale(Vector2(2,2))
+	range_circle.apply_scale(Vector2(4,4))
 	range_circle.modulate.a = 0.5
