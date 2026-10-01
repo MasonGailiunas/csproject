@@ -1,24 +1,31 @@
 extends Node2D
 
-const CARD_SCENE_PATH = "res://card.tscn"
-var card_scene = preload(CARD_SCENE_PATH)
+const CARD_IN_SCENE_PATH = "res://card_in.tscn"
+var card_in_scene = preload(CARD_IN_SCENE_PATH)
+
 var trueDeck =[]
 var instanceDeck = []
 
+func _ready() -> void:
+	create_starting_deck()
+	create_instanced_deck()
+	$"../PlayerHand".referesh_hand()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func create_starting_deck():
 	for i in range(12):
-		var new_card = card_scene.instantiate() # instantiate doesn't fully add it
-		$"../CardManager".add_child(new_card) # Add here
-		trueDeck.insert(0, new_card)
+		var new_card_in = card_in_scene.instantiate() # instantiate doesn't fully add it
+		$"..".add_child(new_card_in) # Add here
+		trueDeck.insert(0, new_card_in)
 		
 func create_instanced_deck():
 	instanceDeck.clear()
 	for i in trueDeck:
-		instanceDeck.insert(0,i)
+		var instance_card = i.instance_card()
+		instance_card.set_interactibility(false)
+		instanceDeck.insert(0,instance_card)
 	instanceDeck.shuffle()
 
 func reshuffle():

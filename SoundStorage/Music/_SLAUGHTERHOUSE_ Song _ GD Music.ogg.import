@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://r57tj2ybftq"
+path="res://.godot/imported/_SLAUGHTERHOUSE_ Song _ GD Music.ogg-24884b0dbd5f3e2996569380db866eee.oggvorbisstr"
+
+[deps]
+
+source_file="res://SoundStorage/Music/_SLAUGHTERHOUSE_ Song _ GD Music.ogg"
+dest_files=["res://.godot/imported/_SLAUGHTERHOUSE_ Song _ GD Music.ogg-24884b0dbd5f3e2996569380db866eee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
