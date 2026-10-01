@@ -20,3 +20,13 @@ func _on_area_2d_mouse_entered() -> void:
 
 func _on_area_2d_mouse_exited() -> void:
 	emit_signal("hovered_off", self)
+
+func setInteractibility(set_type: bool):
+	if set_type:
+		show()
+		$Area2D/CollisionShape2D.set_deferred("dissabled", false)
+		interactable = true
+	else:
+		hide()
+		$Area2D/CollisionShape2D.set_deferred("dissabled", true)
+		interactable = false

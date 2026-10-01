@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 func instance_card():
 	var new_card = card_scene.instantiate() # instantiate doesn't fully add it
-	$"../CardManager".add_child(new_card) # Add here
+	$CardManager.add_child(new_card) # Add here
 	transfer_common_variables(new_card)
 	return new_card
 

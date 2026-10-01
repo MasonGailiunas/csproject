@@ -1,20 +1,21 @@
 extends Node2D
 
-@export var item_scene: PackedScene
+@export var item_scene_t1: PackedScene
+@export var item_scene_t2: PackedScene
 @export var tile_map_layer: TileMapLayer
-@export var range_circle: Sprite2D
 
 var current_preview: Area2D = null
+var tower: Area2D = null
 var source_id = 0
 
 func _ready() -> void:
-	range_circle.hide()
-	range_circle.scale = Vector2(2,2)
-	print(range_circle.scale)
+	print("started")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_build") and current_preview == null:
-		start_placement_mode()
+	if event.is_action_pressed("toggle_build_t1") and current_preview == null:
+		start_placement_mode_t1()
+	elif event.is_action_pressed("toggle_build_t2") and current_preview == null:
+		start_placement_mode_t2()
 		
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if current_preview and current_preview.is_valid_spot():
@@ -37,9 +38,40 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if current_preview:
 		update_preview_position()
+		current_preview.set_range_circle_visibility(true)
+	else:
+		var space = get_world_2d().direct_space_state
+		var parameters = PhysicsRayQueryParameters2D.create(
+			get_global_mouse_position(), 
+			get_global_mouse_position() + Vector2(0.1, 0.1)
+		)
+		parameters.collide_with_areas = true
+		parameters.collide_with_bodies = false
+		parameters.hit_from_inside = true
+		
+		var ray_hit = space.intersect_ray(parameters)
+		
+		if ray_hit and ray_hit.has("collider"):
+			var hovered_tower = ray_hit["collider"]
+			
+			if hovered_tower.has_method("set_range_circle_visibility"):
+				if is_instance_valid(tower) and tower != hovered_tower:
+					tower.set_range_circle_visibility(false)
+				
+				tower = hovered_tower
+				tower.set_range_circle_visibility(true)
+		else:
+			if is_instance_valid(tower):
+				tower.set_range_circle_visibility(false)
+			tower = null
 
-func start_placement_mode() -> void:
-	current_preview = item_scene.instantiate()
+func start_placement_mode_t1() -> void:
+	current_preview = item_scene_t1.instantiate()
+	add_child(current_preview)
+	current_preview.set_preview_mode(true)
+	
+func start_placement_mode_t2() -> void:
+	current_preview = item_scene_t2.instantiate()
 	add_child(current_preview)
 	current_preview.set_preview_mode(true)
 
@@ -58,20 +90,16 @@ func update_preview_position() -> void:
 	if current_preview.is_valid_spot():
 		if source_id == 0:
 			current_preview.modulate = Color(0.5, 1.0, 0.5, 0.6)
-			range_circle.show()
 		else:
 			current_preview.modulate = Color(1.0, 0.5, 0.5, 0.6)
-			range_circle.hide()
 	else:
 		current_preview.modulate = Color(1.0, 0.5, 0.5, 0.6)
-		range_circle.hide()
 
 func finalize_placement() -> void:
-	range_circle.hide()
 	current_preview.set_preview_mode(false)
+	tower = current_preview
 	current_preview = null
 	print("Printed! ")
-	print(range_circle.visible)
 	
 
 func cancel_placement() -> void:
