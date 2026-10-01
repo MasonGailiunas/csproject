@@ -73,6 +73,7 @@ func finalize_placement() -> void:
 	print("Printed! ")
 	print(range_circle.visible)
 	
+	
 
 func cancel_placement() -> void:
 	current_preview.queue_free()
