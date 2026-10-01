@@ -51,6 +51,13 @@ modulate = Color(1, 1, 1, 0.44705883)
 scale = Vector2(1, 1)
 
 [node name="testtower_2" parent="." unique_id=1570268893 instance=ExtResource("12_rssjf")]
+visible = false
+
+[node name="range circle" parent="testtower_2" index="0" unique_id=709545176]
+visible = false
+
+[node name="Sprite2D" parent="testtower_2" index="2" unique_id=1784452384]
+position = Vector2(-806, -414)
 
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="ENEMY"]

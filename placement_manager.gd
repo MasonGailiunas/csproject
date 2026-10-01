@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var item_scene: PackedScene
+@export var item_scene_t1: PackedScene
+@export var item_scene_t2: PackedScene
 @export var tile_map_layer: TileMapLayer
 
 var current_preview: Area2D = null
@@ -11,8 +12,10 @@ func _ready() -> void:
 	print("started")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_build") and current_preview == null:
-		start_placement_mode()
+	if event.is_action_pressed("toggle_build_t1") and current_preview == null:
+		start_placement_mode_t1()
+	elif event.is_action_pressed("toggle_build_t2") and current_preview == null:
+		start_placement_mode_t2()
 		
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if current_preview and current_preview.is_valid_spot():
@@ -62,8 +65,13 @@ func _process(_delta: float) -> void:
 				tower.set_range_circle_visibility(false)
 			tower = null
 
-func start_placement_mode() -> void:
-	current_preview = item_scene.instantiate()
+func start_placement_mode_t1() -> void:
+	current_preview = item_scene_t1.instantiate()
+	add_child(current_preview)
+	current_preview.set_preview_mode(true)
+	
+func start_placement_mode_t2() -> void:
+	current_preview = item_scene_t2.instantiate()
 	add_child(current_preview)
 	current_preview.set_preview_mode(true)
 
