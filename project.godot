@@ -68,7 +68,8 @@ toggle_build_t2={
 
 [layer_names]
 
-2d_physics/layer_4="map_rooms"
+2d_physics/layer_4="Layer 4"
+2d_physics/layer_6="map_rooms"
 
 [physics]
 

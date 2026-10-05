@@ -66,6 +66,90 @@
 	#y_coordinates[1] += 2
 	#return y_coordinates
 
+#class_name MapGenerator
+#extends Node
+#
+#const X_DIST := 50
+#const Y_DIST := 80
+#const MAP_WIDTH := 3
+#const BRANCH_ROWS := 2
+#const SEGMENTS := 4
+#
+#var non_combat_type_weights = {
+	#Room.Type.CAMPFIRE: 2.0,
+	#Room.Type.SHOP: 2.0,
+	#Room.Type.OCCURRENCE: 2.0,
+#}
+#
+#var map_data: Array[Array] = []
+#
+#func _ready() -> void:
+	#generate_map()
+#
+#func generate_map() -> Array[Array]:
+	#map_data = []
+	#var current_row := 0
+#
+	#for segment in SEGMENTS:
+		## battle room for this segment
+		#map_data.append([_make_room(current_row, 1, Room.Type.MONSTER)])
+		#current_row += 1
+#
+		## branch rows: 3-wide, non-combat
+		#for i in BRANCH_ROWS:
+			#var row: Array[Room] = []
+			#for j in MAP_WIDTH:
+				#row.append(_make_room(current_row, j, _get_random_non_combat_type()))
+			#map_data.append(row)
+			#current_row += 1
+#
+	## final battle room the last branch funnels into
+	#map_data.append([_make_room(current_row, 1, Room.Type.MONSTER)])
+#
+	#_connect_all_segments()
+	#return map_data
+#
+#func _make_room(row: int, column: int, type: Room.Type) -> Room:
+	#var room := Room.new()
+	#room.row = row
+	#room.column = column
+	#room.type = type
+	#room.next_rooms = []
+	#room.position = Vector2(column * X_DIST, row * Y_DIST)
+	#return room
+#
+#func _connect_all_segments() -> void:
+	#var row_index := 0
+	#while row_index < map_data.size() - 1:
+		#var current: Array[Room] = map_data[row_index]
+		#var next: Array[Room] = map_data[row_index + 1]
+#
+		#if current.size() == 1:
+			#for room in next:
+				#current[0].next_rooms.append(room)
+		#elif next.size() == 1:
+			#for room in current:
+				#room.next_rooms.append(next[0])
+		#else:
+			#for j in MAP_WIDTH:
+				#current[j].next_rooms.append(next[j])
+#
+		#row_index += 1
+#
+#func _get_random_non_combat_type() -> Room.Type:
+	#var total_weight := 0.0
+	#for weight in non_combat_type_weights.values():
+		#total_weight += weight
+#
+	#var roll := randf() * total_weight
+	#var cumulative := 0.0
+	#for type in non_combat_type_weights:
+		#cumulative += non_combat_type_weights[type]
+		#if roll <= cumulative:
+			#return type
+#
+	#return non_combat_type_weights.keys()[0]
+
 class_name MapGenerator
 extends Node
 
@@ -75,7 +159,7 @@ const MAP_WIDTH := 3
 const BRANCH_ROWS := 2
 const SEGMENTS := 4
 
-var non_combat_type_weights = {
+var non_combat_type_weights := {
 	Room.Type.CAMPFIRE: 2.0,
 	Room.Type.SHOP: 2.0,
 	Room.Type.OCCURRENCE: 2.0,
@@ -83,19 +167,21 @@ var non_combat_type_weights = {
 
 var map_data: Array[Array] = []
 
+
 func _ready() -> void:
 	generate_map()
+
 
 func generate_map() -> Array[Array]:
 	map_data = []
 	var current_row := 0
 
 	for segment in SEGMENTS:
-		# battle room for this segment
+		# Single battle room for this segment
 		map_data.append([_make_room(current_row, 1, Room.Type.MONSTER)])
 		current_row += 1
 
-		# branch rows: 3-wide, non-combat
+		# Branch rows: 3 wide, non-combat
 		for i in BRANCH_ROWS:
 			var row: Array[Room] = []
 			for j in MAP_WIDTH:
@@ -103,11 +189,12 @@ func generate_map() -> Array[Array]:
 			map_data.append(row)
 			current_row += 1
 
-	# final battle room the last branch funnels into
+	# Final battle room the last branch funnels into
 	map_data.append([_make_room(current_row, 1, Room.Type.MONSTER)])
 
 	_connect_all_segments()
 	return map_data
+
 
 func _make_room(row: int, column: int, type: Room.Type) -> Room:
 	var room := Room.new()
@@ -118,23 +205,26 @@ func _make_room(row: int, column: int, type: Room.Type) -> Room:
 	room.position = Vector2(column * X_DIST, row * Y_DIST)
 	return room
 
+
 func _connect_all_segments() -> void:
-	var row_index := 0
-	while row_index < map_data.size() - 1:
-		var current: Array[Room] = map_data[row_index]
-		var next: Array[Room] = map_data[row_index + 1]
+	for row_index in range(map_data.size() - 1):
+		# Elements of Array[Array] are plain Arrays, so don't type these as Array[Room]
+		var current: Array = map_data[row_index]
+		var next: Array = map_data[row_index + 1]
 
 		if current.size() == 1:
+			# Single room fans out to every room in the next row
 			for room in next:
 				current[0].next_rooms.append(room)
 		elif next.size() == 1:
+			# Every room in this row funnels into the single next room
 			for room in current:
 				room.next_rooms.append(next[0])
 		else:
+			# 3-wide to 3-wide: connect straight across
 			for j in MAP_WIDTH:
 				current[j].next_rooms.append(next[j])
 
-		row_index += 1
 
 func _get_random_non_combat_type() -> Room.Type:
 	var total_weight := 0.0
