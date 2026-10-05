@@ -49,6 +49,8 @@ func _process(_delta: float) -> void:
 		parameters.collide_with_bodies = false
 		parameters.hit_from_inside = true
 		
+		parameters.collision_mask = 2
+		
 		var ray_hit = space.intersect_ray(parameters)
 		
 		if ray_hit and ray_hit.has("collider"):

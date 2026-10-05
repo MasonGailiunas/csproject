@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cofxqhmrdiplr" path="res://images/tower.png" id="2_b1paa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vr3u3"]
-radius = 7.0
+radius = 16.070158
 
 [node name="testtower_2" type="Area2D" unique_id=1570268893]
 script = ExtResource("1_b1paa")
@@ -15,7 +15,7 @@ show_behind_parent = true
 scale = Vector2(2, 2)
 texture = ExtResource("1_6ac0u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2044280889]
+[node name="rangecollision" type="CollisionShape2D" parent="." unique_id=2044280889]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_vr3u3")
 
