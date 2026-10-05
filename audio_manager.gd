@@ -1,8 +1,15 @@
 extends Node
 
 var sounds := {
+	
+	#Tower Sounds
 	"TowerBuilt": preload("res://SoundStorage/TowerSounds/TowerPlace.mp3"),
+	
+	#Enemy Sounds
 	"EnemyDeath": preload("res://SoundStorage/EnemySounds/bluh-output.mp3"),
+	
+	
+	#Other Sounds
 	"MenuClick":  preload("res://SoundStorage/OtherSounds/MenuClick.mp3"),
 	
 }
