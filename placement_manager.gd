@@ -101,6 +101,7 @@ func finalize_placement() -> void:
 	current_preview = null
 	print("Printed! ")
 	
+	
 
 func cancel_placement() -> void:
 	current_preview.queue_free()

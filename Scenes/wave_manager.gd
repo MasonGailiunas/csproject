@@ -66,6 +66,7 @@ func _on_spawn_timer_timeout() -> void:
 	
 	var target_count = current_wave.spawn_count if current_wave.spawn_count > 0 else 10
 	
+	
 	print("Timer ticked! Spawned so far: ", enemies_spawned_this_wave, "/", target_count)
 	
 	if enemies_spawned_this_wave < target_count:
@@ -74,15 +75,11 @@ func _on_spawn_timer_timeout() -> void:
 	else:
 		print("All wave enemies spawned. Stopping timer, waiting for clearance.")
 		spawn_timer.stop()
-const DEFEAT_SOUND = preload("res://SoundStorage/SoundEffects/bluh-output.mp3")
+
 func _on_enemy_defeated() -> void:
 	active_enemies -= 1
 	print("An enemy died! Remaining active enemies: ", active_enemies)
-	var audio_player = AudioStreamPlayer.new()
-	audio_player.stream = DEFEAT_SOUND
-	add_child(audio_player)
-	audio_player.play()
-	audio_player.finished.connect(func(): audio_player.queue_free())
+	AudioManager.play("EnemyDeath")
 	
 	
 	var current_wave = waves[current_wave_index]

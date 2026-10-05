@@ -8,12 +8,15 @@ func _ready() -> void:
 
 
 func _on_continue_button_pressed() -> void:
+	AudioManager.play("MenuClick")
 	print("Continue")
 
 
 func _on_new_run_button_pressed() -> void:
+	AudioManager.play("MenuClick")
 	print("New Run")
 
 
 func _on_exit_button_pressed() -> void:
+	AudioManager.play("MenuClick")
 	get_tree().quit()
