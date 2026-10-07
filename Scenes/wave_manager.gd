@@ -85,5 +85,5 @@ func _on_enemy_defeated() -> void:
 	var current_wave = waves[current_wave_index]
 	if enemies_spawned_this_wave >= current_wave.spawn_count and active_enemies <= 0:
 		print("Wave cleared! Preparing next wave...")
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(2.0).timeout    #67
 		start_wave(current_wave_index + 1)

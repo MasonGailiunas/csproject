@@ -71,7 +71,7 @@ func start_placement_mode_t1() -> void:
 	current_preview.set_preview_mode(true)
 	
 func start_placement_mode_t2() -> void:
-	current_preview = item_scene_t2.instantiate()
+	current_preview = item_scene_t2.instantiate()  
 	add_child(current_preview)
 	current_preview.set_preview_mode(true)
 
