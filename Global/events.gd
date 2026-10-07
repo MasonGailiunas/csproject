@@ -14,3 +14,5 @@ signal occurrence_exited
 signal rewards_exited
 
 signal treasure_exited
+
+signal battle_reward_exited
