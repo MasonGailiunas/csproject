@@ -3,7 +3,8 @@ extends Area2D
 @export var projectile_scene: PackedScene = preload("res://basicbullet.tscn")
 
 var is_placed: bool = false
-@onready var range_circle: Sprite2D = $"range circle"
+@onready var range_circle: Sprite2D = $"range circle area/range circle"
+@onready var range_area: Area2D = $"range circle area"
 @onready var shoot_timer: Timer = $basicbullet/Timer
 
 var current_target: Node2D = null
@@ -13,10 +14,12 @@ func set_preview_mode(is_preview: bool) -> void:
 	if is_preview:
 		modulate.a = 0.5
 		monitoring = true
+		monitorable = true
 		range_circle.show()
 	else:
 		modulate.a = 1.0
-		monitoring = false
+		monitoring = true
+		monitorable = true
 		range_circle.hide()
 		
 func set_range_circle_visibility(is_visible: bool):
@@ -32,7 +35,19 @@ func set_range_circle_preview(is_preview: bool):
 
 
 func is_valid_spot() -> bool:
-	return has_overlapping_areas() == false and has_overlapping_bodies() == false
+	var areas = get_overlapping_areas()
+	
+	for area in areas:
+		if area == self or area.get_parent() == self:
+			continue
+		if area.get_collision_layer_value(3) == true:
+			continue
+		if area.get_collision_layer_value(2) == true:
+			return false
+	
+	if has_overlapping_bodies():
+		return false
+	return true
 
 func _ready() -> void:
 	range_circle.apply_scale(Vector2(2,2))
@@ -64,12 +79,12 @@ func _on_enemy_exited(body: Node2D) -> void:
 
 func _process(_delta: float) -> void:
 	if is_instance_valid(current_target):
-		look_at(current_target.global_position)
+		$Sprite2D.look_at(current_target.global_position)
 	else:
 		find_new_target()
 
 func find_new_target() -> void:
-	var overlapping_bodies = get_overlapping_bodies()
+	var overlapping_bodies = range_area.get_overlapping_bodies()
 	for body in overlapping_bodies:
 		if body.is_in_group("enemies"):
 			current_target = body

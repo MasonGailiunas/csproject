@@ -7,6 +7,8 @@
 radius = 6.0827627
 
 [node name="basicbullet" type="Area2D" unique_id=874949275]
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("1_y0060")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1549425547]
