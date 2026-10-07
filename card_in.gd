@@ -4,6 +4,10 @@ const CARD_SCENE_PATH = "res://card.tscn"
 var card_scene = preload(CARD_SCENE_PATH)
 
 var type
+var cost
+var rarity
+var tower_to_place
+var effect_to_place
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,3 +26,7 @@ func instance_card():
 
 func transfer_common_variables(card):
 	card.type = type
+	card.cost = cost
+	card.rarity = rarity
+	card.tower_to_place = tower_to_place
+	card.effect_to_place = effect_to_place

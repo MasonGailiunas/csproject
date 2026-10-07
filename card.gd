@@ -4,6 +4,11 @@ signal hovered
 signal hovered_off
 
 var type
+var cost
+var rarity
+var tower_to_place
+var effect_to_place
+
 var interactable
 
 # Called when the node enters the scene tree for the first time.
