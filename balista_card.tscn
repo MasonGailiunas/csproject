@@ -1,25 +1,25 @@
-[gd_scene format=3 uid="uid://c81q415cuf22i"]
+[gd_scene format=3 uid="uid://8h4rbd7isp8v"]
 
-[ext_resource type="Script" uid="uid://dibrk814g8xnm" path="res://card.gd" id="1_rjlel"]
-[ext_resource type="Texture2D" uid="uid://cbsoghgd4oevn" path="res://unnamed.png" id="2_q5obu"]
-[ext_resource type="Texture2D" uid="uid://pvvnacn5uuic" path="res://image - 2026-10-09T110725.109.png" id="3_e484p"]
-[ext_resource type="Texture2D" uid="uid://dtlniq04l5h0c" path="res://CardBackground.png" id="3_q5obu"]
+[ext_resource type="Script" uid="uid://dibrk814g8xnm" path="res://card.gd" id="1_drt3f"]
+[ext_resource type="Texture2D" uid="uid://cbsoghgd4oevn" path="res://unnamed.png" id="2_g6r3g"]
+[ext_resource type="Texture2D" uid="uid://d0kmd6ic31hwb" path="res://image - 2026-10-09T113445.149.png" id="3_drt3f"]
+[ext_resource type="Texture2D" uid="uid://dtlniq04l5h0c" path="res://CardBackground.png" id="4_4sx62"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euvxj"]
 
 [node name="Card" type="Node2D" unique_id=292329637]
-script = ExtResource("1_rjlel")
+script = ExtResource("1_drt3f")
 
 [node name="CardBoarder" type="Sprite2D" parent="." unique_id=198251320]
 z_index = 1
-texture = ExtResource("2_q5obu")
+texture = ExtResource("2_g6r3g")
 
 [node name="CardArt" type="Sprite2D" parent="." unique_id=5631095]
 position = Vector2(0, -25)
-texture = ExtResource("3_e484p")
+texture = ExtResource("3_drt3f")
 
 [node name="CardSprite" type="Sprite2D" parent="." unique_id=1762171904]
-texture = ExtResource("3_q5obu")
+texture = ExtResource("4_4sx62")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=973545496]
 
