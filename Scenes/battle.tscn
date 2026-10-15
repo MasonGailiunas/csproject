@@ -69,7 +69,10 @@ path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
 [node name="testtower1" parent="." unique_id=13791481 instance=ExtResource("11_upb72")]
 visible = false
 
-[node name="range circle" parent="testtower1" index="1" unique_id=1544847291]
+[node name="Timer" parent="testtower1/basicbullet" parent_id_path=PackedInt32Array(13791481, 874949275) index="2" unique_id=1973617170]
+autostart = false
+
+[node name="range circle" parent="testtower1/range circle area" parent_id_path=PackedInt32Array(13791481, 1917255438) index="1" unique_id=1544847291]
 visible = false
 modulate = Color(1, 1, 1, 0.44705883)
 scale = Vector2(1, 1)
@@ -77,16 +80,15 @@ scale = Vector2(1, 1)
 [node name="testtower_2" parent="." unique_id=1570268893 instance=ExtResource("12_rssjf")]
 visible = false
 
-[node name="range circle" parent="testtower_2" index="0" unique_id=709545176]
-visible = false
-
-[node name="Sprite2D" parent="testtower_2" index="2" unique_id=1784452384]
+[node name="Sprite2D" parent="testtower_2" index="1" unique_id=1529300636]
 position = Vector2(-806, -414)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1271968429]
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_4fid7")
 script = SubResource("GDScript_fonr4")
+
+[connection signal="body_entered" from="testtower_2/basicbullet" to="testtower1" method="_on_basicbullet_body_entered"]
 
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="ENEMY"]

@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bibk4wlw5825f" path="res://images/New Piskel-1.png (2).png" id="1_6ac0u"]
 [ext_resource type="Script" uid="uid://2rekof4yteq" path="res://testtower_1.gd" id="1_vr3u3"]
 [ext_resource type="Texture2D" uid="uid://cofxqhmrdiplr" path="res://images/tower.png" id="2_b1paa"]
-[ext_resource type="PackedScene" uid="uid://cby152vvepm8r" path="res://basicbullet.tscn" id="3_hfjg2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5yft"]
 radius = 7.0
@@ -15,6 +14,7 @@ radius = 33.01515
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_vr3u3")
+projectile_scene = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298549858]
 scale = Vector2(2, 2)
@@ -24,11 +24,7 @@ shape = SubResource("CircleShape2D_p5yft")
 scale = Vector2(2, 2)
 texture = ExtResource("2_b1paa")
 
-[node name="basicbullet" parent="." unique_id=874949275 instance=ExtResource("3_hfjg2")]
-
-[node name="Timer" type="Timer" parent="basicbullet" unique_id=1973617170]
-wait_time = 4.0
-autostart = true
+[node name="ShootTimer" type="Timer" parent="." unique_id=1977078915]
 
 [node name="range circle area" type="Area2D" parent="." unique_id=1917255438]
 collision_layer = 4
