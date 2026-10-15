@@ -40,6 +40,7 @@ func _setup_event_connections() -> void:
 	Events.battle_reward_exited.connect(_change_view.bind(MAP_SCENE))
 	Events.campfire_exited.connect(_change_view.bind(MAP_SCENE))
 	Events.map_exited.connect(_on_map_exited)
+	Events.rewards_exited.connect(_change_view.bind(MAP_SCENE))
 	Events.shop_exited.connect(_change_view.bind(MAP_SCENE))
 	Events.treasure_exited.connect(_change_view.bind(MAP_SCENE))
 	Events.occurrence_exited.connect(_change_view.bind(MAP_SCENE))
