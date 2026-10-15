@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bslqy7vxm5415" path="res://SoundStorage/Music/_GRIEF_ Full Song _ GD Music.ogg" id="12_xkp4y"]
 [ext_resource type="AudioStream" uid="uid://ch0t1hlid7d8e" path="res://SoundStorage/Music/Warak - Reanimate.ogg" id="13_vd41i"]
 [ext_resource type="AudioStream" uid="uid://r57tj2ybftq" path="res://SoundStorage/Music/_SLAUGHTERHOUSE_ Song _ GD Music.ogg" id="14_nne6o"]
+[ext_resource type="Script" uid="uid://csfih3klnafji" path="res://Scenes/parallax_2d.gd" id="16_fonr4"]
 [ext_resource type="Texture2D" uid="uid://cpem11sjywn1x" path="res://SoundStorage/OtherSounds/output-onlinegiftools.png" id="16_nne6o"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4fid7"]
@@ -407,11 +408,17 @@ script = SubResource("GDScript_fonr4")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1157264879]
 z_index = -1
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(100, 0)
+script = ExtResource("16_fonr4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D" unique_id=1003518222]
+position = Vector2(900, 0)
 scale = Vector2(5.2, 3)
 sprite_frames = SubResource("SpriteFrames_470mv")
 autoplay = "default"
+centered = false
+offset = Vector2(0, -180)
 
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="ENEMY"]
