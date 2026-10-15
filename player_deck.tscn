@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cu83vyfdqusvr"]
+
+[ext_resource type="Script" uid="uid://q54j7lqtc5dw" path="res://player_deck.gd" id="1_ub03y"]
+[ext_resource type="Texture2D" uid="uid://dq3naxplkwwa6" path="res://image.png" id="2_kxhie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euvxj"]
+
+[node name="PlayerDeck" type="Node2D" unique_id=1892596376]
+script = ExtResource("1_ub03y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=344516891]
+texture = ExtResource("2_kxhie")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=943888996]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=666320081]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_euvxj")

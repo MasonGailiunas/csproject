@@ -1,7 +1,6 @@
 extends Node2D
 
-const CARD_SCENE_PATH = "res://card.tscn"
-var card_scene = preload(CARD_SCENE_PATH)
+var card_scenes = [preload("res://card.tscn"), preload("res://balista_card.tscn") , preload("res://flame_strike.tscn")]
 
 var type
 var cost
@@ -19,7 +18,7 @@ func _process(delta: float) -> void:
 	pass
 
 func instance_card():
-	var new_card = card_scene.instantiate() # instantiate doesn't fully add it
+	var new_card = card_scenes[type].instantiate() # instantiate doesn't fully add it
 	add_child(new_card) # Add here
 	transfer_common_variables(new_card)
 	return new_card
