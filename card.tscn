@@ -4,10 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cbsoghgd4oevn" path="res://unnamed.png" id="2_q5obu"]
 [ext_resource type="Texture2D" uid="uid://pvvnacn5uuic" path="res://image - 2026-10-09T110725.109.png" id="3_e484p"]
 [ext_resource type="Texture2D" uid="uid://dtlniq04l5h0c" path="res://CardBackground.png" id="3_q5obu"]
+[ext_resource type="FontFile" uid="uid://dlbpemo2c4ft" path="res://VerilySerifMono.otf" id="5_fpac0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euvxj"]
 
 [node name="Card" type="Node2D" unique_id=292329637]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_rjlel")
 
 [node name="CardBoarder" type="Sprite2D" parent="." unique_id=198251320]
@@ -26,6 +28,27 @@ texture = ExtResource("3_q5obu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1823827255]
 scale = Vector2(4.4, 6.4)
 shape = SubResource("RectangleShape2D_euvxj")
+
+[node name="Label" type="Label" parent="." unique_id=1018166900]
+offset_left = -12.0
+offset_top = -61.0
+offset_right = 78.0
+offset_bottom = -21.0
+scale = Vector2(0.28, 0.28)
+theme_override_fonts/font = ExtResource("5_fpac0")
+theme_override_font_sizes/font_size = 30
+text = "Label"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=322900998]
+offset_left = -35.0
+offset_top = 5.0
+offset_right = 325.0
+offset_bottom = 255.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("5_fpac0")
+theme_override_font_sizes/normal_font_size = 30
+text = "this is a template"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

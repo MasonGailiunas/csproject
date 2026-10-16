@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bdvtihouwd4n8"]
+
+[ext_resource type="Script" uid="uid://dibrk814g8xnm" path="res://card.gd" id="1_nawkn"]
+[ext_resource type="Texture2D" uid="uid://bnyi1l504t1ia" path="res://UncommonCardBoarder.png" id="2_gr6lb"]
+[ext_resource type="Texture2D" uid="uid://pcyjogcnitsd" path="res://Ignite.png" id="3_nawkn"]
+[ext_resource type="Texture2D" uid="uid://dtlniq04l5h0c" path="res://CardBackground.png" id="4_i1nf6"]
+[ext_resource type="FontFile" uid="uid://dlbpemo2c4ft" path="res://VerilySerifMono.otf" id="5_0tppy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euvxj"]
+
+[node name="Card" type="Node2D" unique_id=292329637]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_nawkn")
+
+[node name="CardBoarder" type="Sprite2D" parent="." unique_id=198251320]
+z_index = 1
+texture = ExtResource("2_gr6lb")
+
+[node name="CardArt" type="Sprite2D" parent="." unique_id=5631095]
+position = Vector2(0, -25)
+texture = ExtResource("3_nawkn")
+
+[node name="CardSprite" type="Sprite2D" parent="." unique_id=1762171904]
+modulate = Color(0.43603075, 0.14320469, 0.1321629, 1)
+texture = ExtResource("4_i1nf6")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=973545496]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1823827255]
+scale = Vector2(4.4, 6.4)
+shape = SubResource("RectangleShape2D_euvxj")
+
+[node name="Label" type="Label" parent="." unique_id=1903226314]
+offset_left = -16.0
+offset_top = -61.0
+offset_right = 94.0
+offset_bottom = -21.0
+scale = Vector2(0.28, 0.28)
+theme_override_fonts/font = ExtResource("5_0tppy")
+theme_override_font_sizes/font_size = 30
+text = "Ignite"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=93547101]
+offset_left = -35.0
+offset_top = 5.0
+offset_right = 325.0
+offset_bottom = 255.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("5_0tppy")
+theme_override_font_sizes/normal_font_size = 30
+text = "Upgrade card
+Tower has a 15% chance to inflict burn on hit"
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

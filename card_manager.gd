@@ -51,10 +51,10 @@ func on_hovered_off(card):
 	
 func highlight(card, hovered):
 	if hovered:
-		card.scale = Vector2(1.05, 1.05)
+		card.scale = Vector2(1.55, 1.55)
 		card.z_index = 2
 	else:
-		card.scale = Vector2(1,1)
+		card.scale = Vector2(1.5,1.5)
 		card.z_index = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
