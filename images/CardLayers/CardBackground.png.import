@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqq6nukq7jmot"
-path="res://.godot/imported/CommonCardBoarder.png-c4bfbf54a3f9c2d7a909fbb4a5039d1d.ctex"
+uid="uid://dtlniq04l5h0c"
+path="res://.godot/imported/CardBackground.png-17388d2de5fa973c4774d3c6d9090438.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CommonCardBoarder.png"
-dest_files=["res://.godot/imported/CommonCardBoarder.png-c4bfbf54a3f9c2d7a909fbb4a5039d1d.ctex"]
+source_file="res://images/CardLayers/CardBackground.png"
+dest_files=["res://.godot/imported/CardBackground.png-17388d2de5fa973c4774d3c6d9090438.ctex"]
 
 [params]
 

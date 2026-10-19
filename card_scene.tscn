@@ -17,3 +17,4 @@ script = ExtResource("2_s2bil")
 script = ExtResource("3_sfjtb")
 
 [node name="PlayerDeck" parent="." unique_id=1892596376 instance=ExtResource("4_eafyo")]
+position = Vector2(100, 1000)

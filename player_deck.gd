@@ -2,7 +2,6 @@ extends Node2D
 
 const CARD_IN_SCENE_PATH = "res://card_in.tscn"
 var card_in_scene = preload(CARD_IN_SCENE_PATH)
-
 var true_deck =[]
 var instance_deck = []
 
@@ -11,6 +10,10 @@ func _ready() -> void:
 	create_instanced_deck()
 	$"../PlayerHand".referesh_hand()
 
+func _process(delta: float) -> void:
+	$Sprite2D.rotation += 0.02
+	$Sprite2D2.rotation += 0.04
+	
 func create_starting_deck():
 	for i in range(12):
 		var new_card_in = card_in_scene.instantiate() # instantiate doesn't fully add it

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://41es8wjod2kp"
-path="res://.godot/imported/New Piskel (3).png-cc6b69ada80995fb87eae09a0be2517c.ctex"
+uid="uid://b0bhilic5bllf"
+path="res://.godot/imported/CardPortalBackLayer.png-d4bac66a674cc8b4d04e3f5a2ad43051.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://New Piskel (3).png"
-dest_files=["res://.godot/imported/New Piskel (3).png-cc6b69ada80995fb87eae09a0be2517c.ctex"]
+source_file="res://images/DeckSprites/CardPortalBackLayer.png"
+dest_files=["res://.godot/imported/CardPortalBackLayer.png-d4bac66a674cc8b4d04e3f5a2ad43051.ctex"]
 
 [params]
 

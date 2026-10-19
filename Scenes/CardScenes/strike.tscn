@@ -1,28 +1,27 @@
-[gd_scene format=3 uid="uid://d2ifj10woypwd"]
+[gd_scene format=3 uid="uid://di7x2bmywa7op"]
 
-[ext_resource type="Script" uid="uid://dibrk814g8xnm" path="res://card.gd" id="1_ockya"]
-[ext_resource type="Texture2D" uid="uid://bnyi1l504t1ia" path="res://UncommonCardBoarder.png" id="2_ockya"]
-[ext_resource type="Texture2D" uid="uid://41es8wjod2kp" path="res://New Piskel (3).png" id="3_f5sx2"]
-[ext_resource type="Texture2D" uid="uid://dtlniq04l5h0c" path="res://CardBackground.png" id="4_swkr5"]
-[ext_resource type="FontFile" uid="uid://dlbpemo2c4ft" path="res://VerilySerifMono.otf" id="5_f5sx2"]
+[ext_resource type="Script" uid="uid://dibrk814g8xnm" path="res://card.gd" id="1_geis3"]
+[ext_resource type="Texture2D" uid="uid://cbsoghgd4oevn" path="res://images/CardLayers/CardBoarders/CommonCardBoarder.png" id="2_geis3"]
+[ext_resource type="Texture2D" uid="uid://b1g5j8togdq7k" path="res://images/CardLayers/CardArt/Strike.png" id="3_geis3"]
+[ext_resource type="Texture2D" uid="uid://dtlniq04l5h0c" path="res://images/CardLayers/CardBackground.png" id="4_geis3"]
+[ext_resource type="FontFile" uid="uid://dlbpemo2c4ft" path="res://VerilySerifMono.otf" id="5_l6v37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euvxj"]
 
 [node name="Card" type="Node2D" unique_id=292329637]
 scale = Vector2(1.5, 1.5)
-script = ExtResource("1_ockya")
+script = ExtResource("1_geis3")
 
 [node name="CardBoarder" type="Sprite2D" parent="." unique_id=198251320]
 z_index = 1
-texture = ExtResource("2_ockya")
+texture = ExtResource("2_geis3")
 
 [node name="CardArt" type="Sprite2D" parent="." unique_id=5631095]
 position = Vector2(0, -25)
-texture = ExtResource("3_f5sx2")
+texture = ExtResource("3_geis3")
 
 [node name="CardSprite" type="Sprite2D" parent="." unique_id=1762171904]
-modulate = Color(0.43603075, 0.14320469, 0.1321629, 1)
-texture = ExtResource("4_swkr5")
+texture = ExtResource("4_geis3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=973545496]
 
@@ -30,27 +29,27 @@ texture = ExtResource("4_swkr5")
 scale = Vector2(4.4, 6.4)
 shape = SubResource("RectangleShape2D_euvxj")
 
-[node name="Label" type="Label" parent="." unique_id=1903226314]
-offset_left = -30.0
+[node name="Label" type="Label" parent="." unique_id=1018166900]
+offset_left = -14.0
 offset_top = -61.0
-offset_right = 186.0
+offset_right = 94.0
 offset_bottom = -21.0
 scale = Vector2(0.28, 0.28)
-theme_override_fonts/font = ExtResource("5_f5sx2")
+theme_override_fonts/font = ExtResource("5_l6v37")
 theme_override_font_sizes/font_size = 30
-text = "Flame Strike"
+text = "Strike"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=93547101]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=322900998]
 offset_left = -35.0
 offset_top = 5.0
 offset_right = 325.0
 offset_bottom = 255.0
 scale = Vector2(0.2, 0.2)
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("5_f5sx2")
+theme_override_fonts/normal_font = ExtResource("5_l6v37")
 theme_override_font_sizes/normal_font_size = 30
 text = "Effect card
-Deals x damage and has a 50% chance to burn enemies"
+Deals x damage"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

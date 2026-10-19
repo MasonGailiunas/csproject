@@ -1,6 +1,6 @@
 extends Node2D
 
-const CARD_SCENE_PATH = "res://card.tscn"
+const CARD_SCENE_PATH = "res://Scenes/CardScenes/card.tscn"
 const CARD_WIDTH = 150
 var card_scene = preload(CARD_SCENE_PATH)
 var hand = []
