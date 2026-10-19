@@ -8,7 +8,7 @@
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
-radius = 33.01515
+radius = 33.02
 
 [node name="testtower1" type="Area2D" unique_id=13791481]
 collision_layer = 2

@@ -51,6 +51,9 @@ tile_map_layer = NodePath("TileMapLayer")
 [node name="enemy_with_path" parent="PlacementManager/TileMapLayer/Path2D" parent_id_path=PackedInt32Array(95948562, 1567271272) index="0" unique_id=1452024055]
 visible = false
 
+[node name="CharacterBody2D" parent="PlacementManager/TileMapLayer/Path2D/enemy_with_path" index="0" unique_id=1000274725]
+collision_mask = 9
+
 [node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("4_lrv64")]
 
 [node name="ENEMY" parent="." unique_id=602373079 instance=ExtResource("5_qeyqd")]
@@ -68,11 +71,12 @@ path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
 
 [node name="testtower1" parent="." unique_id=13791481 instance=ExtResource("11_upb72")]
 visible = false
+collision_mask = 0
 
-[node name="Timer" parent="testtower1/basicbullet" parent_id_path=PackedInt32Array(13791481, 874949275) index="2" unique_id=1973617170]
-autostart = false
+[node name="range circle area" parent="testtower1" index="3" unique_id=1917255438]
+collision_layer = 0
 
-[node name="range circle" parent="testtower1/range circle area" parent_id_path=PackedInt32Array(13791481, 1917255438) index="1" unique_id=1544847291]
+[node name="range circle" parent="testtower1/range circle area" index="1" unique_id=1544847291]
 visible = false
 modulate = Color(1, 1, 1, 0.44705883)
 scale = Vector2(1, 1)
@@ -83,14 +87,16 @@ visible = false
 [node name="Sprite2D" parent="testtower_2" index="1" unique_id=1529300636]
 position = Vector2(-806, -414)
 
+[node name="range circle area" parent="testtower_2" index="3" unique_id=1917255438]
+collision_layer = 0
+
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1271968429]
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_4fid7")
 script = SubResource("GDScript_fonr4")
 
-[connection signal="body_entered" from="testtower_2/basicbullet" to="testtower1" method="_on_basicbullet_body_entered"]
-
 [editable path="PlacementManager/TileMapLayer"]
+[editable path="PlacementManager/TileMapLayer/Path2D/enemy_with_path"]
 [editable path="ENEMY"]
 [editable path="testtower1"]
 [editable path="testtower_2"]

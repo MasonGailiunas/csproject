@@ -12,9 +12,8 @@ radius = 33.01515
 
 [node name="testtower2" type="Area2D" unique_id=13791481]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 0
 script = ExtResource("1_vr3u3")
-projectile_scene = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298549858]
 scale = Vector2(2, 2)
