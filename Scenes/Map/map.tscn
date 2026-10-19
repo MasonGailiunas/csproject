@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://cvjxhq02nnygl" path="res://Scenes/Map/map_generator.gd" id="3_03x5g"]
 
 [sub_resource type="Gradient" id="Gradient_jolfa"]
-offsets = PackedFloat32Array(0, 0.7866109, 1)
-colors = PackedColorArray(0.5370113, 0.5370113, 0.5370113, 1, 0.5087543, 0.9999998, 0.88762134, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.52719665, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.4555545, 0.014851513, 0.27634066, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qdocg"]
 gradient = SubResource("Gradient_jolfa")

@@ -1,12 +1,11 @@
-[gd_scene format=3 uid="uid://cch3sdccnqfgg"]
+[gd_scene format=3 uid="uid://vco8q13gnr"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4i54n"]
-load_path = "res://.godot/imported/New Piskel (1).png-0f80e19330a1755b7dab685de064ddaf.ctex"
+[ext_resource type="Texture2D" uid="uid://btbkhyhmwjvaf" path="res://Art/New Piskel (8).png" id="1_a4qki"]
 
-[node name="Map Line" type="Line2D" unique_id=56454955]
+[node name="map_line" type="Line2D" unique_id=1919470577]
+texture_filter = 1
 texture_repeat = 2
-position = Vector2(139, -1373)
-scale = Vector2(1, 16.45)
-default_color = Color(0.9354507, 1.2321472e-05, 0.6158523, 1)
-texture = SubResource("CompressedTexture2D_4i54n")
+points = PackedVector2Array(127, 402)
+texture = ExtResource("1_a4qki")
 texture_mode = 1
+sharp_limit = 0.0

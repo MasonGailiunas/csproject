@@ -78,10 +78,10 @@ func set_available(new_value: bool) -> void:
 	if not is_node_ready():
 		await ready
 
-	if available:
-		animation_player.play("Fight Icon ")
-	elif room == null or not room.selected:
-		animation_player.play("RESET")
+	#if available:
+		#animation_player.play("Fight Icon ")
+	#elif room == null or not room.selected:
+		#animation_player.play("RESET")
 
 
 func set_room(new_data: Room) -> void:
