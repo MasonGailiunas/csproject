@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://cl7ay20cgom1k" path="res://player_hand.gd" id="2_s2bil"]
 [ext_resource type="Script" uid="uid://s3cib8a5xjkt" path="res://discard_pile.gd" id="3_sfjtb"]
 [ext_resource type="PackedScene" uid="uid://cu83vyfdqusvr" path="res://player_deck.tscn" id="4_eafyo"]
+[ext_resource type="Script" uid="uid://bw786qlmfn53t" path="res://card_return_box.gd" id="5_s2bil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euvxj"]
+size = Vector2(27.439999, 5.4355006)
 
 [node name="CardScene" type="Node2D" unique_id=261090848]
 
@@ -18,3 +22,13 @@ script = ExtResource("3_sfjtb")
 
 [node name="PlayerDeck" parent="." unique_id=1892596376 instance=ExtResource("4_eafyo")]
 position = Vector2(100, 1000)
+
+[node name="CardReturnBox" type="Node2D" parent="." unique_id=1221180489]
+
+[node name="Area2D" type="Area2D" parent="CardReturnBox" unique_id=2064142678]
+scale = Vector2(50, 50)
+script = ExtResource("5_s2bil")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardReturnBox/Area2D" unique_id=873298054]
+position = Vector2(20, 19.35775)
+shape = SubResource("RectangleShape2D_euvxj")
