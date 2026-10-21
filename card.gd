@@ -4,15 +4,16 @@ signal hovered
 signal hovered_off
 
 var type
-var cost
-var rarity
-var tower_to_place
-var effect_to_place
+@export var cost = 0
+@export var rarity = 0
+@export var tower_to_place: Area2D = null
+@export var effect_to_place = null
 
 var interactable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("cards")
 	get_parent().get_parent().connect_card_signals(self)
 
 func _on_area_2d_mouse_entered() -> void:
