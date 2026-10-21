@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cu83vyfdqusvr"]
+
+[ext_resource type="Script" uid="uid://q54j7lqtc5dw" path="res://player_deck.gd" id="1_ub03y"]
+[ext_resource type="Texture2D" uid="uid://ddpoem11ifqq1" path="res://images/DeckSprites/CardPortal.png" id="2_kxhie"]
+[ext_resource type="Texture2D" uid="uid://b0bhilic5bllf" path="res://images/DeckSprites/CardPortalBackLayer.png" id="3_dmm8a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eafyo"]
+
+[node name="PlayerDeck" type="Node2D" unique_id=1892596376]
+script = ExtResource("1_ub03y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=344516891]
+scale = Vector2(2, 2)
+texture = ExtResource("2_kxhie")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1675837694]
+modulate = Color(1, 1, 1, 0.5294118)
+scale = Vector2(2.35, 2.35)
+texture = ExtResource("3_dmm8a")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=943888996]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=666320081]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_eafyo")
