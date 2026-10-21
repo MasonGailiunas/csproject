@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhuc7hdmycjm7"
-path="res://.godot/imported/Water Ball.png-d0cb27a788926995f55be6e3c8a849fe.ctex"
+uid="uid://btbkhyhmwjvaf"
+path="res://.godot/imported/New Piskel (8).png-d1533945976a6c5cd23ebad12ce8e6ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Water Ball.png"
-dest_files=["res://.godot/imported/Water Ball.png-d0cb27a788926995f55be6e3c8a849fe.ctex"]
+source_file="res://images/Art/New Piskel (8).png"
+dest_files=["res://.godot/imported/New Piskel (8).png-d1533945976a6c5cd23ebad12ce8e6ff.ctex"]
 
 [params]
 

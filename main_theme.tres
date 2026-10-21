@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dhf4p8wepr1mq"]
 
-[ext_resource type="FontFile" uid="uid://j868mdubrs3l" path="res://Art/SyneMono-Regular.ttf" id="1_470mv"]
+[ext_resource type="FontFile" uid="uid://j868mdubrs3l" path="res://images/Art/SyneMono-Regular.ttf" id="1_470mv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcctd"]
 bg_color = Color(0.3137255, 0.3137255, 0.2509804, 1)

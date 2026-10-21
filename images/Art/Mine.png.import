@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2xs2cxr03ghv"
-path="res://.godot/imported/Fight.png-074ebe6ba642261704c949b5a6c3e23e.ctex"
+uid="uid://b2kchabis24da"
+path="res://.godot/imported/Mine.png-f8526974e49ea9f8e9862015a5aaf381.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Fight.png"
-dest_files=["res://.godot/imported/Fight.png-074ebe6ba642261704c949b5a6c3e23e.ctex"]
+source_file="res://images/Art/Mine.png"
+dest_files=["res://.godot/imported/Mine.png-f8526974e49ea9f8e9862015a5aaf381.ctex"]
 
 [params]
 
