@@ -8,6 +8,8 @@ var current_preview: Area2D = null
 var tower: Area2D = null
 var source_id = 0
 
+var occupied_tiles: Array[Vector2i] = []
+
 func _ready() -> void:
 	print("started")
 
@@ -28,8 +30,8 @@ func _input(event: InputEvent) -> void:
 			var source_id = tile_map_layer.get_cell_source_id(local_grid_pos)
 	
 			current_preview.global_position = snapped_world_pos
-			if source_id == 0:
-				finalize_placement()
+			if source_id == 0 and not occupied_tiles.has(local_grid_pos):
+				finalize_placement(local_grid_pos)
 
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		if current_preview:
@@ -89,16 +91,14 @@ func update_preview_position() -> void:
 	
 	current_preview.global_position = snapped_world_pos
 	
-	if current_preview.is_valid_spot():
-		if source_id == 0:
+	if current_preview.is_valid_spot() and source_id == 0 and not occupied_tiles.has(local_grid_pos):
 			current_preview.modulate = Color(0.5, 1.0, 0.5, 0.6)
-		else:
-			current_preview.modulate = Color(1.0, 0.5, 0.5, 0.6)
 	else:
 		current_preview.modulate = Color(1.0, 0.5, 0.5, 0.6)
 
-func finalize_placement() -> void:
+func finalize_placement(grid_pos: Vector2i) -> void:
 	current_preview.set_preview_mode(false)
+	occupied_tiles.append(grid_pos) 
 	tower = current_preview
 	current_preview = null
 	print("Printed! ")
