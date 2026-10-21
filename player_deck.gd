@@ -11,8 +11,8 @@ func _ready() -> void:
 	$"../PlayerHand".referesh_hand()
 
 func _process(delta: float) -> void:
-	$Sprite2D.rotation += 0.02
-	$Sprite2D2.rotation += 0.04
+	$Sprite2D.rotation += 0.01
+	$Sprite2D2.rotation += 0.02
 	
 func create_starting_deck():
 	for i in range(12):
