@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0usgt31n8jx8"
-path="res://.godot/imported/New Piskel (1).png-0f80e19330a1755b7dab685de064ddaf.ctex"
+uid="uid://41es8wjod2kp"
+path="res://.godot/imported/FlameStrike.png-57de4351bf1525e36ba76919550a621d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/New Piskel (1).png"
-dest_files=["res://.godot/imported/New Piskel (1).png-0f80e19330a1755b7dab685de064ddaf.ctex"]
+source_file="res://images/CardLayers/CardArt/FlameStrike.png"
+dest_files=["res://.godot/imported/FlameStrike.png-57de4351bf1525e36ba76919550a621d.ctex"]
 
 [params]
 

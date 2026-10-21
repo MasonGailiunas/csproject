@@ -11,7 +11,7 @@ resource_name = "Click"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Node2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -41,7 +41,7 @@ resource_name = "Fight Icon "
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Node2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -54,9 +54,10 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fehfl"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Node2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -68,7 +69,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Node2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -87,7 +88,7 @@ _data = {
 }
 
 [node name="MapRoom" type="Area2D" unique_id=1649226878]
-collision_layer = 8
+collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_wn3tm")
 

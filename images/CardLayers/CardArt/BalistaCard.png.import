@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqq6nukq7jmot"
-path="res://.godot/imported/CommonCardBoarder.png-c4bfbf54a3f9c2d7a909fbb4a5039d1d.ctex"
+uid="uid://d0kmd6ic31hwb"
+path="res://.godot/imported/BalistaCard.png-901f6ad084a3b678915ea889951221a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CommonCardBoarder.png"
-dest_files=["res://.godot/imported/CommonCardBoarder.png-c4bfbf54a3f9c2d7a909fbb4a5039d1d.ctex"]
+source_file="res://images/CardLayers/CardArt/BalistaCard.png"
+dest_files=["res://.godot/imported/BalistaCard.png-901f6ad084a3b678915ea889951221a2.ctex"]
 
 [params]
 

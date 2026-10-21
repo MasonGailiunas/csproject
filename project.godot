@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Events="*uid://0w66xj2pnl3h"
 BackgroundMusic="*uid://bk4uyebd4w4q6"
+AudioManager="*uid://dantk1ay7ra7x"
 
 [display]
 
