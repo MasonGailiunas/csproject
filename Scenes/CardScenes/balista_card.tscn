@@ -12,6 +12,7 @@
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_os5kc")
 cost = 1
+tower_to_place = null
 damage = 5
 
 [node name="CardBoarder" type="Sprite2D" parent="." unique_id=198251320]

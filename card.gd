@@ -6,7 +6,7 @@ signal hovered_off
 var type
 @export var cost = 0
 @export var rarity = 0
-@export var tower_to_place: Area2D = null
+@export var tower_to_place: PackedScene
 @export var effect_to_place = null
 @export var damage = 0
 @export var block = 0
