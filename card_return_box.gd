@@ -3,19 +3,20 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("cards"):
-		print("return")
-	print("hi")
+func _on_area_entered(area: Area2D) -> void:
+	var card = area.get_parent()
+	if card.is_in_group("cards"):
+		print("enter")
 
-func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("cards"):
-		print("check")
-	print("out")
+func _on_area_exited(area: Area2D) -> void:
+	var card = area.get_parent()
+	
+	if card.is_in_group("cards"):
+		print("exit")

@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bw786qlmfn53t" path="res://card_return_box.gd" id="5_s2bil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euvxj"]
-size = Vector2(27.439999, 5.4355006)
+size = Vector2(27.439999, 3.275501)
 
 [node name="CardScene" type="Node2D" unique_id=261090848]
 
@@ -27,8 +27,14 @@ position = Vector2(100, 1000)
 
 [node name="Area2D" type="Area2D" parent="CardReturnBox" unique_id=2064142678]
 scale = Vector2(50, 50)
+collision_mask = 16
 script = ExtResource("5_s2bil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardReturnBox/Area2D" unique_id=873298054]
-position = Vector2(20, 19.35775)
+position = Vector2(20, 20.43775)
 shape = SubResource("RectangleShape2D_euvxj")
+
+[connection signal="area_entered" from="CardReturnBox/Area2D" to="CardReturnBox/Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="CardReturnBox/Area2D" to="CardReturnBox/Area2D" method="_on_area_exited"]
+[connection signal="body_entered" from="CardReturnBox/Area2D" to="CardReturnBox/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="CardReturnBox/Area2D" to="CardReturnBox/Area2D" method="_on_body_exited"]

@@ -25,6 +25,8 @@ modulate = Color(0.43603075, 0.14320469, 0.1321629, 1)
 texture = ExtResource("4_vls5j")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=973545496]
+collision_layer = 16
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1823827255]
 scale = Vector2(4.4, 6.4)

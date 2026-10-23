@@ -30,8 +30,8 @@ func raycast_for_card():
 
 func filter_raycast_for_cards(list):
 	for i in list:
-		if !i.collider.get_parent().get_parent().is_in_group("cards"):
-			list.remove(i)
+		if !i.collider.get_parent().is_in_group("cards"):
+			list.erase(i)
 	return list
 	
 func find_highest_z_index(list):
@@ -47,7 +47,7 @@ func connect_card_signals(card):
 		card.connect("hovered_off", on_hovered_off)
 
 func on_hovered(card):
-	if card_hovered == null || card_hovered != card:
+	if (card_hovered == null || card_hovered != card) && card_dragged == null:
 		if card_hovered != null:
 			highlight(card_hovered, false)
 		card_hovered = card
