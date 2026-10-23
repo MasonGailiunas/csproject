@@ -98,6 +98,7 @@ func update_preview_position() -> void:
 
 func finalize_placement(grid_pos: Vector2i) -> void:
 	current_preview.set_preview_mode(false)
+	current_preview.shoot_timer.stop()
 	occupied_tiles.append(grid_pos) 
 	tower = current_preview
 	current_preview = null
