@@ -27,6 +27,7 @@ position = Vector2(100, 1000)
 
 [node name="Area2D" type="Area2D" parent="CardReturnBox" unique_id=2064142678]
 scale = Vector2(50, 50)
+collision_mask = 16
 script = ExtResource("5_s2bil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardReturnBox/Area2D" unique_id=873298054]
