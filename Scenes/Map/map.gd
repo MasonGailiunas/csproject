@@ -229,17 +229,18 @@ var camera_edge_y: float
 
 func _ready() -> void:
 	generate_new_map()
-	camera_edge_y = MapGenerator.Y_DIST * (map_data.size() - 1)
+	var map_height := MapGenerator.Y_DIST * (map_data.size() - 1)
+	camera_edge_y = max(0.0, map_height + 200.0 - get_viewport_rect().size.y)
 	unlock_room(0)
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scroll_up"):
-		camera_2d.position.y -= SCROLL_SPEED
+		camera_2d.position.y -= SCROLL_SPEED*2
 	elif event.is_action_pressed("scroll_down"):
-		camera_2d.position.y += SCROLL_SPEED
+		camera_2d.position.y += SCROLL_SPEED*2
 	
-	camera_2d.position.y = clamp(camera_2d.position.y, -camera_edge_y, 0)
+	camera_2d.position.y = clamp(camera_2d.position.y, 0, camera_edge_y)
 
 
 func generate_new_map() -> void:
@@ -260,7 +261,7 @@ func create_map() -> void:
 	
 	var map_width_pixels := MapGenerator.X_DIST * (MapGenerator.MAP_WIDTH - 1)
 	visuals.position.x = (get_viewport_rect().size.x - map_width_pixels) / 2
-	visuals.position.y = get_viewport_rect().size.y / 2
+	visuals.position.y = 100
 
 
 func unlock_room(which_floor: int = floors_climbed) -> void:

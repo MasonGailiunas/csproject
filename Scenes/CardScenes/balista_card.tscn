@@ -11,6 +11,8 @@
 [node name="Card" type="Node2D" unique_id=292329637]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_os5kc")
+cost = 1
+damage = 5
 
 [node name="CardBoarder" type="Sprite2D" parent="." unique_id=198251320]
 z_index = 1
@@ -50,7 +52,7 @@ theme_override_fonts/normal_font = ExtResource("5_yspx7")
 theme_override_font_sizes/normal_font_size = 30
 text = "Tower card
 x fire rate
-x damage"
+{d} damage"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

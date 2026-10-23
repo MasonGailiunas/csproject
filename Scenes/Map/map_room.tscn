@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6i4uim55lpfb"]
 
-[ext_resource type="Texture2D" uid="uid://2xs2cxr03ghv" path="res://Art/Fight.png" id="1_kfqlg"]
+[ext_resource type="Texture2D" uid="uid://2xs2cxr03ghv" path="res://images/Art/Fight.png" id="1_kfqlg"]
 [ext_resource type="Script" uid="uid://dvc3eiv8ht40t" path="res://Scenes/Map/map_room.gd" id="1_wn3tm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0j8fc"]
@@ -93,7 +93,6 @@ collision_mask = 0
 script = ExtResource("1_wn3tm")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1335608216]
-modulate = Color(1, 1, 1, 0)
 
 [node name="Line2D" type="Line2D" parent="Node2D" unique_id=1696564143]
 points = PackedVector2Array(0, -16, 17, -15, 24, 8, 8, 24, 0, 24, -16, 16, -15, -3, -7, -16, 0, -16)

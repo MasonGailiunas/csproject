@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vco8q13gnr"]
 
-[ext_resource type="Texture2D" uid="uid://btbkhyhmwjvaf" path="res://Art/New Piskel (8).png" id="1_a4qki"]
+[ext_resource type="Texture2D" uid="uid://btbkhyhmwjvaf" path="res://images/Art/New Piskel (8).png" id="1_a4qki"]
 
 [node name="map_line" type="Line2D" unique_id=1919470577]
 texture_filter = 1
