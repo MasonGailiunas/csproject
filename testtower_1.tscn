@@ -16,6 +16,7 @@ collision_mask = 3
 script = ExtResource("1_78ped")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298549858]
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_p5yft")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1529300636]
@@ -28,9 +29,10 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="range circle area" unique_id=897154620]
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_uu5co")
 
 [node name="range circle" type="Sprite2D" parent="range circle area" unique_id=1544847291]
 show_behind_parent = true
-scale = Vector2(2, 2)
+scale = Vector2(4, 4)
 texture = ExtResource("3_el1nf")

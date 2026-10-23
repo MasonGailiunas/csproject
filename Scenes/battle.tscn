@@ -420,12 +420,11 @@ autoscroll = Vector2(100, 0)
 script = ExtResource("16_fonr4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D" unique_id=1003518222]
-position = Vector2(900, 0)
+position = Vector2(0, -550)
 scale = Vector2(5.2, 3)
 sprite_frames = SubResource("SpriteFrames_470mv")
 autoplay = "default"
 centered = false
-offset = Vector2(0, -180)
 
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="PlacementManager/TileMapLayer/Path2D/enemy_with_path"]

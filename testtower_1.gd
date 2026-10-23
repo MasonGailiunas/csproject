@@ -66,7 +66,6 @@ func _process(_delta: float) -> void:
 	if is_instance_valid(current_target):
 		$Sprite2D.look_at(current_target.global_position)
 	else:
-		# If target died or left, grab a new one
 		find_next_target()
 
 func _on_timer_timeout() -> void:
