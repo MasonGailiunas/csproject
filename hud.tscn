@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bugt7s2716ss7"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1452024976]
+
+[node name="Control" type="Control" parent="." unique_id=1822952197]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=3283730]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=2073948592]
+layout_mode = 2
+
+[node name="CurrencyLabel" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=515106060]
+layout_mode = 2
+
+[node name="LivesLabel" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=418066314]
+layout_mode = 2
+
+[node name="PauseButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=894998669]
+layout_mode = 2
+
+[node name="PauseMenu" type="Control" parent="Control" unique_id=1602573320]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

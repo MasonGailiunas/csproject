@@ -391,8 +391,14 @@ path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
 visible = false
 collision_mask = 0
 
+[node name="CollisionShape2D" parent="testtower1" index="0" unique_id=298549858]
+scale = Vector2(1, 1)
+
 [node name="range circle area" parent="testtower1" index="3" unique_id=1917255438]
 collision_layer = 0
+
+[node name="CollisionShape2D" parent="testtower1/range circle area" index="0" unique_id=897154620]
+scale = Vector2(1, 1)
 
 [node name="range circle" parent="testtower1/range circle area" index="1" unique_id=1544847291]
 visible = false
