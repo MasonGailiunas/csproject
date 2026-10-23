@@ -5,11 +5,11 @@
 #
 #const ICONS := {
 	#Room.Type.NOT_ASSIGNED: [null, Vector2.ONE],
-	#Room.Type.CAMPFIRE: [preload("res://Art/Fight.png"), Vector2.ONE],
-	#Room.Type.SHOP: [preload("res://Art/Fight.png"), Vector2.ONE],
-	#Room.Type.TREASURE: [preload("res://Art/Fight.png"), Vector2.ONE],
-	#Room.Type.OCCURRENCE: [preload("res://Art/Fight.png"), Vector2.ONE],
-	#Room.Type.MONSTER: [preload("res://Art/Fight.png")]
+	#Room.Type.CAMPFIRE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	#Room.Type.SHOP: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	#Room.Type.TREASURE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	#Room.Type.OCCURRENCE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	#Room.Type.MONSTER: [preload("res://images/Art/Fight.png")]
 #}
 #
 #@onready var sprite_2d: Sprite2D = $Visuals/Sprite2D
@@ -57,11 +57,11 @@ signal selected(room: Room)
 
 const ICONS := {
 	Room.Type.NOT_ASSIGNED: [null, Vector2.ONE],
-	Room.Type.CAMPFIRE: [preload("res://Art/Fight.png"), Vector2.ONE],
-	Room.Type.SHOP: [preload("res://Art/Fight.png"), Vector2.ONE],
-	Room.Type.TREASURE: [preload("res://Art/Fight.png"), Vector2.ONE],
-	Room.Type.OCCURRENCE: [preload("res://Art/Fight.png"), Vector2.ONE],
-	Room.Type.MONSTER: [preload("res://Art/Fight.png"), Vector2.ONE],
+	Room.Type.CAMPFIRE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	Room.Type.SHOP: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	Room.Type.TREASURE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	Room.Type.OCCURRENCE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	Room.Type.MONSTER: [preload("res://images/Art/Fight.png"), Vector2.ONE],
 }
 
 @onready var sprite_2d: Sprite2D = $Visuals/Sprite2D

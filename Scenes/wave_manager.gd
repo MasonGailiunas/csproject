@@ -30,7 +30,7 @@ func start_wave(index: int) -> void:
 	if current_wave:
 		print("Wave Name: ", current_wave.wave_name)
 		print("Spawn Count: ", current_wave.spawn_count)
-		print("Spawn Delay: ", current_wave.spawn_delay)
+		print("Spawn Delay: ", current_wave.spawn_delay) 
 		print("Enemy Scenes Array Size: ", current_wave.enemy_scenes.size())
 	print("--------------------------")
 	

@@ -23,10 +23,17 @@ func raycast_for_card():
 	parameters.collide_with_areas = true
 	parameters.collide_with_areas = COLLISION_MASK_CARD
 	var result = space_state.intersect_point(parameters)
+	result = filter_raycast_for_cards(result)
 	if result.size() > 0:
 		return find_highest_z_index(result)
 	return null
 
+func filter_raycast_for_cards(list):
+	for i in list:
+		if !i.collider.get_parent().get_parent().is_in_group("cards"):
+			list.remove(i)
+	return list
+	
 func find_highest_z_index(list):
 	var highest = list[0].collider.get_parent()
 	for	i in range(1, list.size()):
