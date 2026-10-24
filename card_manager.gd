@@ -12,6 +12,7 @@ func _input(event):
 			if card:
 				card_dragged = card
 		else:
+			if card_dragged != null && card_dragged.can_play() && !card_dragged.in_return_box: card_dragged.play_card()
 			var index = $"../PlayerHand".hand.find(card_dragged)
 			$"../PlayerHand".animate_card_to_position(card_dragged, $"../PlayerHand".calculate_card_pos(index))
 			card_dragged = null
@@ -29,9 +30,14 @@ func raycast_for_card():
 	return null
 
 func filter_raycast_for_cards(list):
+	var removes = []
 	for i in list:
 		if !i.collider.get_parent().is_in_group("cards"):
-			list.erase(i)
+			removes.insert(0,i)
+		else: if !i.collider.get_parent().interactable:
+			removes.insert(0,i)
+	for i in removes:
+		list.erase(i)
 	return list
 	
 func find_highest_z_index(list):
@@ -73,3 +79,12 @@ func _process(delta: float) -> void:
 	if card_dragged:
 		var mouse_pos = get_global_mouse_position()
 		card_dragged.position = Vector2(clamp(mouse_pos.x, 0, screen_size.x),clamp(mouse_pos.y, 0, screen_size.y) )
+
+func get_hand():
+	return $"../PlayerHand"
+
+func get_discard_pile():
+	return $"../DiscardPile"
+
+func get_deck():
+	return $"../PlayerDeck"
