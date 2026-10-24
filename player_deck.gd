@@ -1,9 +1,11 @@
 extends Node2D
 
+const COLLISION_MASK = 2
 const CARD_IN_SCENE_PATH = "res://card_in.tscn"
 var card_in_scene = preload(CARD_IN_SCENE_PATH)
 var true_deck =[]
 var instance_deck = []
+var window_open
 
 func _ready() -> void:
 	create_starting_deck()
@@ -55,3 +57,54 @@ func draw_cards(num: int):
 			reshuffle()
 		$"../PlayerHand".add_card_to_hand(instance_deck[0])
 		instance_deck.remove_at(0)
+		await get_tree().create_timer(0.05).timeout
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if (event.is_pressed()):
+			var found = raycast_for_deck()
+			if found:
+				if !window_open:
+					window_open = true
+					open_deck_window()
+				else:
+					window_open = false
+					close_deck_window()
+
+func raycast_for_deck():
+	var space_state = get_world_2d().direct_space_state
+	var parameters = PhysicsPointQueryParameters2D.new()
+	parameters.position = get_global_mouse_position()
+	parameters.collide_with_areas = true
+	parameters.collide_with_areas = COLLISION_MASK
+	var result = space_state.intersect_point(parameters)
+	result = filter_raycast_for_deck(result)
+	if result.size() > 0:
+		return true
+	return false
+
+func filter_raycast_for_deck(list):
+	var removes = []
+	for i in list:
+		if i.collider.get_parent() != self:
+			removes.insert(0,i)
+	for i in removes:
+		list.erase(i)
+	return list
+
+func open_deck_window():
+	for i in range(instance_deck.size()):
+		instance_deck[i].show()
+		$"../PlayerHand".animate_card_to_position(instance_deck[i], calculate_card_position(i))
+
+func close_deck_window():
+	for i in range(instance_deck.size()):
+		$"../PlayerHand".animate_card_to_position(instance_deck[i], position)
+	await get_tree().create_timer(0.1).timeout
+	for i in range(instance_deck.size()):
+		instance_deck[i].hide()
+
+func calculate_card_position(index):
+	var x = $"../PlayerHand".center_screen_x + (index%10)*150 - 150*4.5
+	var y = 250 * (int)(index/10) + 150
+	return Vector2(x,y)

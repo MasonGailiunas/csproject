@@ -18,7 +18,7 @@ shape = SubResource("RectangleShape2D_euvxj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=750526096]
 modulate = Color(1.6197081, 1.6197081, 1.6197081, 0.14509805)
-position = Vector2(0, -15)
+position = Vector2(0, -10)
 texture = ExtResource("2_dcpmr")
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

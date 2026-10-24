@@ -28,7 +28,6 @@ func add_card_to_hand(card) -> bool:
 		return true
 	return false
 	
-	
 func update_hand_position():
 	for i in range(hand.size()):
 		var new_pos = calculate_card_pos(i)
