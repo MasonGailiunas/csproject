@@ -1,7 +1,9 @@
 extends Node2D
+class_name card
 
 signal hovered
 signal hovered_off
+var in_return_box
 
 var type
 @export var cost = 0
@@ -42,7 +44,11 @@ func set_interactibility(set_type: bool):
 		interactable = false
 
 func can_play():
-	pass
+	return true
 
 func play_card():
-	pass
+	var card_manager_ref = get_parent().get_parent()
+	card_manager_ref.get_discard_pile().discard_pile.insert(0, self)
+	set_interactibility(false)
+	card_manager_ref.get_hand().hand.erase(self)
+	get_parent().get_parent().get_hand().update_hand_position()

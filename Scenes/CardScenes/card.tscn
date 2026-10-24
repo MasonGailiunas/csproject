@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtlniq04l5h0c" path="res://images/CardLayers/CardBackground.png" id="4_otq64"]
 [ext_resource type="FontFile" uid="uid://dlbpemo2c4ft" path="res://VerilySerifMono.otf" id="5_wjurl"]
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euvxj"]
 
 [node name="Card" type="Node2D" unique_id=292329637]

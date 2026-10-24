@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cu83vyfdqusvr"]
 
 [ext_resource type="Script" uid="uid://q54j7lqtc5dw" path="res://player_deck.gd" id="1_ub03y"]
-[ext_resource type="Texture2D" uid="uid://ddpoem11ifqq1" path="res://images/DeckSprites/CardPortal.png" id="2_kxhie"]
-[ext_resource type="Texture2D" uid="uid://b0bhilic5bllf" path="res://images/DeckSprites/CardPortalBackLayer.png" id="3_dmm8a"]
+[ext_resource type="Texture2D" uid="uid://ddpoem11ifqq1" path="res://images/CardSceneComponents/DeckSprites/CardPortal.png" id="2_kxhie"]
+[ext_resource type="Texture2D" uid="uid://b0bhilic5bllf" path="res://images/CardSceneComponents/DeckSprites/CardPortalBackLayer.png" id="3_dmm8a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eafyo"]
 
