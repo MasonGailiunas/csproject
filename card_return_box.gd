@@ -10,17 +10,19 @@ func _process(delta: float) -> void:
 	if $"../Sprite2D".modulate.a < 0.05: $"../Sprite2D".modulate.a+= 0.001
 
 func _on_area_entered(area: Area2D) -> void:
-	var card = area.get_parent()
-	if card.is_in_group("cards"):
-		card.in_return_box = true
-		get_parent().hide()
-		print("enter")
+	var parent = area.get_parent()
+	if parent.is_in_group("cards"):
+		if parent.interactable:
+			parent.in_return_box = true
+			get_parent().hide()
+			print("enter")
 
 func _on_area_exited(area: Area2D) -> void:
-	var card = area.get_parent()
+	var parent = area.get_parent()
 	
-	if card.is_in_group("cards"):
-		card.in_return_box = false
-		$"../Sprite2D".modulate.a = 0
-		get_parent().show()
-		print("exit")
+	if parent.is_in_group("cards"):
+		if parent.interactable:
+			parent.in_return_box = false
+			$"../Sprite2D".modulate.a = 0
+			get_parent().show()
+			print("exit")

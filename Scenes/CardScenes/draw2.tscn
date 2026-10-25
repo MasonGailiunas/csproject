@@ -11,6 +11,7 @@
 [node name="Card" type="Node2D" unique_id=292329637]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_du8pf")
+draw_add = 2
 
 [node name="CardBoarder" type="Sprite2D" parent="." unique_id=198251320]
 z_index = 1
@@ -49,7 +50,7 @@ scale = Vector2(0.2, 0.2)
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("5_usd1x")
 theme_override_font_sizes/normal_font_size = 30
-text = "Draw 2 cards"
+text = "Draw {s} cards"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

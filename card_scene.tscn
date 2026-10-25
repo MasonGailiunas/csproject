@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnwlfwym2hkav" path="res://card_manager.gd" id="1_eafyo"]
 [ext_resource type="Script" uid="uid://cl7ay20cgom1k" path="res://player_hand.gd" id="2_s2bil"]
-[ext_resource type="Script" uid="uid://s3cib8a5xjkt" path="res://discard_pile.gd" id="3_sfjtb"]
+[ext_resource type="PackedScene" uid="uid://cq2laqvk14eyi" path="res://discard_pile.tscn" id="3_s2bil"]
 [ext_resource type="PackedScene" uid="uid://cu83vyfdqusvr" path="res://player_deck.tscn" id="4_eafyo"]
 [ext_resource type="PackedScene" uid="uid://c8n4ppsjr4vt3" path="res://card_return_box.tscn" id="5_s2bil"]
 
@@ -14,8 +14,8 @@ script = ExtResource("1_eafyo")
 [node name="PlayerHand" type="Node2D" parent="." unique_id=632840183]
 script = ExtResource("2_s2bil")
 
-[node name="DiscardPile" type="Node2D" parent="." unique_id=919969960]
-script = ExtResource("3_sfjtb")
+[node name="DiscardPile" parent="." unique_id=156339506 instance=ExtResource("3_s2bil")]
+position = Vector2(1800, 1000)
 
 [node name="PlayerDeck" parent="." unique_id=1892596376 instance=ExtResource("4_eafyo")]
 position = Vector2(100, 1000)

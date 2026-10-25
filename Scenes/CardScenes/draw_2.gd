@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 func play_card():
 	var card_manager_ref = get_parent().get_parent()
-	card_manager_ref.get_deck().draw_cards(2)
+	card_manager_ref.get_deck().draw_cards(draw_add)
 	super.play_card()

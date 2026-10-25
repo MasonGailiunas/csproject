@@ -88,3 +88,6 @@ func get_discard_pile():
 
 func get_deck():
 	return $"../PlayerDeck"
+
+func get_card_return_box():
+	return $"../CardReturnBox"
