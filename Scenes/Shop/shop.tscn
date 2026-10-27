@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chu3pqpc8rgn0"]
 
 [ext_resource type="Script" uid="uid://bwtbmbt2v6jha" path="res://Scenes/Shop/shop.gd" id="1_78vcx"]
+[ext_resource type="Texture2D" uid="uid://bp5mti7epqqo7" path="res://images/Art/Backgrounds/PlaceHolder Background.png" id="2_8dak6"]
 [ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="2_dqdqq"]
 
 [node name="Shop" type="Control" unique_id=457036930]
@@ -12,37 +13,79 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_78vcx")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=874587018]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1629601684]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+texture = ExtResource("2_8dak6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1005586918]
+[node name="GridContainer" type="GridContainer" parent="TextureRect" unique_id=762448650]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 176.0
+offset_right = 1717.0
+offset_bottom = 911.0
+theme_override_constants/h_separation = 153
+theme_override_constants/v_separation = 89
+columns = 4
+
+[node name="Button" type="Button" parent="TextureRect/GridContainer" unique_id=1134417230]
+custom_minimum_size = Vector2(250, 323.145)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="TextureRect/GridContainer" unique_id=818893097]
+custom_minimum_size = Vector2(250, 323.145)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="TextureRect/GridContainer" unique_id=809272652]
+custom_minimum_size = Vector2(250, 323.145)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="TextureRect/GridContainer" unique_id=740632852]
+custom_minimum_size = Vector2(250, 323.145)
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="TextureRect/GridContainer" unique_id=1541997355]
+custom_minimum_size = Vector2(250, 323.145)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="TextureRect/GridContainer" unique_id=619353704]
+custom_minimum_size = Vector2(250, 323.145)
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="TextureRect/GridContainer" unique_id=713706834]
+custom_minimum_size = Vector2(250, 323.145)
+layout_mode = 2
+
+[node name="Button8" type="Button" parent="TextureRect/GridContainer" unique_id=444707433]
+custom_minimum_size = Vector2(250, 323.145)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=1005586918]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -94.0
-offset_top = -94.5
-offset_right = 94.0
-offset_bottom = 94.5
+offset_left = 791.0
+offset_top = 435.0
+offset_right = 955.0
+offset_bottom = 534.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer" unique_id=423582257]
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer" unique_id=423582257]
 layout_mode = 2
 theme = ExtResource("2_dqdqq")
 text = "Shop"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer" unique_id=416098685]
+[node name="Button" type="Button" parent="TextureRect/VBoxContainer" unique_id=416098685]
 layout_mode = 2
 theme = ExtResource("2_dqdqq")
 text = "GO BACK
 "
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
