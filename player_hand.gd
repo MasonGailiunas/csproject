@@ -23,11 +23,10 @@ func referesh_hand():
 func add_card_to_hand(card) -> bool:
 	if hand.size() < hand_max:
 		hand.insert(0, card)
-		card.set_interactibility(true)
+		card.set_interactibility(0)
 		update_hand_position()
 		return true
 	return false
-	
 	
 func update_hand_position():
 	for i in range(hand.size()):
@@ -46,7 +45,7 @@ func calculate_card_pos(index) -> Vector2:
 
 	
 func discard_card(card):
-	var card_index = hand.bsearch(card)
-	hand.remove_at(card_index)
+	hand.erase(card)
 	$"../DiscardPile".discard_pile.insert(0, card)
-	card.set_interactibility(false)
+	card.set_interactibility(1)
+	card.position = $"../DiscardPile".position

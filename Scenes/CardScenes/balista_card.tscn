@@ -12,6 +12,7 @@
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_os5kc")
 cost = 1
+tower_to_place = null
 damage = 5
 
 [node name="CardBoarder" type="Sprite2D" parent="." unique_id=198251320]
@@ -27,7 +28,6 @@ texture = ExtResource("4_os5kc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=973545496]
 collision_layer = 16
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1823827255]
 scale = Vector2(4.4, 6.4)

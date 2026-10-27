@@ -3,7 +3,6 @@ extends Node
 
 const BATTLE_SCENE := preload("res://Scenes/Campfire/campfire.tscn")
 const BATTLE_REWARD_SCENE := preload("res://Scenes/Campfire/campfire.tscn")
-const MAP_SCENE := preload("res://map.tscn")
 const CAMPFIRE_SCENE := preload("res://Scenes/Campfire/campfire.tscn")
 const SHOP_SCENE := preload("res://Scenes/Shop/shop.tscn")
 const TREASURE_SCENE := preload("res://Scenes/Treasure/treasure.tscn")
@@ -25,33 +24,58 @@ func _ready() -> void:
 
 func _start_run() -> void:
 	_setup_event_connections()
+	map.show_map()
 
 
 func _change_view(scene: PackedScene) -> void:
-	if current_view.get_child_count() > 0:
-		current_view.get_child(0).queue_free()
-	
+	_clear_view()
+	map.hide_map()
 	get_tree().paused = false
-	var new_view := scene.instantiate()
-	current_view.add_child(new_view)
+	current_view.add_child(scene.instantiate())
+
+func _clear_view() -> void:
+	for child in current_view.get_children():
+		child.queue_free()
+
+
+func _show_map() -> void:
+	_clear_view()
+	get_tree().paused = false
+	map.show_map()
+
+
+# Called when a room's encounter is finished
+func _return_to_map() -> void:
+	_show_map()
+	map.unlock_next_rooms()
+
 
 func _setup_event_connections() -> void:
 	Events.battle_won.connect(_change_view.bind(BATTLE_REWARD_SCENE))
-	Events.battle_reward_exited.connect(_change_view.bind(MAP_SCENE))
-	Events.campfire_exited.connect(_change_view.bind(MAP_SCENE))
+	Events.battle_reward_exited.connect(_return_to_map)
+	Events.campfire_exited.connect(_return_to_map)
 	Events.map_exited.connect(_on_map_exited)
-	Events.rewards_exited.connect(_change_view.bind(MAP_SCENE))
-	Events.shop_exited.connect(_change_view.bind(MAP_SCENE))
-	Events.treasure_exited.connect(_change_view.bind(MAP_SCENE))
-	Events.occurrence_exited.connect(_change_view.bind(MAP_SCENE))
+	Events.rewards_exited.connect(_return_to_map)
+	Events.shop_exited.connect(_return_to_map)
+	Events.treasure_exited.connect(_return_to_map)
+	Events.occurrence_exited.connect(_return_to_map)
 
 	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
 	campfire_button.pressed.connect(_change_view.bind(CAMPFIRE_SCENE))
-	map_button.pressed.connect(_change_view.bind(MAP_SCENE))
+	map_button.pressed.connect(_show_map)
 	reward_button.pressed.connect(_change_view.bind(REWARD_SCENE))
 	shop_button.pressed.connect(_change_view.bind(SHOP_SCENE))
 	occurrence_button.pressed.connect(_change_view.bind(OCCURRENCE_SCENE))
 	treasure_button.pressed.connect(_change_view.bind(TREASURE_SCENE))
 
-func _on_map_exited() -> void:
-	print("do later") 
+
+func _on_map_exited(room: Room) -> void:
+	match room.type:
+		Room.Type.MONSTER:
+			_change_view(BATTLE_SCENE)
+		Room.Type.CAMPFIRE:
+			_change_view(CAMPFIRE_SCENE)
+		Room.Type.SHOP:
+			_change_view(SHOP_SCENE)
+		Room.Type.OCCURRENCE:
+			_change_view(OCCURRENCE_SCENE)

@@ -1,21 +1,28 @@
 extends Area2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if $"../Sprite2D".modulate.a < 0.05: $"../Sprite2D".modulate.a+= 0.001
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("cards"):
-		print("return")
-	print("hi")
+func _on_area_entered(area: Area2D) -> void:
+	var parent = area.get_parent()
+	if parent.is_in_group("cards"):
+		if parent.interactable:
+			parent.in_return_box = true
+			get_parent().hide()
+			print("enter")
 
-func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("cards"):
-		print("check")
-	print("out")
+func _on_area_exited(area: Area2D) -> void:
+	var parent = area.get_parent()
+	
+	if parent.is_in_group("cards"):
+		if parent.interactable:
+			parent.in_return_box = false
+			$"../Sprite2D".modulate.a = 0
+			get_parent().show()
+			print("exit")

@@ -1,6 +1,6 @@
 extends Node2D
 
-var card_scenes = [preload("res://Scenes/CardScenes/card.tscn"),preload("res://Scenes/CardScenes/strike.tscn"),preload("res://Scenes/CardScenes/defend.tscn"),preload("res://Scenes/CardScenes/balista_card.tscn") , preload("res://Scenes/CardScenes/flame_strike.tscn") , preload("res://Scenes/CardScenes/ignite.tscn")]
+var card_scenes = [preload("res://Scenes/CardScenes/card.tscn"),preload("res://Scenes/CardScenes/strike.tscn"),preload("res://Scenes/CardScenes/defend.tscn"),preload("res://Scenes/CardScenes/balista_card.tscn") ,preload("res://Scenes/CardScenes/draw2.tscn"), preload("res://Scenes/CardScenes/flame_strike.tscn") , preload("res://Scenes/CardScenes/ignite.tscn"), preload("res://Scenes/CardScenes/faithful_draw.tscn")]
 
 var type
 var cost
