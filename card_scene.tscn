@@ -21,4 +21,4 @@ position = Vector2(1800, 1000)
 position = Vector2(100, 1000)
 
 [node name="CardReturnBox" parent="." unique_id=1338641851 instance=ExtResource("5_s2bil")]
-position = Vector2(960, 980)
+position = Vector2(957, 970)

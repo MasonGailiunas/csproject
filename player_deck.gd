@@ -24,9 +24,9 @@ func create_starting_deck():
 		if (i < 5):
 			new_card_in.type = 2
 		if (i > 9):
-			new_card_in.type = 4
+			new_card_in.type = 3
 		if (i == 11):
-			new_card_in.type = 7
+			new_card_in.type = 4
 		true_deck.insert(0, new_card_in)
 		
 func create_instanced_deck():

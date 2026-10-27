@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://r57tj2ybftq" path="res://SoundStorage/Music/_SLAUGHTERHOUSE_ Song _ GD Music.ogg" id="14_nne6o"]
 [ext_resource type="Script" uid="uid://csfih3klnafji" path="res://Scenes/parallax_2d.gd" id="16_fonr4"]
 [ext_resource type="Texture2D" uid="uid://cpem11sjywn1x" path="res://SoundStorage/OtherSounds/output-onlinegiftools.png" id="16_nne6o"]
+[ext_resource type="PackedScene" uid="uid://drcepty0njy1a" path="res://card_scene.tscn" id="18_7vlph"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4fid7"]
 streams_count = 3
@@ -359,6 +360,7 @@ animations = [{
 script = ExtResource("1_qeyqd")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
+anchor_mode = 0
 script = ExtResource("1_pd5xk")
 
 [node name="PlacementManager" parent="." unique_id=1106805761 node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("2_f6xt6")]
@@ -425,6 +427,8 @@ scale = Vector2(5.2, 3)
 sprite_frames = SubResource("SpriteFrames_470mv")
 autoplay = "default"
 centered = false
+
+[node name="CardScene" parent="." unique_id=261090848 instance=ExtResource("18_7vlph")]
 
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="PlacementManager/TileMapLayer/Path2D/enemy_with_path"]
