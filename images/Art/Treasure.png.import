@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddpoem11ifqq1"
-path="res://.godot/imported/CardPortal.png-7973fa26b7d9da4a78a2157dc18df128.ctex"
+uid="uid://dq4h0j07gdh00"
+path="res://.godot/imported/Treasure.png-bf87c0aec2ce708ff44dfc8f3d1c2715.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/DeckSprites/CardPortal.png"
-dest_files=["res://.godot/imported/CardPortal.png-7973fa26b7d9da4a78a2157dc18df128.ctex"]
+source_file="res://images/Art/Treasure.png"
+dest_files=["res://.godot/imported/Treasure.png-bf87c0aec2ce708ff44dfc8f3d1c2715.ctex"]
 
 [params]
 

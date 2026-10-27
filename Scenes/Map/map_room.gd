@@ -58,8 +58,8 @@ signal selected(room: Room)
 const ICONS := {
 	Room.Type.NOT_ASSIGNED: [null, Vector2.ONE],
 	Room.Type.CAMPFIRE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
-	Room.Type.SHOP: [preload("res://images/Art/Fight.png"), Vector2.ONE],
-	Room.Type.TREASURE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	Room.Type.SHOP: [preload("res://images/Art/Shop.png"), Vector2.ONE],
+	Room.Type.TREASURE: [preload("res://images/Art/Treasure.png"), Vector2.ONE],
 	Room.Type.OCCURRENCE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
 	Room.Type.MONSTER: [preload("res://images/Art/Fight.png"), Vector2.ONE],
 }
@@ -103,6 +103,10 @@ func show_selected() -> void:
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not available or not event.is_action_pressed("left_mouse"):
 		return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		room.selected = true
+		available = false
+		selected.emit(room)
 
 	room.selected = true
 	animation_player.play("Click")

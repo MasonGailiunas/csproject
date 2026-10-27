@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cq2laqvk14eyi"]
+
+[ext_resource type="Script" uid="uid://s3cib8a5xjkt" path="res://discard_pile.gd" id="1_tlh23"]
+[ext_resource type="Texture2D" uid="uid://d28a6cww23ihq" path="res://images/CardSceneComponents/CardWell.png" id="2_ob0na"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tlh23"]
+
+[node name="DiscardPile" type="Node2D" unique_id=156339506]
+script = ExtResource("1_tlh23")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1532081135]
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_ob0na")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=404810985]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2031890252]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_tlh23")

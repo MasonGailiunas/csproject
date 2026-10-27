@@ -236,9 +236,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scroll_up"):
-		camera_2d.position.y -= SCROLL_SPEED*2
+		camera_2d.position.y -= SCROLL_SPEED*4
 	elif event.is_action_pressed("scroll_down"):
-		camera_2d.position.y += SCROLL_SPEED*2
+		camera_2d.position.y += SCROLL_SPEED*4
 	
 	camera_2d.position.y = clamp(camera_2d.position.y, 0, camera_edge_y)
 
@@ -303,6 +303,7 @@ func _connect_lines(room: Room) -> void:
 	
 	for next: Room in room.next_rooms:
 		var new_map_line := MAP_LINE.instantiate() as Line2D
+		new_map_line.clear_points()
 		new_map_line.add_point(room.position)
 		new_map_line.add_point(next.position)
 		lines.add_child(new_map_line)
