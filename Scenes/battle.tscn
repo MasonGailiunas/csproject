@@ -367,6 +367,7 @@ script = ExtResource("1_pd5xk")
 tile_map_layer = NodePath("TileMapLayer")
 
 [node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("3_ww2ai")]
+position = Vector2(960, 540)
 
 [node name="enemy_with_path" parent="PlacementManager/TileMapLayer/Path2D" parent_id_path=PackedInt32Array(95948562, 1567271272) index="0" unique_id=1452024055]
 visible = false
@@ -375,13 +376,14 @@ visible = false
 collision_mask = 9
 
 [node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("4_lrv64")]
+position = Vector2(960, 540)
 
 [node name="ENEMY" parent="." unique_id=602373079 instance=ExtResource("5_qeyqd")]
 visible = false
 position = Vector2(-715, -232)
 
 [node name="SPAWN_LOCATION" parent="." unique_id=154697959 instance=ExtResource("6_f6xt6")]
-position = Vector2(-545, 97)
+position = Vector2(415, 637)
 
 [node name="WaveManager" parent="." unique_id=1779233385 node_paths=PackedStringArray("path_node") instance=ExtResource("7_ww2ai")]
 visible = false
@@ -422,7 +424,7 @@ autoscroll = Vector2(100, 0)
 script = ExtResource("16_fonr4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D" unique_id=1003518222]
-position = Vector2(0, -550)
+position = Vector2(960, -10)
 scale = Vector2(5.2, 3)
 sprite_frames = SubResource("SpriteFrames_470mv")
 autoplay = "default"

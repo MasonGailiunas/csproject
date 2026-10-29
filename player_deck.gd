@@ -23,7 +23,7 @@ func create_starting_deck():
 		new_card_in.type = 1
 		if (i < 5):
 			new_card_in.type = 2
-		if (i > 9):
+		if (i > 8):
 			new_card_in.type = 3
 		if (i == 11):
 			new_card_in.type = 4

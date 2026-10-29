@@ -21,10 +21,8 @@ func _input(event: InputEvent) -> void:
 		
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if current_preview and current_preview.is_valid_spot():
-			var mouse_pos = get_global_mouse_position()
-	
-	
-			var local_grid_pos = tile_map_layer.local_to_map(tile_map_layer.to_local(mouse_pos))
+			
+			var local_grid_pos = get_local_grid_pos()
 			var snapped_world_pos = tile_map_layer.to_global(tile_map_layer.map_to_local(local_grid_pos))
 	
 			var source_id = tile_map_layer.get_cell_source_id(local_grid_pos)
@@ -36,6 +34,11 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		if current_preview:
 			cancel_placement()
+
+func get_local_grid_pos():
+	var mouse_pos = get_global_mouse_position()
+	var local_grid_pos = tile_map_layer.local_to_map(tile_map_layer.to_local(mouse_pos))
+	return local_grid_pos
 
 func _process(_delta: float) -> void:
 	if current_preview:
@@ -76,6 +79,11 @@ func start_placement_mode_t1() -> void:
 	
 func start_placement_mode_t2() -> void:
 	current_preview = item_scene_t2.instantiate()  
+	add_child(current_preview)
+	current_preview.set_preview_mode(true)
+
+func start_placement_mode(tower: String) -> void:
+	current_preview = load(tower).instantiate() 
 	add_child(current_preview)
 	current_preview.set_preview_mode(true)
 

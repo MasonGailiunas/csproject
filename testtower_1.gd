@@ -19,12 +19,10 @@ func _ready() -> void:
 func set_preview_mode(is_preview: bool) -> void:
 	is_placed = !is_preview
 	if is_preview:
-		modulate.a = 0.5
 		range_circle.show()
 		current_target = null
 		shoot_timer.stop()
 	else:
-		modulate.a = 1.0
 		range_circle.hide()
 		
 		# Sweep for any beefy enemies already sitting here when placed
@@ -36,15 +34,11 @@ func set_preview_mode(is_preview: bool) -> void:
 				break
 				
 func set_range_circle_visibility(is_visible: bool) -> void:
-	if range_circle:
-		range_circle.visible = is_visible
+	if is_visible:
+		range_circle.show()
+	else:
+		range_circle.hide()
 		
-func set_range_circle_preview(is_preview: bool) -> void:
-	if range_circle:
-		if is_preview:
-			range_circle.modulate.a = 0.5
-		else:
-			range_circle.modulate.a = 1.0
 
 func is_valid_spot() -> bool:
 	var areas = get_overlapping_areas()

@@ -31,7 +31,7 @@ func _on_area_exited(area: Area2D) -> void:
 			$"../Sprite2D".modulate.a = 0
 			get_parent().show()
 			print("exit")
-			#parent.hide()
-			#if parent.is_in_group("towers"):    MAKE WORK FOR SPECIFICALLY TOWERS
-				#print("A")
-			$"../../../PlacementManager".start_placement_mode_t1()
+			if parent.is_in_group("towers"):
+				print("A")
+				parent.hide()
+				$"../../../PlacementManager".start_placement_mode(parent.tower_scene_path)
