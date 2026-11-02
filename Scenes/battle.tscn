@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://r57tj2ybftq" path="res://SoundStorage/Music/_SLAUGHTERHOUSE_ Song _ GD Music.ogg" id="14_nne6o"]
 [ext_resource type="Script" uid="uid://csfih3klnafji" path="res://Scenes/parallax_2d.gd" id="16_fonr4"]
 [ext_resource type="Texture2D" uid="uid://cpem11sjywn1x" path="res://SoundStorage/OtherSounds/output-onlinegiftools.png" id="16_nne6o"]
+[ext_resource type="PackedScene" uid="uid://drcepty0njy1a" path="res://card_scene.tscn" id="18_7vlph"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4fid7"]
 streams_count = 3
@@ -359,12 +360,14 @@ animations = [{
 script = ExtResource("1_qeyqd")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=78217955]
+anchor_mode = 0
 script = ExtResource("1_pd5xk")
 
 [node name="PlacementManager" parent="." unique_id=1106805761 node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("2_f6xt6")]
 tile_map_layer = NodePath("TileMapLayer")
 
 [node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("3_ww2ai")]
+position = Vector2(960, 540)
 
 [node name="enemy_with_path" parent="PlacementManager/TileMapLayer/Path2D" parent_id_path=PackedInt32Array(95948562, 1567271272) index="0" unique_id=1452024055]
 visible = false
@@ -373,13 +376,14 @@ visible = false
 collision_mask = 9
 
 [node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("4_lrv64")]
+position = Vector2(960, 540)
 
 [node name="ENEMY" parent="." unique_id=602373079 instance=ExtResource("5_qeyqd")]
 visible = false
 position = Vector2(-715, -232)
 
 [node name="SPAWN_LOCATION" parent="." unique_id=154697959 instance=ExtResource("6_f6xt6")]
-position = Vector2(-545, 97)
+position = Vector2(415, 637)
 
 [node name="WaveManager" parent="." unique_id=1779233385 node_paths=PackedStringArray("path_node") instance=ExtResource("7_ww2ai")]
 visible = false
@@ -426,11 +430,13 @@ autoscroll = Vector2(100, 0)
 script = ExtResource("16_fonr4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D" unique_id=1003518222]
-position = Vector2(0, -550)
+position = Vector2(960, -10)
 scale = Vector2(5.2, 3)
 sprite_frames = SubResource("SpriteFrames_470mv")
 autoplay = "default"
 centered = false
+
+[node name="CardScene" parent="." unique_id=261090848 instance=ExtResource("18_7vlph")]
 
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="PlacementManager/TileMapLayer/Path2D/enemy_with_path"]

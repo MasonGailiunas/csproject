@@ -27,5 +27,4 @@ func transfer_common_variables(card):
 	card.type = type
 	card.cost = cost
 	card.rarity = rarity
-	card.tower_to_place = tower_to_place
 	card.effect_to_place = effect_to_place

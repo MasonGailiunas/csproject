@@ -12,7 +12,7 @@ func _input(event):
 			if card:
 				card_dragged = card
 		else:
-			if card_dragged != null && card_dragged.can_play() && !card_dragged.in_return_box: card_dragged.play_card()
+			if card_dragged != null &&!card_dragged.in_return_box: if card_dragged.can_play(): card_dragged.play_card()
 			var index = $"../PlayerHand".hand.find(card_dragged)
 			$"../PlayerHand".animate_card_to_position(card_dragged, $"../PlayerHand".calculate_card_pos(index))
 			card_dragged = null
@@ -91,3 +91,6 @@ func get_deck():
 
 func get_card_return_box():
 	return $"../CardReturnBox"
+
+func get_placement_manager():
+	return $"../../PlacementManager"
