@@ -1,14 +1,53 @@
 [gd_scene format=3 uid="uid://bhokacl60m47w"]
 
 [ext_resource type="Texture2D" uid="uid://cofxqhmrdiplr" path="res://images/tower.png" id="1_k1sas"]
+[ext_resource type="Script" uid="uid://2rekof4yteq" path="res://testtower_1.gd" id="1_vedim"]
+[ext_resource type="Script" uid="uid://k7mfey08ynso" path="res://maintower.gd" id="2_jbe1c"]
+[ext_resource type="Texture2D" uid="uid://bibk4wlw5825f" path="res://images/New Piskel-1.png (2).png" id="2_vedim"]
 
-[node name="MainTower" type="Node2D" unique_id=235311839]
+[sub_resource type="CircleShape2D" id="CircleShape2D_7vlph"]
+radius = 55.00909
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=988206842]
-scale = Vector2(3.6538463, 3.6538463)
+[sub_resource type="CircleShape2D" id="CircleShape2D_stebd"]
+radius = 32.60245
+
+[node name="MAINTOWER" type="Area2D" unique_id=1095366230 node_paths=PackedStringArray("range_circle", "range_area", "shoot_timer")]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_vedim")
+is_placed = true
+range_circle = NodePath("range circle area/range circle")
+range_area = NodePath("range circle area")
+shoot_timer = NodePath("ShootTimer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1196207378]
+shape = SubResource("CircleShape2D_7vlph")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=677198600]
+scale = Vector2(8, 8)
 texture = ExtResource("1_k1sas")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1362801870]
-position = Vector2(0.9999695, -0.99998474)
-scale = Vector2(7.423075, 7.6923075)
-texture = ExtResource("1_k1sas")
+[node name="maintowerhealth" type="Area2D" parent="." unique_id=758356106]
+script = ExtResource("2_jbe1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maintowerhealth" unique_id=669853265]
+shape = SubResource("CircleShape2D_7vlph")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=244438609]
+wait_time = 0.2
+
+[node name="range circle area" type="Area2D" parent="." unique_id=648581007]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="range circle area" unique_id=1661519855]
+scale = Vector2(9, 9)
+shape = SubResource("CircleShape2D_stebd")
+
+[node name="range circle" type="Sprite2D" parent="range circle area" unique_id=594400757]
+visible = false
+show_behind_parent = true
+scale = Vector2(9, 9)
+texture = ExtResource("2_vedim")
+
+[connection signal="body_entered" from="." to="maintowerhealth" method="_on_maintower_body_entered"]

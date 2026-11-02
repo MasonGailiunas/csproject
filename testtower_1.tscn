@@ -10,10 +10,13 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
 radius = 33.02
 
-[node name="testtower1" type="Area2D" unique_id=13791481]
+[node name="testtower1" type="Area2D" unique_id=13791481 node_paths=PackedStringArray("range_circle", "range_area", "shoot_timer")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_78ped")
+range_circle = NodePath("range circle area/range circle")
+range_area = NodePath("range circle area")
+shoot_timer = NodePath("ShootTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298549858]
 scale = Vector2(2, 2)
@@ -29,7 +32,7 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="range circle area" unique_id=897154620]
-scale = Vector2(2, 2)
+scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_uu5co")
 
 [node name="range circle" type="Sprite2D" parent="range circle area" unique_id=1544847291]

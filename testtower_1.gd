@@ -2,10 +2,10 @@ extends Area2D
 
 @export var projectile_scene: PackedScene = preload("res://basicbullet.tscn")
 
-var is_placed: bool = false
-@onready var range_circle: Sprite2D = $"range circle area/range circle"
-@onready var range_area: Area2D = $"range circle area"
-@onready var shoot_timer: Timer = $ShootTimer
+@export var is_placed: bool = false
+@export var range_circle: Sprite2D
+@export var range_area: Area2D
+@export var shoot_timer: Timer
 
 var current_target: Node2D = null
 
@@ -102,3 +102,7 @@ func find_next_target() -> void:
 			if shoot_timer.is_stopped():
 				shoot_timer.start()
 			return
+
+
+func _on_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

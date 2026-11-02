@@ -17,7 +17,6 @@ func _on_area_entered(area: Area2D) -> void:
 			parent.in_return_box = true
 			get_parent().hide()
 			parent.show()
-			print("enter")
 			
 			if $"../../../PlacementManager".current_preview != null:
 				$"../../../PlacementManager".cancel_placement()
@@ -30,8 +29,6 @@ func _on_area_exited(area: Area2D) -> void:
 			parent.in_return_box = false
 			$"../Sprite2D".modulate.a = 0
 			get_parent().show()
-			print("exit")
 			if parent.is_in_group("towers"):
-				print("A")
 				parent.hide()
 				$"../../../PlacementManager".start_placement_mode(parent.tower_scene_path)

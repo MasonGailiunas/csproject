@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://copvf3tjhidqh" path="res://placement_manager.tscn" id="2_f6xt6"]
 [ext_resource type="PackedScene" uid="uid://borlwwgwhag74" path="res://map.tscn" id="3_ww2ai"]
 [ext_resource type="PackedScene" uid="uid://bhokacl60m47w" path="res://tower.tscn" id="4_lrv64"]
-[ext_resource type="PackedScene" uid="uid://dufr2xfnggp14" path="res://Scenes/Enemy.tscn" id="5_qeyqd"]
 [ext_resource type="PackedScene" uid="uid://de8dnr33ur4yr" path="res://Scenes/spawn_location.tscn" id="6_f6xt6"]
 [ext_resource type="PackedScene" uid="uid://dxsr3drsevq5p" path="res://Scenes/wave_manager.tscn" id="7_ww2ai"]
 [ext_resource type="Script" uid="uid://dtrcr6rjwutla" path="res://wave_1.gd" id="8_lrv64"]
@@ -369,18 +368,11 @@ tile_map_layer = NodePath("TileMapLayer")
 [node name="TileMapLayer" parent="PlacementManager" unique_id=95948562 instance=ExtResource("3_ww2ai")]
 position = Vector2(960, 540)
 
-[node name="enemy_with_path" parent="PlacementManager/TileMapLayer/Path2D" parent_id_path=PackedInt32Array(95948562, 1567271272) index="0" unique_id=1452024055]
-visible = false
-
-[node name="CharacterBody2D" parent="PlacementManager/TileMapLayer/Path2D/enemy_with_path" index="0" unique_id=1000274725]
+[node name="CharacterBody2D" parent="PlacementManager/TileMapLayer/Path2D/enemy_with_path" parent_id_path=PackedInt32Array(95948562, 1452024055) index="0" unique_id=1000274725]
 collision_mask = 9
 
 [node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("4_lrv64")]
 position = Vector2(960, 540)
-
-[node name="ENEMY" parent="." unique_id=602373079 instance=ExtResource("5_qeyqd")]
-visible = false
-position = Vector2(-715, -232)
 
 [node name="SPAWN_LOCATION" parent="." unique_id=154697959 instance=ExtResource("6_f6xt6")]
 position = Vector2(415, 637)
@@ -434,6 +426,6 @@ centered = false
 
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="PlacementManager/TileMapLayer/Path2D/enemy_with_path"]
-[editable path="ENEMY"]
+[editable path="MainTower"]
 [editable path="testtower1"]
 [editable path="testtower_2"]

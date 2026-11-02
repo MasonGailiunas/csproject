@@ -11,15 +11,15 @@ var source_id = 0
 var occupied_tiles: Array[Vector2i] = []
 
 func _ready() -> void:
-	print("started")
+	pass
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_build_t1") and current_preview == null:
-		start_placement_mode_t1()
-	elif event.is_action_pressed("toggle_build_t2") and current_preview == null:
-		start_placement_mode_t2()
+	#if event.is_action_pressed("toggle_build_t1") and current_preview == null:
+		#start_placement_mode_t1()
+	#elif event.is_action_pressed("toggle_build_t2") and current_preview == null:
+		#start_placement_mode_t2()
 		
-	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if current_preview and current_preview.is_valid_spot():
 			
 			var local_grid_pos = get_local_grid_pos()
@@ -110,7 +110,6 @@ func finalize_placement(grid_pos: Vector2i) -> void:
 	occupied_tiles.append(grid_pos) 
 	tower = current_preview
 	current_preview = null
-	print("Printed! ")
 	
 	
 
