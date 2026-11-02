@@ -3,9 +3,15 @@
 [ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/pathfollow.gd" id="1_d7ib5"]
 [ext_resource type="PackedScene" uid="uid://dufr2xfnggp14" path="res://Scenes/Enemy.tscn" id="2_4cyix"]
 [ext_resource type="Script" uid="uid://bljwyckodnci" path="res://Scenes/enemy.gd" id="2_iy48g"]
+[ext_resource type="Script" uid="uid://cgdqi7d7umeyv" path="res://Scenes/health_bar.gd" id="4_iy48g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
 radius = 13.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy48g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cyix"]
+bg_color = Color(0.26794413, 0.64029557, 0.25078508, 1)
 
 [node name="enemy_with_path" type="PathFollow2D" unique_id=1452024055]
 script = ExtResource("1_d7ib5")
@@ -20,3 +26,14 @@ script = ExtResource("2_iy48g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=403558068]
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_uu5co")
+
+[node name="HealthBar" type="ProgressBar" parent="CharacterBody2D" unique_id=1313367641]
+offset_left = -15.0
+offset_top = 14.0
+offset_right = 15.0
+offset_bottom = 17.0
+theme_override_styles/background = SubResource("StyleBoxFlat_iy48g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4cyix")
+value = 100.0
+show_percentage = false
+script = ExtResource("4_iy48g")

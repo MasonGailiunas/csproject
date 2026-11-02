@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://csfih3klnafji" path="res://Scenes/parallax_2d.gd" id="16_fonr4"]
 [ext_resource type="Texture2D" uid="uid://cpem11sjywn1x" path="res://SoundStorage/OtherSounds/output-onlinegiftools.png" id="16_nne6o"]
 [ext_resource type="PackedScene" uid="uid://drcepty0njy1a" path="res://card_scene.tscn" id="18_7vlph"]
+[ext_resource type="PackedScene" uid="uid://bugt7s2716ss7" path="res://hud.tscn" id="19_486ce"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4fid7"]
 streams_count = 3
@@ -423,20 +424,22 @@ process_mode = 3
 stream = SubResource("AudioStreamRandomizer_4fid7")
 script = SubResource("GDScript_fonr4")
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1157264879]
+[node name="Background" type="Parallax2D" parent="." unique_id=1157264879]
 z_index = -1
 repeat_size = Vector2(1920, 0)
 autoscroll = Vector2(100, 0)
 script = ExtResource("16_fonr4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D" unique_id=1003518222]
-position = Vector2(960, -10)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background" unique_id=1003518222]
+position = Vector2(0, -10)
 scale = Vector2(5.2, 3)
 sprite_frames = SubResource("SpriteFrames_470mv")
 autoplay = "default"
 centered = false
 
 [node name="CardScene" parent="." unique_id=261090848 instance=ExtResource("18_7vlph")]
+
+[node name="HUD" parent="." unique_id=1452024976 instance=ExtResource("19_486ce")]
 
 [editable path="PlacementManager/TileMapLayer"]
 [editable path="PlacementManager/TileMapLayer/Path2D/enemy_with_path"]

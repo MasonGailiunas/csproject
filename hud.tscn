@@ -2,8 +2,18 @@
 
 [ext_resource type="Script" uid="uid://umbyvymcwafv" path="res://hud.gd" id="1_37p78"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37p78"]
+
 [node name="HUD" type="CanvasLayer" unique_id=1452024976]
 script = ExtResource("1_37p78")
+
+[node name="Panel" type="Panel" parent="." unique_id=1144174913]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 60.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_37p78")
 
 [node name="Control" type="Control" parent="." unique_id=1822952197]
 layout_mode = 3
@@ -20,10 +30,14 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 37.0
 grow_horizontal = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=2073948592]
 layout_mode = 2
-theme_override_constants/separation = 40
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 20)
+theme_override_constants/separation = 100
 
 [node name="CurrencyLabel" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=515106060]
 unique_name_in_owner = true
@@ -35,9 +49,14 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Energy: 0"
 
+[node name="Control" type="Control" parent="Control/MarginContainer/HBoxContainer" unique_id=31529404]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="PauseButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=894998669]
 unique_name_in_owner = true
 layout_mode = 2
+offset_transform_position = Vector2(-50, 30)
 text = "Pause"
 
 [node name="PauseMenu" type="Control" parent="Control" unique_id=1602573320]
