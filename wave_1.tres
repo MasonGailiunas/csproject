@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://bqdt5rrp781sc"]
 
-[ext_resource type="PackedScene" uid="uid://b25ncq5a3kwyt" path="res://Scenes/pathfollow.tscn" id="1_fvwh2"]
+[ext_resource type="PackedScene" uid="uid://b25ncq5a3kwyt" path="res://Scenes/Battle/pathfollow.tscn" id="1_fvwh2"]
 [ext_resource type="Script" uid="uid://dtrcr6rjwutla" path="res://wave_1.gd" id="1_ygkyi"]
 
 [resource]

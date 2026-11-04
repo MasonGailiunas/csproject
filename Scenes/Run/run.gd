@@ -8,6 +8,7 @@ const SHOP_SCENE := preload("res://Scenes/Shop/shop.tscn")
 const TREASURE_SCENE := preload("res://Scenes/Treasure/treasure.tscn")
 const REWARD_SCENE := preload("res://Scenes/Rewards/rewards.tscn")
 const OCCURRENCE_SCENE := preload("res://Scenes/Occurrence/occurrence.tscn")
+const SMITH_SCENE := preload("res://Scenes/Smith/smith.tscn")
 
 @onready var current_view: Node = $CurrentView
 @onready var map: Map = $Map
@@ -18,6 +19,7 @@ const OCCURRENCE_SCENE := preload("res://Scenes/Occurrence/occurrence.tscn")
 @onready var battle_button: Node = %BattleButton
 @onready var reward_button: Node = %RewardsButton
 @onready var occurrence_button: Node = %OccurrenceButton
+@onready var smith_button: Node = %SmithButton
 
 func _ready() -> void:
 	_start_run()
@@ -59,6 +61,7 @@ func _setup_event_connections() -> void:
 	Events.shop_exited.connect(_return_to_map)
 	Events.treasure_exited.connect(_return_to_map)
 	Events.occurrence_exited.connect(_return_to_map)
+	Events.smith_exited.connect(_return_to_map)
 
 	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
 	campfire_button.pressed.connect(_change_view.bind(CAMPFIRE_SCENE))
@@ -67,6 +70,8 @@ func _setup_event_connections() -> void:
 	shop_button.pressed.connect(_change_view.bind(SHOP_SCENE))
 	occurrence_button.pressed.connect(_change_view.bind(OCCURRENCE_SCENE))
 	treasure_button.pressed.connect(_change_view.bind(TREASURE_SCENE))
+	smith_button.pressed.connect(_change_view.bind(SMITH_SCENE))
+	
 
 
 func _on_map_exited(room: Room) -> void:

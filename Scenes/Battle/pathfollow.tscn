@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b25ncq5a3kwyt"]
 
-[ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/pathfollow.gd" id="1_d7ib5"]
-[ext_resource type="PackedScene" uid="uid://dufr2xfnggp14" path="res://Scenes/Enemy.tscn" id="2_4cyix"]
-[ext_resource type="Script" uid="uid://bljwyckodnci" path="res://Scenes/enemy.gd" id="2_iy48g"]
-[ext_resource type="Script" uid="uid://cgdqi7d7umeyv" path="res://Scenes/health_bar.gd" id="4_iy48g"]
+[ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/Battle/pathfollow.gd" id="1_d7ib5"]
+[ext_resource type="PackedScene" uid="uid://dufr2xfnggp14" path="res://Scenes/Battle/Enemy.tscn" id="2_4cyix"]
+[ext_resource type="Script" uid="uid://bljwyckodnci" path="res://Scenes/Battle/enemy.gd" id="2_iy48g"]
+[ext_resource type="Script" uid="uid://cgdqi7d7umeyv" path="res://Scenes/Battle/health_bar.gd" id="4_iy48g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
 radius = 13.0

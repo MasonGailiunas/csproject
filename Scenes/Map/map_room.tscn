@@ -94,10 +94,6 @@ script = ExtResource("1_wn3tm")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1335608216]
 
-[node name="Line2D" type="Line2D" parent="Visuals" unique_id=1696564143]
-points = PackedVector2Array(0, -16, 17, -15, 24, 8, 8, 24, 0, 24, -16, 16, -15, -3, -7, -16, 0, -16)
-default_color = Color(0.05490196, 0.39215687, 0.3647059, 1)
-
 [node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=297301994]
 texture = ExtResource("1_kfqlg")
 
