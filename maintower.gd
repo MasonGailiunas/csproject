@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var tower_health = 100.0
+@export var tower_health: float
 
 
 # Called when the node enters the scene tree for the first time.

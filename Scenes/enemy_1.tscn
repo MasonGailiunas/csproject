@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b25ncq5a3kwyt"]
+
+[ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/pathfollow.gd" id="1_lssre"]
+[ext_resource type="Script" uid="uid://bljwyckodnci" path="res://Scenes/enemy.gd" id="2_wlnc2"]
+[ext_resource type="Texture2D" uid="uid://dlvgrmi67l8fr" path="res://images/New Piskel-1.png.png" id="3_lssre"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
+radius = 13.0
+
+[node name="pathfollow" type="PathFollow2D" unique_id=1452024055]
+script = ExtResource("1_lssre")
+speed = 150.0
+damage = 20.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1000274725 groups=["enemies"]]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("2_wlnc2")
+health = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1642805134]
+texture = ExtResource("3_lssre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=403558068]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_uu5co")
