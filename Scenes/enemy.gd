@@ -1,6 +1,11 @@
 extends Node2D
 
-@export var health: float = 20.0
+
+signal health_changed(new_health: float)
+
+@export var max_health: float = 20.0
+
+@onready var health: float = max_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,5 +18,8 @@ func _process(delta: float) -> void:
 
 func takedamage(damage: float) -> void:
 	health -= damage
+	
+	health_changed.emit(health)
+	
 	if health <= 0:
 		queue_free()
