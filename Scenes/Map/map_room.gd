@@ -57,10 +57,10 @@ signal selected(room: Room)
 
 const ICONS := {
 	Room.Type.NOT_ASSIGNED: [null, Vector2.ONE],
-	Room.Type.CAMPFIRE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	Room.Type.CAMPFIRE: [preload("res://images/Art/Campfire.png"), Vector2.ONE],
 	Room.Type.SHOP: [preload("res://images/Art/Shop.png"), Vector2.ONE],
 	Room.Type.TREASURE: [preload("res://images/Art/Treasure.png"), Vector2.ONE],
-	Room.Type.OCCURRENCE: [preload("res://images/Art/Fight.png"), Vector2.ONE],
+	Room.Type.OCCURRENCE: [preload("res://images/Art/Occurrence.png"), Vector2.ONE],
 	Room.Type.MONSTER: [preload("res://images/Art/Fight.png"), Vector2.ONE],
 }
 
@@ -92,8 +92,8 @@ func set_room(new_data: Room) -> void:
 
 	position = room.position
 	#line_2d.rotation_degrees = randi_range(0, 360)
-	#sprite_2d.texture = ICONS[room.type][0]
-	#sprite_2d.scale = ICONS[room.type][1]
+	sprite_2d.texture = ICONS[room.type][0]
+	sprite_2d.scale = ICONS[room.type][1]
 
 
 func show_selected() -> void:
