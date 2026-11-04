@@ -10,7 +10,6 @@ var enemies_spawned_this_wave: int = 0
 var active_enemies: int = 0
 
 func _ready() -> void:
-	print("!!! SCRIPT IS RUNNING AND ALIVE !!!")
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	start_wave(current_wave_index)
 
@@ -25,14 +24,12 @@ func start_wave(index: int) -> void:
 	
 	var current_wave = waves[current_wave_index]
 	
-	print("--- WAVE MANAGER DEBUG ---")
-	print("Wave Resource Found: ", current_wave)
-	if current_wave:
-		print("Wave Name: ", current_wave.wave_name)
-		print("Spawn Count: ", current_wave.spawn_count)
-		print("Spawn Delay: ", current_wave.spawn_delay) 
-		print("Enemy Scenes Array Size: ", current_wave.enemy_scenes.size())
-	print("--------------------------")
+	#if current_wave:
+		#print("Wave Name: ", current_wave.wave_name)
+		#print("Spawn Count: ", current_wave.spawn_count)
+		#print("Spawn Delay: ", current_wave.spawn_delay) 
+		#print("Enemy Scenes Array Size: ", current_wave.enemy_scenes.size())
+	#print("--------------------------")
 	
 	spawn_timer.wait_time = current_wave.spawn_delay
 	spawn_timer.start()
@@ -45,11 +42,7 @@ func spawn_enemy(enemy_scene: PackedScene) -> void:
 			path_node = get_parent().find_child("*SPAWN_LOCATION*", true, false) as Path2D
 
 	if not enemy_scene or not path_node:
-		print("--- CRITICAL DEBUG: WHERE IS THE PATH? ---")
-		print("Enemy Scene is loaded fine! The track is missing.")
-		print("Printing your entire level structure below to find the path:")
 		get_tree().current_scene.print_tree_pretty()
-		print("------------------------------------------")
 		return
 		
 	var enemy_instance = enemy_scene.instantiate()
@@ -67,23 +60,19 @@ func _on_spawn_timer_timeout() -> void:
 	var target_count = current_wave.spawn_count if current_wave.spawn_count > 0 else 10
 	
 	
-	print("Timer ticked! Spawned so far: ", enemies_spawned_this_wave, "/", target_count)
 	
 	if enemies_spawned_this_wave < target_count:
 		spawn_enemy(current_wave.enemy_scenes.pick_random())
 		enemies_spawned_this_wave += 1
 	else:
-		print("All wave enemies spawned. Stopping timer, waiting for clearance.")
 		spawn_timer.stop()
 
 func _on_enemy_defeated() -> void:
 	active_enemies -= 1
-	print("An enemy died! Remaining active enemies: ", active_enemies)
 	AudioManager.play("EnemyDeath")
 	
 	
 	var current_wave = waves[current_wave_index]
 	if enemies_spawned_this_wave >= current_wave.spawn_count and active_enemies <= 0:
-		print("Wave cleared! Preparing next wave...")
-		await get_tree().create_timer(2.0).timeout    #67
+		await get_tree().create_timer(2.0).timeout 
 		start_wave(current_wave_index + 1)
