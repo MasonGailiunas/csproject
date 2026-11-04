@@ -82,8 +82,8 @@ func start_placement_mode_t2() -> void:
 	add_child(current_preview)
 	current_preview.set_preview_mode(true)
 
-func start_placement_mode(tower: String) -> void:
-	current_preview = load(tower).instantiate() 
+func start_placement_mode(path: String) -> void:
+	current_preview = load(path).instantiate() 
 	add_child(current_preview)
 	current_preview.set_preview_mode(true)
 
@@ -110,7 +110,13 @@ func finalize_placement(grid_pos: Vector2i) -> void:
 	occupied_tiles.append(grid_pos) 
 	tower = current_preview
 	current_preview = null
-	
+
+func finalize_spell_placement(grid_pos: Vector2i) -> void:
+	current_preview.set_preview_mode(false)
+	current_preview.position = grid_pos
+	current_preview.active_time.start()
+	tower = current_preview
+	current_preview = null
 	
 
 func cancel_placement() -> void:
