@@ -1,7 +1,6 @@
 extends Area2D
 
 @export var projectile_scene: PackedScene = preload("res://basicbullet.tscn")
-
 @export var is_placed: bool = false
 @export var range_circle: Sprite2D
 @export var range_area: Area2D
@@ -12,7 +11,6 @@ var current_target: Node2D = null
 func _ready() -> void:
 	range_circle.apply_scale(Vector2(2,2))
 	range_circle.modulate.a = 0.5
-	
 	if not shoot_timer.timeout.is_connected(_on_timer_timeout):
 		shoot_timer.timeout.connect(_on_timer_timeout)
 
@@ -24,21 +22,26 @@ func set_preview_mode(is_preview: bool) -> void:
 		shoot_timer.stop()
 	else:
 		range_circle.hide()
-		
-		# Sweep for any beefy enemies already sitting here when placed
-		var bodies = range_area.get_overlapping_bodies()
-		for body in bodies:
-			if is_instance_valid(body) and body.is_in_group("enemies") and body.health > 0:
-				current_target = body
+		call_deferred("_check_initial_overlap")
+
+func _check_initial_overlap() -> void:
+	if not is_placed:
+		return
+	var bodies = range_area.get_overlapping_bodies()
+	for body in bodies:
+		if is_instance_valid(body) and body.is_in_group("enemies") and body.health > 0:
+			current_target = body
+			if shoot_timer.is_stopped():
+				shoot_projectile()
+			else:
 				shoot_timer.start()
-				break
-				
+			break
+
 func set_range_circle_visibility(is_visible: bool) -> void:
 	if is_visible:
 		range_circle.show()
 	else:
 		range_circle.hide()
-		
 
 func is_valid_spot() -> bool:
 	var areas = get_overlapping_areas()
@@ -54,41 +57,45 @@ func is_valid_spot() -> bool:
 	return true
 
 func _process(_delta: float) -> void:
-	if not is_placed: 
+	if not is_placed:
 		return
-		
 	if is_instance_valid(current_target):
 		$Sprite2D.look_at(current_target.global_position)
 	else:
 		find_next_target()
 
+func shoot_projectile() -> void:
+	if not is_instance_valid(current_target):
+		shoot_timer.stop()
+		return
+		
+	var bullet = projectile_scene.instantiate() as Area2D
+	get_parent().add_child(bullet)
+	bullet.global_position = self.global_position
+	if "direction" in bullet:
+		bullet.direction = (current_target.global_position - self.global_position).normalized()
+	
+	shoot_timer.start()
+
 func _on_timer_timeout() -> void:
 	if not is_placed:
 		return
-		
 	if is_instance_valid(current_target):
-		var bullet = projectile_scene.instantiate() as Area2D
-		get_parent().add_child(bullet)
-		bullet.global_position = self.global_position
-		
-		if "direction" in bullet:
-			bullet.direction = (current_target.global_position - self.global_position).normalized()
+		shoot_projectile()
 	else:
 		shoot_timer.stop()
 
 func _on_enemy_entered(body: Node2D) -> void:
 	if not is_placed:
 		return
-
 	if body.is_in_group("enemies") and not is_instance_valid(current_target):
 		current_target = body
 		if shoot_timer.is_stopped():
-			shoot_timer.start()
-	
+			shoot_projectile()
+
 func _on_enemy_exited(body: Node2D) -> void:
 	if not is_placed:
 		return
-		
 	if body == current_target:
 		current_target = null
 		shoot_timer.stop()
@@ -100,9 +107,10 @@ func find_next_target() -> void:
 		if is_instance_valid(b) and b.is_in_group("enemies") and b.health > 0:
 			current_target = b
 			if shoot_timer.is_stopped():
-				shoot_timer.start()
+				shoot_projectile()
 			return
-
+	current_target = null
+	shoot_timer.stop()
 
 func _on_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.

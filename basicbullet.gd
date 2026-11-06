@@ -1,6 +1,8 @@
 extends Area2D
 
-@export var speed: float = 2000.0
+@export var speed: float
+@export var damage: float
+@export var piercing: float
 var direction: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
@@ -14,5 +16,8 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		if body.has_method("takedamage"):
-			body.takedamage(10)
-		queue_free()
+			body.takedamage(damage)
+		if piercing > 0:
+			piercing -= 1
+		else:
+			queue_free()

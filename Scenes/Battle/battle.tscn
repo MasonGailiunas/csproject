@@ -41,6 +41,25 @@ enemy_compositions = Array[ExtResource("10_11rds")]([SubResource("Resource_ooui8
 spawn_delay = 1.0
 metadata/_custom_type_script = "uid://dtrcr6rjwutla"
 
+[sub_resource type="Resource" id="Resource_xx4v1"]
+script = ExtResource("10_11rds")
+enemy_scene = ExtResource("12_xx4v1")
+count = 15
+metadata/_custom_type_script = "uid://co45a6r3ouhmk"
+
+[sub_resource type="Resource" id="Resource_pcxeh"]
+script = ExtResource("10_11rds")
+enemy_scene = ExtResource("11_xx4v1")
+count = 10
+metadata/_custom_type_script = "uid://co45a6r3ouhmk"
+
+[sub_resource type="Resource" id="Resource_fx3yh"]
+script = ExtResource("8_lrv64")
+wave_name = "Wave 3"
+enemy_compositions = Array[ExtResource("10_11rds")]([SubResource("Resource_xx4v1"), SubResource("Resource_pcxeh")])
+spawn_delay = 0.5
+metadata/_custom_type_script = "uid://dtrcr6rjwutla"
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4fid7"]
 streams_count = 3
 stream_0/stream = ExtResource("12_xkp4y")
@@ -403,7 +422,7 @@ position = Vector2(415, 637)
 [node name="WaveManager" parent="." unique_id=1779233385 node_paths=PackedStringArray("path_node") instance=ExtResource("7_ww2ai")]
 visible = false
 position = Vector2(-796, -306)
-waves = Array[ExtResource("8_lrv64")]([ExtResource("10_k7mbx"), SubResource("Resource_fonr4")])
+waves = Array[ExtResource("8_lrv64")]([ExtResource("10_k7mbx"), SubResource("Resource_fonr4"), SubResource("Resource_fx3yh")])
 path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
 
 [node name="testtower1" parent="." unique_id=13791481 instance=ExtResource("11_upb72")]

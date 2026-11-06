@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	$Sprite2D2.rotation -= 0.02
 	
 func create_starting_deck():
-	for i in range(12):
+	for i in range(13):
 		var new_card_in = card_in_scene.instantiate() # instantiate doesn't fully add it
 		$"../CardManager".add_child(new_card_in) # Add here
 		new_card_in.type = 1
@@ -27,6 +27,8 @@ func create_starting_deck():
 			new_card_in.type = 3
 		if (i == 11):
 			new_card_in.type = 4
+		if (i == 12):
+			new_card_in.type = 8
 		true_deck.insert(0, new_card_in)
 		
 func create_instanced_deck():
