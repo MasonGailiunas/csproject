@@ -22,4 +22,4 @@ func takedamage(damage: float) -> void:
 	health_changed.emit(health)
 	
 	if health <= 0:
-		queue_free()
+		get_parent().queue_free()
