@@ -3,9 +3,15 @@
 [ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/Battle/pathfollow.gd" id="1_663o1"]
 [ext_resource type="Script" uid="uid://bljwyckodnci" path="res://Scenes/Battle/enemy.gd" id="2_ovk8a"]
 [ext_resource type="Texture2D" uid="uid://dlvgrmi67l8fr" path="res://images/New Piskel-1.png.png" id="3_663o1"]
+[ext_resource type="Script" uid="uid://cgdqi7d7umeyv" path="res://Scenes/Battle/health_bar.gd" id="4_ovk8a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
 radius = 13.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovk8a"]
+bg_color = Color(0.79298174, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqj32"]
 
 [node name="pathfollow" type="PathFollow2D" unique_id=1452024055]
 script = ExtResource("1_663o1")
@@ -24,3 +30,20 @@ texture = ExtResource("3_663o1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=403558068]
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_uu5co")
+
+[node name="HealthBar" type="ProgressBar" parent="CharacterBody2D" unique_id=1003757654]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = 20.0
+offset_right = 25.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ovk8a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gqj32")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+script = ExtResource("4_ovk8a")
