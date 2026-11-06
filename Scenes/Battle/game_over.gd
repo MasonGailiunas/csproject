@@ -1,17 +1,16 @@
-extends Node2D
+extends Control
 
-@export var health: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_to_group("enemies")
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func takedamage(damage: float) -> void:
-	health -= damage
-	if health <= 0:
-		get_parent().queue_free()
+
+func _on_button_pressed() -> void:
+	AudioManager.play("MenuClick")
+	Events.game_over_exited.emit()

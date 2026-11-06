@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxsr3drsevq5p"]
 
-[ext_resource type="Script" uid="uid://dseuq7lnr7hkv" path="res://Scenes/wave_manager.gd" id="1_6x8f1"]
-[ext_resource type="PackedScene" uid="uid://de8dnr33ur4yr" path="res://Scenes/spawn_location.tscn" id="2_51qnr"]
+[ext_resource type="Script" uid="uid://dseuq7lnr7hkv" path="res://Scenes/Battle/wave_manager.gd" id="1_6x8f1"]
+[ext_resource type="PackedScene" uid="uid://de8dnr33ur4yr" path="res://Scenes/Battle/spawn_location.tscn" id="2_51qnr"]
 [ext_resource type="Script" uid="uid://dtrcr6rjwutla" path="res://wave_1.gd" id="2_j7jtk"]
 [ext_resource type="PackedScene" uid="uid://b25ncq5a3kwyt" path="res://Scenes/enemy_1.tscn" id="3_76kp7"]
 

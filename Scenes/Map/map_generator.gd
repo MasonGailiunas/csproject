@@ -163,6 +163,7 @@ var non_combat_type_weights := {
 	Room.Type.CAMPFIRE: 2.0,
 	Room.Type.SHOP: 2.0,
 	Room.Type.OCCURRENCE: 2.0,
+	Room.Type.SMITH: 2.0,
 }
 
 var map_data: Array[Array] = []

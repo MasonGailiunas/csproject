@@ -1,16 +1,33 @@
 [gd_scene format=3 uid="uid://b25ncq5a3kwyt"]
 
+<<<<<<<< HEAD:Scenes/enemy_1.tscn
 [ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/pathfollow.gd" id="1_lssre"]
 [ext_resource type="Script" uid="uid://bljwyckodnci" path="res://Scenes/enemy.gd" id="2_wlnc2"]
 [ext_resource type="Texture2D" uid="uid://dlvgrmi67l8fr" path="res://images/New Piskel-1.png.png" id="3_lssre"]
+========
+[ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/Battle/pathfollow.gd" id="1_d7ib5"]
+[ext_resource type="PackedScene" uid="uid://dufr2xfnggp14" path="res://Scenes/Battle/Enemy.tscn" id="2_4cyix"]
+[ext_resource type="Script" uid="uid://bljwyckodnci" path="res://Scenes/Battle/enemy.gd" id="2_iy48g"]
+[ext_resource type="Script" uid="uid://cgdqi7d7umeyv" path="res://Scenes/Battle/health_bar.gd" id="4_iy48g"]
+>>>>>>>> 5212eec21cef13f81934ec86c77a70eceda15172:Scenes/Battle/pathfollow.tscn
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
 radius = 13.0
 
+<<<<<<<< HEAD:Scenes/enemy_1.tscn
 [node name="pathfollow" type="PathFollow2D" unique_id=1452024055]
 script = ExtResource("1_lssre")
 speed = 150.0
 damage = 20.0
+========
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy48g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cyix"]
+bg_color = Color(0.26794413, 0.64029557, 0.25078508, 1)
+
+[node name="enemy_with_path" type="PathFollow2D" unique_id=1452024055]
+script = ExtResource("1_d7ib5")
+>>>>>>>> 5212eec21cef13f81934ec86c77a70eceda15172:Scenes/Battle/pathfollow.tscn
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1000274725 groups=["enemies"]]
 collision_layer = 8
@@ -24,3 +41,14 @@ texture = ExtResource("3_lssre")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=403558068]
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_uu5co")
+
+[node name="HealthBar" type="ProgressBar" parent="CharacterBody2D" unique_id=1313367641]
+offset_left = -15.0
+offset_top = 14.0
+offset_right = 15.0
+offset_bottom = 17.0
+theme_override_styles/background = SubResource("StyleBoxFlat_iy48g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4cyix")
+value = 100.0
+show_percentage = false
+script = ExtResource("4_iy48g")

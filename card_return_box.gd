@@ -29,6 +29,6 @@ func _on_area_exited(area: Area2D) -> void:
 			parent.in_return_box = false
 			$"../Sprite2D".modulate.a = 0
 			get_parent().show()
-			if parent.is_in_group("towers"):
+			if parent.tower_scene_path != "":
 				parent.hide()
 				$"../../../PlacementManager".start_placement_mode(parent.tower_scene_path)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp5mti7epqqo7"
-path="res://.godot/imported/PlaceHolder Background.png-ba65916d485de94599016d28d43cdb92.ctex"
+uid="uid://fvvoptin5jiq"
+path="res://.godot/imported/Battle.png-52b2902090a9c67fb1c46a345b1322fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Art/Backgrounds/PlaceHolder Background.png"
-dest_files=["res://.godot/imported/PlaceHolder Background.png-ba65916d485de94599016d28d43cdb92.ctex"]
+source_file="res://images/Art/Room_Icons/Battle.png"
+dest_files=["res://.godot/imported/Battle.png-52b2902090a9c67fb1c46a345b1322fd.ctex"]
 
 [params]
 

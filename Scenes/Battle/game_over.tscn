@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://i4eev0kwp7so"]
+
+[ext_resource type="Script" uid="uid://b7mom21mnr6xv" path="res://Scenes/Battle/game_over.gd" id="1_ildl3"]
+[ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="2_8i2wx"]
+
+[node name="Game_Over" type="Control" unique_id=457036930]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ildl3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1005586918]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -721.5
+offset_top = -228.5
+offset_right = 721.5
+offset_bottom = 228.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=423582257]
+layout_mode = 2
+theme = ExtResource("2_8i2wx")
+theme_override_colors/font_color = Color(0.98526865, 0.09726728, 3.85046e-07, 1)
+theme_override_font_sizes/font_size = 328
+text = "GAME OVER"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=416098685]
+layout_mode = 2
+theme = ExtResource("2_8i2wx")
+text = "GO BACK
+"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

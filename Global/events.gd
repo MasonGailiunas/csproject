@@ -16,3 +16,7 @@ signal rewards_exited
 signal treasure_exited
 
 signal battle_reward_exited
+
+signal smith_exited
+
+signal game_over_exited

@@ -58,3 +58,8 @@ text = "BATTLEBUTTON"
 unique_name_in_owner = true
 layout_mode = 2
 text = "OCCURRENCE"
+
+[node name="SmithButton" type="Button" parent="VBoxContainer" unique_id=1494879168]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SMITH"

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ddl7p4yqxlflw"]
+
+[node name="UIInterface" type="Node2D" unique_id=2140527196]
+z_index = 4
+position = Vector2(40, 47)
+
+[node name="Label" type="Label" parent="." unique_id=1831083655]
+offset_left = 21.0
+offset_top = -4.0
+offset_right = 245.0
+offset_bottom = 83.0
+text = "Money #"

@@ -9,7 +9,6 @@ var type
 @export var cost = 0
 @export var rarity = 0
 @export_file("*.tscn") var tower_scene_path: String
-@export var effect_to_place = null
 @export var damage = 0
 @export var block = 0
 @export var draw_add = 0
@@ -50,10 +49,14 @@ func set_interactibility(set_type: int):
 		hide()
 		$Area2D/CollisionShape2D.set_deferred("dissabled", true)
 		interactable = false
-	else: # Display only
+	else: if set_type == 2: # Display only
 		show()
 		$Area2D/CollisionShape2D.set_deferred("dissabled", true)
 		interactable = false
+	else: # Functional and invisable
+		hide()
+		$Area2D/CollisionShape2D.set_deferred("dissabled", false)
+		interactable = true
 
 func can_play():
 	return true
@@ -63,4 +66,4 @@ func play_card():
 	card_manager_ref.get_card_return_box().hide()
 	card_manager_ref.get_hand().discard_card(self)
 	set_interactibility(1)
-	get_parent().get_parent().get_hand().update_hand_position()
+	card_manager_ref.get_hand().update_hand_position()
