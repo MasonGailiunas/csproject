@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bewo8ycegubfc"]
 
-[ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/pathfollow.gd" id="1_mvvu1"]
-[ext_resource type="Script" uid="uid://bljwyckodnci" path="res://Scenes/enemy.gd" id="2_hv4bk"]
+[ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/Battle/pathfollow.gd" id="1_mvvu1"]
+[ext_resource type="Script" uid="uid://bljwyckodnci" path="res://Scenes/Battle/enemy.gd" id="2_hv4bk"]
 [ext_resource type="Texture2D" uid="uid://cunlsexp7wr1d" path="res://images/bullet.png" id="3_mvvu1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
@@ -16,11 +16,11 @@ damage = 10.0
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("2_hv4bk")
-health = 30.0
+max_health = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=317163343]
 texture = ExtResource("3_mvvu1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=403558068]
-position = Vector2(-2, 0)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_uu5co")

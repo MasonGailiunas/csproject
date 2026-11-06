@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var tower_health: float
+@onready var lost: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,3 +20,4 @@ func takedamage(damage: float) -> void:
 		queue_free()
 		print("YOU LOSE!")
 		get_tree().paused = true
+		lost = true
