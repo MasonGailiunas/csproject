@@ -4,11 +4,13 @@ extends Area2D
 @export var range_area: Area2D
 var current_target: Node2D = null
 @export var active_time : Timer
+var damage = 8
 var target_enenmies = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	range_circle.apply_scale(Vector2(2,2))
+	range_circle.modulate.a = 0.5
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,9 +52,18 @@ func is_valid_spot() -> bool:
 		return false
 	return true
 
-func _on_enemy_entered(body: Node2D) -> void:
-	#if not is_placed:
-		#return
+		
+func apply_effect_to_targets():
+	for i in target_enenmies:
+		i.takedamage(damage)
 
-	if body.is_in_group("enemies") and not is_instance_valid(current_target) && active_time.time_left > 0:
+
+func _on_range_circle_area_body_entered(body: Node2D) -> void:
+	print(str(active_time.time_left))
+	if body.is_in_group("enemies") && active_time.time_left > 0:
 		target_enenmies.append(body)
+
+
+func _on_range_circle_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("enemies") && active_time.time_left > 0:
+		target_enenmies.erase(body)
