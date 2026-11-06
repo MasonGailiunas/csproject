@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfgabsjqqhgg0"]
 
 [ext_resource type="Script" uid="uid://jbxkotedob7b" path="res://Scenes/Occurrence/occurrence.gd" id="1_wnk5e"]
-[ext_resource type="Texture2D" uid="uid://cyke2c7y7dao" path="res://images/Art/Backgrounds/2026_11_06_0l0_Kleki.png" id="2_bykue"]
+[ext_resource type="Texture2D" uid="uid://cyke2c7y7dao" path="res://images/Art/Backgrounds/Occurrence.png" id="2_bykue"]
 [ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="2_n06aq"]
 
 [node name="Occurrence" type="Control" unique_id=457036930]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyke2c7y7dao"
-path="res://.godot/imported/2026_11_06_0l0_Kleki.png-cc6a51e9a14a0aee83fa8a16e2f8436f.ctex"
+uid="uid://dx2mtqvukljeu"
+path="res://.godot/imported/Campfire.png-8b8e638951767c9efad35ba4160f79b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Art/Backgrounds/2026_11_06_0l0_Kleki.png"
-dest_files=["res://.godot/imported/2026_11_06_0l0_Kleki.png-cc6a51e9a14a0aee83fa8a16e2f8436f.ctex"]
+source_file="res://images/Art/Backgrounds/Campfire.png"
+dest_files=["res://.godot/imported/Campfire.png-8b8e638951767c9efad35ba4160f79b9.ctex"]
 
 [params]
 
