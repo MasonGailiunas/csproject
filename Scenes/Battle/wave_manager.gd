@@ -15,6 +15,7 @@ func _ready() -> void:
 	start_wave(current_wave_index)
 
 func start_wave(index: int) -> void:
+	print("WAVE STARTED")
 	if index >= waves.size():
 		print("All waves completed! Victory!")
 		return
@@ -66,4 +67,5 @@ func _on_enemy_defeated() -> void:
 	
 	if enemy_spawn_queue.is_empty() and active_enemies <= 0:
 		await get_tree().create_timer(2.0).timeout 
+		print("NEXT WAVE")
 		start_wave(current_wave_index + 1)

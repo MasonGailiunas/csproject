@@ -84,3 +84,5 @@ func _on_map_exited(room: Room) -> void:
 			_change_view(SHOP_SCENE)
 		Room.Type.OCCURRENCE:
 			_change_view(OCCURRENCE_SCENE)
+		Room.Type.SMITH:
+			_change_view(SMITH_SCENE)
