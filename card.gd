@@ -58,7 +58,7 @@ func set_interactibility(set_type: int):
 		$Area2D/CollisionShape2D.set_deferred("dissabled", false)
 		interactable = true
 
-func can_play():
+func can_play() -> bool:
 	return true
 
 func play_card():
