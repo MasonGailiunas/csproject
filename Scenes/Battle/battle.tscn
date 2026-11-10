@@ -414,7 +414,7 @@ position = Vector2(960, 540)
 position = Vector2(960, 540)
 
 [node name="maintowerhealth" parent="MainTower" index="2" unique_id=758356106]
-tower_health = 100.0
+tower_health = 1.0
 
 [node name="SPAWN_LOCATION" parent="." unique_id=154697959 instance=ExtResource("6_f6xt6")]
 position = Vector2(415, 637)
@@ -423,6 +423,12 @@ position = Vector2(415, 637)
 visible = false
 position = Vector2(-796, -306)
 waves = Array[ExtResource("8_lrv64")]([ExtResource("10_k7mbx"), SubResource("Resource_fonr4"), SubResource("Resource_fx3yh")])
+path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
+
+[node name="WaveManager2" parent="." unique_id=458788046 node_paths=PackedStringArray("path_node") instance=ExtResource("7_ww2ai")]
+visible = false
+position = Vector2(-796, -306)
+waves = Array[ExtResource("8_lrv64")]([ExtResource("10_k7mbx"), SubResource("Resource_fonr4")])
 path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
 
 [node name="testtower1" parent="." unique_id=13791481 instance=ExtResource("11_upb72")]

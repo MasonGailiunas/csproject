@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://b7mom21mnr6xv" path="res://Scenes/Battle/game_over.gd" id="1_ildl3"]
 [ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="2_8i2wx"]
 
-[node name="Game_Over" type="Control" unique_id=457036930]
+[node name="Game_Over" type="Control" unique_id=1585544893]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ildl3")

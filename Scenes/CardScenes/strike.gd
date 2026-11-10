@@ -16,5 +16,9 @@ func can_play():
 
 func play_card():
 	var card_manager_ref = get_parent().get_parent()
-	card_manager_ref.get_placement_manager().finalize_spell_placement(card_manager_ref.get_placement_manager().get_local_grid_pos())
+	var spell = card_manager_ref.get_placement_manager().finalize_spell_placement(card_manager_ref.get_placement_manager().get_local_grid_pos())
+	spell_effects(spell)
 	super.play_card()
+
+func spell_effects(spell):
+	spell.apply_effect_to_targets()

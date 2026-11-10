@@ -111,12 +111,13 @@ func finalize_placement(grid_pos: Vector2i) -> void:
 	tower = current_preview
 	current_preview = null
 
-func finalize_spell_placement(grid_pos: Vector2i) -> void:
+func finalize_spell_placement(grid_pos: Vector2i):
 	current_preview.set_preview_mode(false)
 	current_preview.position = grid_pos
 	current_preview.active_time.start()
 	tower = current_preview
 	current_preview = null
+	return tower
 	
 
 func cancel_placement() -> void:

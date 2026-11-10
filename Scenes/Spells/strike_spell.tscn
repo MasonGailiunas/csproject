@@ -20,6 +20,7 @@ active_time = NodePath("ActiveTime")
 
 [node name="ActiveTime" type="Timer" parent="." unique_id=1362639136]
 wait_time = 0.1
+autostart = true
 
 [node name="VisualTime" type="Timer" parent="." unique_id=596318775]
 wait_time = 0.5
@@ -44,3 +45,6 @@ shape = SubResource("CircleShape2D_uu5co")
 show_behind_parent = true
 scale = Vector2(4, 4)
 texture = ExtResource("3_rm0d1")
+
+[connection signal="body_entered" from="range circle area" to="." method="_on_range_circle_area_body_entered"]
+[connection signal="body_exited" from="range circle area" to="." method="_on_range_circle_area_body_exited"]
