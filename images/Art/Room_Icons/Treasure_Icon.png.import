@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq4h0j07gdh00"
-path="res://.godot/imported/Treasure.png-bf87c0aec2ce708ff44dfc8f3d1c2715.ctex"
+uid="uid://bqiwdtl6poei5"
+path="res://.godot/imported/Treasure_Icon.png-502272198ed78f869d79a1df2c1864e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Art/Treasure.png"
-dest_files=["res://.godot/imported/Treasure.png-bf87c0aec2ce708ff44dfc8f3d1c2715.ctex"]
+source_file="res://images/Art/Room_Icons/Treasure_Icon.png"
+dest_files=["res://.godot/imported/Treasure_Icon.png-502272198ed78f869d79a1df2c1864e8.ctex"]
 
 [params]
 
