@@ -10,7 +10,8 @@ func _process(delta: float) -> void:
 	super._process(delta)
 
 func can_play():
-	if get_parent().get_parent().get_placement_manager().current_preview.is_valid_spot():
+	var placement_manager_ref = get_parent().get_parent().get_placement_manager()
+	if placement_manager_ref.current_preview.is_valid_spot() && placement_manager_ref.get_source_id(placement_manager_ref.get_local_grid_pos()) == 0 && not placement_manager_ref.occupied_tiles.has(placement_manager_ref.get_local_grid_pos()):
 		return super.can_play()
 	return false
 

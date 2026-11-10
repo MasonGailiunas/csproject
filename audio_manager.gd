@@ -11,6 +11,7 @@ var sounds := {
 	
 	#Other Sounds
 	"MenuClick":  preload("res://SoundStorage/OtherSounds/MenuClick.mp3"),
+	"BigBoom": preload("res://SoundStorage/OtherSounds/Big Explosion Sound Effect.mp3"),
 	
 }
 

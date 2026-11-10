@@ -65,6 +65,9 @@ func _on_enemy_defeated() -> void:
 	active_enemies -= 1
 	AudioManager.play("EnemyDeath")
 	
+	
+	
+	
 	if enemy_spawn_queue.is_empty() and active_enemies <= 0:
 		await get_tree().create_timer(2.0).timeout 
 		print("NEXT WAVE")
