@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cf4wk1aw6va6n" path="res://testtower_2.tscn" id="12_rssjf"]
 [ext_resource type="AudioStream" uid="uid://bslqy7vxm5415" path="res://SoundStorage/Music/_GRIEF_ Full Song _ GD Music.ogg" id="12_xkp4y"]
 [ext_resource type="PackedScene" uid="uid://bsx8sc1ee8x2u" path="res://enemy_1.tscn" id="12_xx4v1"]
+[ext_resource type="PackedScene" uid="uid://bwr5bnofh2jqc" path="res://enemy_3.tscn" id="13_pcxeh"]
 [ext_resource type="AudioStream" uid="uid://ch0t1hlid7d8e" path="res://SoundStorage/Music/Warak - Reanimate.ogg" id="13_vd41i"]
 [ext_resource type="AudioStream" uid="uid://r57tj2ybftq" path="res://SoundStorage/Music/_SLAUGHTERHOUSE_ Song _ GD Music.ogg" id="14_nne6o"]
 [ext_resource type="Script" uid="uid://csfih3klnafji" path="res://Scenes/Battle/parallax_2d.gd" id="16_fonr4"]
@@ -58,6 +59,25 @@ script = ExtResource("8_lrv64")
 wave_name = "Wave 3"
 enemy_compositions = Array[ExtResource("10_11rds")]([SubResource("Resource_xx4v1"), SubResource("Resource_pcxeh")])
 spawn_delay = 0.5
+metadata/_custom_type_script = "uid://dtrcr6rjwutla"
+
+[sub_resource type="Resource" id="Resource_fboss"]
+script = ExtResource("10_11rds")
+enemy_scene = ExtResource("11_xx4v1")
+count = 20
+metadata/_custom_type_script = "uid://co45a6r3ouhmk"
+
+[sub_resource type="Resource" id="Resource_i44lj"]
+script = ExtResource("10_11rds")
+enemy_scene = ExtResource("13_pcxeh")
+count = 1
+metadata/_custom_type_script = "uid://co45a6r3ouhmk"
+
+[sub_resource type="Resource" id="Resource_82moc"]
+script = ExtResource("8_lrv64")
+wave_name = "Wave 4"
+enemy_compositions = Array[ExtResource("10_11rds")]([SubResource("Resource_fboss"), SubResource("Resource_i44lj")])
+spawn_delay = 1.0
 metadata/_custom_type_script = "uid://dtrcr6rjwutla"
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4fid7"]
@@ -414,7 +434,7 @@ position = Vector2(960, 540)
 position = Vector2(960, 540)
 
 [node name="maintowerhealth" parent="MainTower" index="2" unique_id=758356106]
-tower_health = 1.0
+tower_health = 100.0
 
 [node name="SPAWN_LOCATION" parent="." unique_id=154697959 instance=ExtResource("6_f6xt6")]
 position = Vector2(415, 637)
@@ -422,13 +442,7 @@ position = Vector2(415, 637)
 [node name="WaveManager" parent="." unique_id=1779233385 node_paths=PackedStringArray("path_node") instance=ExtResource("7_ww2ai")]
 visible = false
 position = Vector2(-796, -306)
-waves = Array[ExtResource("8_lrv64")]([ExtResource("10_k7mbx"), SubResource("Resource_fonr4"), SubResource("Resource_fx3yh")])
-path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
-
-[node name="WaveManager2" parent="." unique_id=458788046 node_paths=PackedStringArray("path_node") instance=ExtResource("7_ww2ai")]
-visible = false
-position = Vector2(-796, -306)
-waves = Array[ExtResource("8_lrv64")]([ExtResource("10_k7mbx"), SubResource("Resource_fonr4")])
+waves = Array[ExtResource("8_lrv64")]([ExtResource("10_k7mbx"), SubResource("Resource_fonr4"), SubResource("Resource_fx3yh"), SubResource("Resource_82moc")])
 path_node = NodePath("../PlacementManager/TileMapLayer/Path2D")
 
 [node name="testtower1" parent="." unique_id=13791481 instance=ExtResource("11_upb72")]

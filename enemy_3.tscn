@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bwr5bnofh2jqc"]
+
+[ext_resource type="Script" uid="uid://ck6ixyr5iyxcp" path="res://Scenes/Battle/pathfollow.gd" id="1_no5mw"]
+[ext_resource type="Script" uid="uid://bljwyckodnci" path="res://Scenes/Battle/enemy.gd" id="2_v15ab"]
+[ext_resource type="Texture2D" uid="uid://bhuc7hdmycjm7" path="res://images/Art/Water Ball.png" id="3_no5mw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
+radius = 13.0
+
+[node name="pathfollow" type="PathFollow2D" unique_id=1452024055]
+script = ExtResource("1_no5mw")
+speed = 50.0
+damage = 100.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1000274725 groups=["enemies"]]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("2_v15ab")
+max_health = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=317163343]
+scale = Vector2(2, 2)
+texture = ExtResource("3_no5mw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=403558068]
+shape = SubResource("CircleShape2D_uu5co")

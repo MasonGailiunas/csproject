@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
 			var source_id = tile_map_layer.get_cell_source_id(local_grid_pos)
 	
 			current_preview.global_position = snapped_world_pos
-			if source_id == 0 and not occupied_tiles.has(local_grid_pos):
+			if source_id == 0 and current_preview.is_valid_spot() and not occupied_tiles.has(local_grid_pos):
 				finalize_placement(local_grid_pos)
 
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
