@@ -45,6 +45,7 @@ func takedamage(damage: float) -> void:
 	print("TOWER HEALTH: " + str(tower_health))
 	
 	if tower_health <= 0:
-		lost = true 
+		lost = true
+		AudioManager.play("BigBoom") 
 		print("YOU LOSE!")
 		get_tree().change_scene_to_packed(GAME_OVER_SCENE)

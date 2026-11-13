@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fvvoptin5jiq"
-path="res://.godot/imported/Battle.png-52b2902090a9c67fb1c46a345b1322fd.ctex"
+uid="uid://bl836vtsjcwmb"
+path="res://.godot/imported/Smith_Icon.png-9d4f1ef21344d85a2d43014105ef65d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Art/Room_Icons/Battle.png"
-dest_files=["res://.godot/imported/Battle.png-52b2902090a9c67fb1c46a345b1322fd.ctex"]
+source_file="res://images/Art/Room_Icons/Smith_Icon.png"
+dest_files=["res://.godot/imported/Smith_Icon.png-9d4f1ef21344d85a2d43014105ef65d4.ctex"]
 
 [params]
 

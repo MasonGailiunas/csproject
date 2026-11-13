@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6i4uim55lpfb"]
 
-[ext_resource type="Texture2D" uid="uid://2xs2cxr03ghv" path="res://images/Art/Fight.png" id="1_kfqlg"]
+[ext_resource type="Texture2D" uid="uid://2xs2cxr03ghv" path="res://images/Art/Room_Icons/Fight.png" id="1_kfqlg"]
 [ext_resource type="Script" uid="uid://dvc3eiv8ht40t" path="res://Scenes/Map/map_room.gd" id="1_wn3tm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0j8fc"]
