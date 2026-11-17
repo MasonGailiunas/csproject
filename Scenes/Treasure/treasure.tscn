@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwvsp0n6md83h" path="res://Scenes/Treasure/treasure.gd" id="1_60nar"]
 [ext_resource type="Theme" uid="uid://dhf4p8wepr1mq" path="res://main_theme.tres" id="2_8xvsi"]
+[ext_resource type="Texture2D" uid="uid://r6jh8orpei5x" path="res://images/Art/Backgrounds/Treasure.png" id="2_bt86o"]
 
 [node name="Treasure" type="Control" unique_id=457036930]
 layout_mode = 3
@@ -12,11 +13,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_60nar")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=874587018]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=668739605]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+texture = ExtResource("2_bt86o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1005586918]
 layout_mode = 1
@@ -25,10 +26,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -94.0
-offset_top = -94.5
-offset_right = 94.0
-offset_bottom = 94.5
+offset_left = 770.0
+offset_top = 346.0
+offset_right = 958.0
+offset_bottom = 535.0
 grow_horizontal = 2
 grow_vertical = 2
 
