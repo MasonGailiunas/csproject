@@ -57,7 +57,8 @@ func draw_cards(num: int):
 		if instance_deck.size() == 0: 
 			if $"../DiscardPile".discard_pile.size() == 0: break
 			reshuffle()
-		$"../PlayerHand".add_card_to_hand(instance_deck[0])
+		if $"../PlayerHand".add_card_to_hand(instance_deck[0]) == false:
+			break
 		instance_deck.remove_at(0)
 		await get_tree().create_timer(0.05).timeout
 

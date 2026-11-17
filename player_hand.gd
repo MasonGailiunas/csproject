@@ -4,7 +4,7 @@ const CARD_SCENE_PATH = "res://Scenes/CardScenes/card.tscn"
 const CARD_WIDTH = 150
 var card_scene = preload(CARD_SCENE_PATH)
 var hand = []
-var hand_max = 10
+var hand_max = 7
 var referesh_draw = 6
 var center_screen_x
 # Called when the node enters the scene tree for the first time.
