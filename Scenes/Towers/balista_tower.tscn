@@ -28,6 +28,7 @@ texture = ExtResource("2_h0iku")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1757948142]
 wait_time = 0.5
+one_shot = true
 
 [node name="range circle area" type="Area2D" parent="." unique_id=1917255438]
 collision_layer = 4

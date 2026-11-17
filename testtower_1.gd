@@ -31,10 +31,7 @@ func _check_initial_overlap() -> void:
 	for body in bodies:
 		if is_instance_valid(body) and body.is_in_group("enemies") and body.health > 0:
 			current_target = body
-			if shoot_timer.is_stopped():
-				shoot_projectile()
-			else:
-				shoot_timer.start()
+			try_shoot()
 			break
 
 func set_range_circle_visibility(is_visible: bool) -> void:
@@ -64,6 +61,14 @@ func _process(_delta: float) -> void:
 	else:
 		find_next_target()
 
+func try_shoot() -> void:
+	if not is_instance_valid(current_target):
+		return
+		
+	# Only shoot if the cooldown timer is finished (stopped)
+	if shoot_timer.is_stopped():
+		shoot_projectile()
+
 func shoot_projectile() -> void:
 	if not is_instance_valid(current_target):
 		shoot_timer.stop()
@@ -75,6 +80,8 @@ func shoot_projectile() -> void:
 	if "direction" in bullet:
 		bullet.direction = (current_target.global_position - self.global_position).normalized()
 	
+	# Start the cooldown timer. Because it's One-Shot, it will wait out 
+	# its wait_time before firing again via the timeout signal.
 	shoot_timer.start()
 
 func _on_timer_timeout() -> void:
@@ -90,8 +97,7 @@ func _on_enemy_entered(body: Node2D) -> void:
 		return
 	if body.is_in_group("enemies") and not is_instance_valid(current_target):
 		current_target = body
-		if shoot_timer.is_stopped():
-			shoot_projectile()
+		try_shoot()
 
 func _on_enemy_exited(body: Node2D) -> void:
 	if not is_placed:
@@ -106,8 +112,7 @@ func find_next_target() -> void:
 	for b in bodies:
 		if is_instance_valid(b) and b.is_in_group("enemies") and b.health > 0:
 			current_target = b
-			if shoot_timer.is_stopped():
-				shoot_projectile()
+			try_shoot()
 			return
 	current_target = null
 	shoot_timer.stop()
