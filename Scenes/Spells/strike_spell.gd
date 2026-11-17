@@ -4,7 +4,7 @@ extends Area2D
 @export var range_area: Area2D
 var current_target: Node2D = null
 @export var active_time : Timer
-var damage = 8
+var damage
 var target_enenmies = []
 
 # Called when the node enters the scene tree for the first time.

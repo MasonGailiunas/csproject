@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://uscmk5jpnmj0"]
+
+[ext_resource type="Script" uid="uid://datdbi8gp8020" path="res://Scenes/ModPreviews/basic_mod_preview.gd" id="1_yr2aq"]
+[ext_resource type="Texture2D" uid="uid://c2ghoae87fyyl" path="res://images/Towers/BalistaTower.png" id="2_5d551"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5yft"]
+radius = 7.0
+
+[node name="Preview" type="Area2D" unique_id=13791481]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_yr2aq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298549858]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_p5yft")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1529300636]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_5d551")

@@ -1,5 +1,5 @@
 extends card
-class_name basic_tower_card
+class_name tower_card
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
