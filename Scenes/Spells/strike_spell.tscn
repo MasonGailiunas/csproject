@@ -3,12 +3,56 @@
 [ext_resource type="Script" uid="uid://cnnlqww3yplxm" path="res://Scenes/Spells/strike_spell.gd" id="1_mx4g7"]
 [ext_resource type="Texture2D" uid="uid://c2ghoae87fyyl" path="res://images/Towers/BalistaTower.png" id="2_7m51t"]
 [ext_resource type="Texture2D" uid="uid://bibk4wlw5825f" path="res://images/New Piskel-1.png (2).png" id="3_rm0d1"]
+[ext_resource type="Texture2D" uid="uid://cw864lpxttgg8" path="res://images/Art/Strike_Spell.png" id="4_tkyvq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5yft"]
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
 radius = 33.02
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h8v7"]
+atlas = ExtResource("4_tkyvq")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyx40"]
+atlas = ExtResource("4_tkyvq")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o8im"]
+atlas = ExtResource("4_tkyvq")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1egh"]
+atlas = ExtResource("4_tkyvq")
+region = Rect2(320, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlimr"]
+atlas = ExtResource("4_tkyvq")
+region = Rect2(0, 640, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kuv1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h8v7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyx40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o8im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1egh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlimr")
+}],
+"loop": 0,
+"name": &"strike_spell",
+"speed": 12.0
+}]
 
 [node name="Area" type="Area2D" unique_id=13791481 node_paths=PackedStringArray("range_circle", "range_area", "active_time")]
 collision_layer = 2
@@ -45,6 +89,12 @@ shape = SubResource("CircleShape2D_uu5co")
 show_behind_parent = true
 scale = Vector2(4, 4)
 texture = ExtResource("3_rm0d1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="range circle area" unique_id=842182758]
+visible = false
+sprite_frames = SubResource("SpriteFrames_kuv1p")
+animation = &"strike_spell"
+autoplay = "strike_spell"
 
 [connection signal="body_entered" from="range circle area" to="." method="_on_range_circle_area_body_entered"]
 [connection signal="body_exited" from="range circle area" to="." method="_on_range_circle_area_body_exited"]

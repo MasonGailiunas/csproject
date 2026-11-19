@@ -1,5 +1,7 @@
 extends spell
 
+@onready var animated_sprite = $"range circle area/AnimatedSprite2D"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
@@ -24,6 +26,8 @@ func is_valid_spot() -> bool:
 func apply_effect_to_targets():
 	for i in target_enenmies:
 		i.takedamage(damage)
+		animated_sprite.show()
+		animated_sprite.play("strike_spell")
 
 
 func _on_range_circle_area_body_entered(body: Node2D) -> void:
