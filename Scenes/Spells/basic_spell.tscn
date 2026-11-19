@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bpkf50wsia64v"]
+
+[ext_resource type="Script" uid="uid://ck7rotvt7ihuu" path="res://Scenes/Spells/basic_spell.gd" id="1_7kxi7"]
+[ext_resource type="Texture2D" uid="uid://c2ghoae87fyyl" path="res://images/Towers/BalistaTower.png" id="2_dpdah"]
+[ext_resource type="Texture2D" uid="uid://bibk4wlw5825f" path="res://images/New Piskel-1.png (2).png" id="3_dltot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5yft"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
+radius = 33.02
+
+[node name="Area" type="Area2D" unique_id=13791481]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_7kxi7")
+
+[node name="ActiveTime" type="Timer" parent="." unique_id=1362639136]
+wait_time = 0.1
+autostart = true
+
+[node name="VisualTime" type="Timer" parent="." unique_id=596318775]
+wait_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298549858]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_p5yft")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1529300636]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_dpdah")
+
+[node name="range circle area" type="Area2D" parent="." unique_id=1917255438]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="range circle area" unique_id=897154620]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_uu5co")
+
+[node name="range circle" type="Sprite2D" parent="range circle area" unique_id=1544847291]
+show_behind_parent = true
+scale = Vector2(4, 4)
+texture = ExtResource("3_dltot")
+
+[connection signal="body_entered" from="range circle area" to="." method="_on_range_circle_area_body_entered"]
+[connection signal="body_exited" from="range circle area" to="." method="_on_range_circle_area_body_exited"]
