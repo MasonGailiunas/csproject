@@ -10,10 +10,13 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu5co"]
 radius = 33.02
 
-[node name="Area" type="Area2D" unique_id=13791481]
+[node name="Area" type="Area2D" unique_id=13791481 node_paths=PackedStringArray("range_circle", "range_area", "active_time")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_7kxi7")
+range_circle = NodePath("range circle area/range circle")
+range_area = NodePath("range circle area")
+active_time = NodePath("ActiveTime")
 
 [node name="ActiveTime" type="Timer" parent="." unique_id=1362639136]
 wait_time = 0.1

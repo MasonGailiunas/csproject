@@ -1,10 +1,46 @@
 [gd_scene format=3 uid="uid://uscmk5jpnmj0"]
 
 [ext_resource type="Script" uid="uid://datdbi8gp8020" path="res://Scenes/ModPreviews/basic_mod_preview.gd" id="1_yr2aq"]
-[ext_resource type="Texture2D" uid="uid://c2ghoae87fyyl" path="res://images/Towers/BalistaTower.png" id="2_5d551"]
+[ext_resource type="Texture2D" uid="uid://bh3vpptk4dtkt" path="res://images/Art/ModPreview.png" id="2_yr2aq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5yft"]
 radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hthc"]
+atlas = ExtResource("2_yr2aq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6t6n"]
+atlas = ExtResource("2_yr2aq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsxkx"]
+atlas = ExtResource("2_yr2aq")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltj6r"]
+atlas = ExtResource("2_yr2aq")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_euvxj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hthc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6t6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsxkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltj6r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Preview" type="Area2D" unique_id=13791481]
 collision_layer = 2
@@ -15,6 +51,5 @@ script = ExtResource("1_yr2aq")
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_p5yft")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1529300636]
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("2_5d551")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=977915988]
+sprite_frames = SubResource("SpriteFrames_euvxj")
