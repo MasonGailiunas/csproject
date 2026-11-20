@@ -1,4 +1,4 @@
-extends basic_tower_card
+extends tower_card
 
 
 # Called when the node enters the scene tree for the first time.

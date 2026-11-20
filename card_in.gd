@@ -2,7 +2,7 @@ extends Node2D
 
 var card_scenes = [preload("res://Scenes/CardScenes/card.tscn"),preload("res://Scenes/CardScenes/strike.tscn"),preload("res://Scenes/CardScenes/defend.tscn"),preload("res://Scenes/CardScenes/balista_card.tscn") ,preload("res://Scenes/CardScenes/draw2.tscn"), preload("res://Scenes/CardScenes/flame_strike.tscn") , preload("res://Scenes/CardScenes/ignite.tscn"), preload("res://Scenes/CardScenes/faithful_draw.tscn"), preload("res://Scenes/CardScenes/sniper_card.tscn")]
 
-var type
+var type : String
 var cost
 var rarity
 
@@ -16,12 +16,11 @@ func _process(delta: float) -> void:
 	pass
 
 func instance_card():
-	var new_card = card_scenes[type].instantiate() # instantiate doesn't fully add it
+	var new_card = load("res://Scenes/CardScenes/" + type + ".tscn").instantiate() # instantiate doesn't fully add it
 	add_child(new_card) # Add here
 	transfer_common_variables(new_card)
 	return new_card
 
 func transfer_common_variables(card):
-	card.type = type
 	card.cost = cost
 	card.rarity = rarity

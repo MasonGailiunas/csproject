@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dgmpy5ex16c26"]
+
+[ext_resource type="Script" uid="uid://c5wby385oybrt" path="res://Scenes/CardScenes/strengthen.gd" id="1_mkocx"]
+[ext_resource type="Texture2D" uid="uid://cbsoghgd4oevn" path="res://images/CardLayers/CardBoarders/CommonCardBoarder.png" id="2_54ei4"]
+[ext_resource type="Texture2D" uid="uid://danfl7ma1keja" path="res://images/CardLayers/CardArt/Strengthen.png" id="3_7vppt"]
+[ext_resource type="Texture2D" uid="uid://dtlniq04l5h0c" path="res://images/CardLayers/CardBackground.png" id="4_4f6t2"]
+[ext_resource type="FontFile" uid="uid://dlbpemo2c4ft" path="res://VerilySerifMono.otf" id="5_m30s3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euvxj"]
+
+[node name="Card" type="Node2D" unique_id=292329637]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_mkocx")
+mult = 1.5
+tower_scene_path = "uid://hpd1oxrfbnw0"
+
+[node name="CardBoarder" type="Sprite2D" parent="." unique_id=198251320]
+z_index = 1
+texture = ExtResource("2_54ei4")
+
+[node name="CardArt" type="Sprite2D" parent="." unique_id=5631095]
+position = Vector2(0, -25)
+texture = ExtResource("3_7vppt")
+
+[node name="CardSprite" type="Sprite2D" parent="." unique_id=1762171904]
+texture = ExtResource("4_4f6t2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=973545496]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1823827255]
+scale = Vector2(4.4, 6.4)
+shape = SubResource("RectangleShape2D_euvxj")
+
+[node name="Label" type="Label" parent="." unique_id=1018166900]
+offset_left = -25.0
+offset_top = -61.0
+offset_right = 156.0
+offset_bottom = -21.0
+scale = Vector2(0.28, 0.28)
+theme_override_fonts/font = ExtResource("5_m30s3")
+theme_override_font_sizes/font_size = 30
+text = "Strengthen"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=322900998]
+offset_left = -35.0
+offset_top = 5.0
+offset_right = 325.0
+offset_bottom = 255.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("5_m30s3")
+theme_override_font_sizes/normal_font_size = 30
+text = "Mod card
+Increase tower damage by {m}x"
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

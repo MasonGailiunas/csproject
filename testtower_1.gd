@@ -5,10 +5,14 @@ extends Area2D
 @export var range_circle: Sprite2D
 @export var range_area: Area2D
 @export var shoot_timer: Timer
+@export var damage : int
+
+var mods = []
 
 var current_target: Node2D = null
 
 func _ready() -> void:
+	add_to_group("towers")
 	range_circle.apply_scale(Vector2(2,2))
 	range_circle.modulate.a = 0.5
 	if not shoot_timer.timeout.is_connected(_on_timer_timeout):
@@ -45,9 +49,9 @@ func is_valid_spot() -> bool:
 	for area in areas:
 		if area == self or area.get_parent() == self:
 			continue
-		if area.get_collision_layer_value(3) == true:
-			continue
-		if area.get_collision_layer_value(2) == true:
+	if !get_parent().check_valid_source_id([0]):
+		return false
+	if get_parent().occupied_tiles.has(get_parent().get_local_grid_pos()):
 			return false
 	if has_overlapping_bodies():
 		return false
@@ -76,6 +80,7 @@ func shoot_projectile() -> void:
 		
 	var bullet = projectile_scene.instantiate() as Area2D
 	get_parent().add_child(bullet)
+	bullet.damage = damage
 	bullet.global_position = self.global_position
 	if "direction" in bullet:
 		bullet.direction = (current_target.global_position - self.global_position).normalized()

@@ -432,6 +432,7 @@ position = Vector2(960, 540)
 
 [node name="MainTower" parent="." unique_id=235311839 instance=ExtResource("4_lrv64")]
 position = Vector2(960, 540)
+damage = 3
 
 [node name="maintowerhealth" parent="MainTower" index="2" unique_id=758356106]
 tower_health = 100.0

@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cpdlm5jvn4g1" path="res://Scenes/CardScenes/molotov_cocktail.gd" id="1_va4lm"]
 [ext_resource type="Texture2D" uid="uid://cbsoghgd4oevn" path="res://images/CardLayers/CardBoarders/CommonCardBoarder.png" id="2_ikr07"]
-[ext_resource type="Texture2D" uid="uid://c3wnud60psqms" path="res://Scenes/CardScenes/molotov.png" id="3_ikr07"]
+[ext_resource type="Texture2D" uid="uid://c3wnud60psqms" path="res://images/CardLayers/CardArt/molotov.png" id="3_ikr07"]
 [ext_resource type="Texture2D" uid="uid://dtlniq04l5h0c" path="res://images/CardLayers/CardBackground.png" id="4_f0wqj"]
 [ext_resource type="FontFile" uid="uid://dlbpemo2c4ft" path="res://VerilySerifMono.otf" id="5_qap77"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euvxj"]
 

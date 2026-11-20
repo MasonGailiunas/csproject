@@ -5,11 +5,10 @@ signal hovered
 signal hovered_off
 var in_return_box
 
-var type
 @export var cost = 0
 @export var rarity = 0
 @export_file("*.tscn") var tower_scene_path: String
-@export var damage = 0
+@export var damage: int = 0
 @export var block = 0
 @export var draw_add = 0
 

@@ -45,11 +45,7 @@ func is_valid_spot() -> bool:
 	for area in areas:
 		if area == self or area.get_parent() == self:
 			continue
-		if area.get_collision_layer_value(3) == true:
-			continue
-		if area.get_collision_layer_value(2) == true:
-			return false
-	if has_overlapping_bodies():
+	if !get_parent().check_valid_source_id([0]): # Tile map only has the basic, tile no path tile or any others so more values in the list will throw an out of bounds and return false no matter
 		return false
 	return true
 
@@ -59,7 +55,6 @@ func apply_effect_to_targets():
 
 
 func _on_range_circle_area_body_entered(body: Node2D) -> void:
-	print(str(active_time.time_left))
 	if body.is_in_group("enemies") && active_time.time_left > 0:
 		target_enenmies.append(body)
 

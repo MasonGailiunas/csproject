@@ -25,10 +25,8 @@ func _input(event: InputEvent) -> void:
 			var local_grid_pos = get_local_grid_pos()
 			var snapped_world_pos = tile_map_layer.to_global(tile_map_layer.map_to_local(local_grid_pos))
 	
-			var source_id = get_source_id(get_local_grid_pos())
-	
 			current_preview.global_position = snapped_world_pos
-			if source_id == 0 and current_preview.is_valid_spot() and not occupied_tiles.has(local_grid_pos):
+			if current_preview.is_valid_spot():
 				finalize_placement(local_grid_pos)
 
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
@@ -40,9 +38,12 @@ func get_local_grid_pos():
 	var local_grid_pos = tile_map_layer.local_to_map(tile_map_layer.to_local(mouse_pos))
 	return local_grid_pos
 
-func get_source_id(local_grid_pos):
-	return tile_map_layer.get_cell_source_id(local_grid_pos)
-
+func check_valid_source_id(list) -> bool:
+	for i in list:
+		if tile_map_layer.get_cell_source_id(get_local_grid_pos()) != i:
+			return false
+	return true
+	
 func _process(_delta: float) -> void:
 	if current_preview:
 		update_preview_position()
@@ -102,11 +103,11 @@ func update_preview_position() -> void:
 	
 	current_preview.global_position = snapped_world_pos
 	
-	if current_preview.is_valid_spot() and source_id == 0 and not occupied_tiles.has(local_grid_pos):
+	if current_preview.is_valid_spot():
 			current_preview.modulate = Color(0.5, 1.0, 0.5, 0.6)
 	else:
 		current_preview.modulate = Color(1.0, 0.5, 0.5, 0.6)
-
+		
 func finalize_placement(grid_pos: Vector2i) -> void:
 	current_preview.set_preview_mode(false)
 	current_preview.shoot_timer.stop()

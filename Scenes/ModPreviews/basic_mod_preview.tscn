@@ -51,5 +51,6 @@ script = ExtResource("1_yr2aq")
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_p5yft")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=977915988]
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=977915988]
 sprite_frames = SubResource("SpriteFrames_euvxj")
+speed_scale = 3.5

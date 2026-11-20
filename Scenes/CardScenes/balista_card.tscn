@@ -12,6 +12,7 @@
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_os5kc")
 tower_scene_path = "uid://dhf7kk6d0suxa"
+damage = 8
 
 [node name="CardBoarder" type="Sprite2D" parent="." unique_id=198251320]
 z_index = 1

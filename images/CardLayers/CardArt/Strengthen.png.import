@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3wnud60psqms"
-path="res://.godot/imported/molotov.png-3c86625d814b65eb9ed243ed42f9b283.ctex"
+uid="uid://danfl7ma1keja"
+path="res://.godot/imported/Strengthen.png-c0b42cf6761838d8aec30c815cd9d133.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/CardScenes/molotov.png"
-dest_files=["res://.godot/imported/molotov.png-3c86625d814b65eb9ed243ed42f9b283.ctex"]
+source_file="res://images/CardLayers/CardArt/Strengthen.png"
+dest_files=["res://.godot/imported/Strengthen.png-c0b42cf6761838d8aec30c815cd9d133.ctex"]
 
 [params]
 

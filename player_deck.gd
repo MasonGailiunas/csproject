@@ -20,15 +20,15 @@ func create_starting_deck():
 	for i in range(13):
 		var new_card_in = card_in_scene.instantiate() # instantiate doesn't fully add it
 		$"../CardManager".add_child(new_card_in) # Add here
-		new_card_in.type = 1
-		if (i < 5):
-			new_card_in.type = 2
-		if (i > 9):
-			new_card_in.type = 3
+		new_card_in.type = "strike"
+		if (i < 4):
+			new_card_in.type = "defend"
+		if (i > 7):
+			new_card_in.type = "balista_card"
 		if (i == 11):
-			new_card_in.type = 4
+			new_card_in.type = "draw2"
 		if (i == 12):
-			new_card_in.type = 8
+			new_card_in.type = "strengthen"
 		true_deck.insert(0, new_card_in)
 		
 func create_instanced_deck():
