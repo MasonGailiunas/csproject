@@ -114,6 +114,7 @@ func finalize_placement(grid_pos: Vector2i) -> void:
 	current_preview.set_preview_mode(false)
 	occupied_tiles.append(grid_pos) 
 	structures_placed.append(current_preview)
+	current_preview.is_placed = true
 	tower = current_preview
 	current_preview = null
 

@@ -1,4 +1,5 @@
 extends Area2D
+class_name gadget
 
 @export var is_placed: bool = false
 @export var damage : int
