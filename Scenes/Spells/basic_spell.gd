@@ -45,7 +45,7 @@ func is_valid_spot() -> bool:
 	for area in areas:
 		if area == self or area.get_parent() == self:
 			continue
-	if !get_parent().check_valid_source_id([0]): # Tile map only has the basic, tile no path tile or any others so more values in the list will throw an out of bounds and return false no matter
+	if !get_parent().check_valid_source_id([0,1,2]):
 		return false
 	return true
 

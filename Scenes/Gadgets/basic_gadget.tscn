@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b3o05qm85x1di"]
+
+[ext_resource type="Script" uid="uid://qmvm44m43meo" path="res://Scenes/Gadgets/basic_gadget.gd" id="1_qlhxh"]
+[ext_resource type="Texture2D" uid="uid://c2ghoae87fyyl" path="res://images/Towers/BalistaTower.png" id="2_0h0ye"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5yft"]
+radius = 7.0
+
+[node name="Gadget" type="Area2D" unique_id=13791481]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_qlhxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298549858]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_p5yft")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1529300636]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_0h0ye")

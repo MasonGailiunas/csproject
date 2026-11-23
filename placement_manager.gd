@@ -9,6 +9,7 @@ var tower: Area2D = null
 var source_id = 0
 
 var occupied_tiles: Array[Vector2i] = []
+var structures_placed: Array[Area2D] = []
 
 func _ready() -> void:
 	pass
@@ -20,18 +21,17 @@ func _input(event: InputEvent) -> void:
 		#start_placement_mode_t2()
 		
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if current_preview and current_preview.is_valid_spot():
-			
-			var local_grid_pos = get_local_grid_pos()
-			var snapped_world_pos = tile_map_layer.to_global(tile_map_layer.map_to_local(local_grid_pos))
-	
-			current_preview.global_position = snapped_world_pos
-			if current_preview.is_valid_spot():
-				finalize_placement(local_grid_pos)
+		var gadget = check_for_gadgets()
+		if gadget != null: if gadget.can_activate(): gadget.activate()
 
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-		if current_preview:
-			cancel_placement()
+		pass # Check tower stats and set target priority
+
+func check_for_gadgets():
+	if occupied_tiles.has(get_local_grid_pos()):
+		if structures_placed[occupied_tiles.find(get_local_grid_pos())].is_in_group("gadgets"):
+			return structures_placed[occupied_tiles.find(get_local_grid_pos())]
+	return null
 
 func get_local_grid_pos():
 	var mouse_pos = get_global_mouse_position()
@@ -39,10 +39,12 @@ func get_local_grid_pos():
 	return local_grid_pos
 
 func check_valid_source_id(list) -> bool:
+	var found
 	for i in list:
-		if tile_map_layer.get_cell_source_id(get_local_grid_pos()) != i:
-			return false
-	return true
+		if tile_map_layer.get_cell_source_id(get_local_grid_pos()) == i:
+			found = true
+	if found: return true
+	return false
 	
 func _process(_delta: float) -> void:
 	if current_preview:
@@ -110,8 +112,8 @@ func update_preview_position() -> void:
 		
 func finalize_placement(grid_pos: Vector2i) -> void:
 	current_preview.set_preview_mode(false)
-	current_preview.shoot_timer.stop()
 	occupied_tiles.append(grid_pos) 
+	structures_placed.append(current_preview)
 	tower = current_preview
 	current_preview = null
 

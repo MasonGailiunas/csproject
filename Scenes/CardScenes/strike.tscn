@@ -23,6 +23,7 @@ position = Vector2(0, -25)
 texture = ExtResource("3_geis3")
 
 [node name="CardSprite" type="Sprite2D" parent="." unique_id=1762171904]
+modulate = Color(0.62568575, 0.42541113, 0.8926497, 1)
 texture = ExtResource("4_geis3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=973545496]
